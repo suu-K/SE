@@ -1109,9 +1109,9 @@ class Blueprint
      */
     public function timestamps($precision = 0)
     {
-        $this->timestamp('created_at', $precision)->nullable();
+        $this->timestamp('created_at', $precision);
 
-        $this->timestamp('updated_at', $precision)->nullable();
+        $this->timestamp('updated_at', $precision);
     }
 
     /**

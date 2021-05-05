@@ -1,7 +1,6 @@
 @extends('layout')
 
 @section('content')
-
     <div class="display">
         <div class="event_banner">
             <ul class="slider">

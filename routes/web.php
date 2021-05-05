@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,17 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'IndexController@index');
+Route::get('/', 'IndexController@index')->middleware('admin');
 
-Route::get('/login', 'UserController@index');
-Route::get('/signup', 'UserController@index2');
 
 Route::get('/test', function(){
     return view('notUse.test');
 });
 
+Route::get('/admin', 'AdminController@index')->middleware('auth');
 
-
+Route::get('/logincheck')->middleware('admin.login');
 
 
 
