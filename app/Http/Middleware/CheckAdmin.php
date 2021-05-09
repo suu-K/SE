@@ -17,11 +17,17 @@ class CheckAdmin
      */
     public function handle(Request $request, Closure $next)
     {
+        $admin = false;
         if(Auth::check()){
-            if(Auth::id()<5){
-                return redirect('/admin');
+            if(Auth::id() < 5){
+                $admin = true;
             }
         }
-        return $next($request);
+        if($admin){
+            return $next($request);
+        }
+        else{
+            return redirect('/');
+        }
     }
 }

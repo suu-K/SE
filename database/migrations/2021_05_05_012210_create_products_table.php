@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->integer('sale_price')->nullable();
             $table->integer('num');
             $table->string('image')->nullable();
-            $table->text('caption')->nullabel();
+            $table->text('caption');
             $table->string('category');
             $table->timestamps();
         });

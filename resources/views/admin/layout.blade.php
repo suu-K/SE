@@ -3,7 +3,6 @@
 <head>
     @yield('header')
 
-
     <title>TEAM NO.14의 게임 쇼핑몰</title>
     <meta name="description" content="TEAM NO.14의 게임 쇼핑몰" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -11,23 +10,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a5f3739fb3.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
 
 <body>
 
     <header>
         <ul class="top">
-            @guest
-                @if(Route::has('login'))
-                <li><a href="login">로그인</a></li>
-                @endif
-                @if(Route::has('register'))
-                <li><a href="register">회원가입</a></li>
-                @endif
-            @else
             <li>{{Auth::user()->name}}</li>
-            <li><a href="login">마이페이지</a></li>
-            <li><a href="login">장바구니</a></li>
+            <li><a href="/admin/admin">이벤트/상품 관리</a></li>
             <li>
                 <div><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                      로그아웃
@@ -37,7 +28,6 @@
                  </form>
                 </div>
             </li>
-            @endguest
         </ul>
 
         <div class="logo_search">
@@ -100,8 +90,9 @@
         </ul>
 
     </footer>
-    <script async src="index.js"></script>
-</body>
+    </body>
 
+    @yield('footer')
+    <script src="/js/admin.js"></script>
 
 </html>

@@ -1,0 +1,179 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-decoration: none;
+  color: black;
+}
+html {
+  background-color: snow;
+}
+/*헤더 시작*/
+header {
+  display: flex;
+  flex-direction: column;
+}
+/*로그인 들어있는 div*/
+.top {
+  display: flex;
+  background-color: coral;
+  justify-content: flex-end;
+  font-size: 13px;
+}
+.top a {
+  color: white;
+}
+.top li {
+  padding: 0px 20px;
+}
+/*로고랑 검색바 있는 div*/
+.logo_search {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+/*로고 시작*/
+.logo {
+  display: flex;
+}
+.logo_search .logo i {
+  color: dimgray;
+  position: relative;
+  bottom: 5px;
+}
+/*검색바 시작*/
+#search {
+  width: 400px;
+  height: 30px;
+  display: flex;
+}
+#search i {
+  position: relative;
+  left: -25px;
+  color: coral;
+}
+#search input {
+  border: none;
+  border-bottom: 5px solid coral;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  outline: none;
+  display: flex;
+}
+#search button {
+  position: relative;
+  right: 25px;
+  bottom: 3px;
+  background: transparent;
+  border: 0px;
+  outline: none;
+  padding: 0;
+  overflow: visible;
+  text-decoration-style: none;
+}
+#search button i {
+  position: relative;
+  left: 0px;
+  bottom: 3px;
+}
+#search button:hover {
+  cursor: pointer;
+}
+/*카테고리 div*/
+.category {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.category ul {
+  display: flex;
+  border: 1px solid dimgray;
+  padding: 10px;
+}
+.category ul li {
+  width: 107px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+  color: dimgray;
+}
+
+/*product - 상품 및 선택란*/
+.prod {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+}
+
+.prod .product {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  width: 500px;
+}
+
+.prod .product #a {
+  display: flex;
+  width: 500px;
+}
+
+.prod .product #b {
+  display: flex;
+  margin-top: 5px;
+  width: 500px;
+}
+
+.prod .product #b select {
+  width: 500px;
+  height: 30px;
+}
+
+.prod .product #b input {
+  width: 500px;
+  height: 50px;
+}
+
+.prod .product #b textarea {
+  width: 500px;
+  height: 200px;
+}
+
+.prod .product .name {
+  align-items: center;
+  margin-top: 20px;
+  width: 600px;
+}
+.prod .product #keep {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+}
+
+.prod .product #keep button {
+  width: 500px;
+  height: 50px;
+}
+
+/*footer*/
+.others {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+  height: 200px;
+  border-top: 1px solid black;
+}
+
+/*너비 줄어들면 어느순간 고정*/
+@media screen and (max-width: 1100px) {
+  html {
+    width: 1100px;
+  }
+}

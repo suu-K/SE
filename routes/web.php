@@ -14,16 +14,19 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', 'IndexController@index')->middleware('admin');
+Route::get('/', 'IndexController@index')->middleware('admin.login');
 
 
-Route::get('/test', function(){
-    return view('notUse.test');
-});
+Route::get('/admin', 'AdminController@admin');
+Route::get('/admin/event', 'AdminController@event');
+Route::get('/admin/product', 'AdminController@product');
+Route::get('/admin/insert', 'AdminController@productInsert');
 
-Route::get('/admin', 'AdminController@index')->middleware('auth');
+Route::post('/product/update', 'ProductController@update');
+Route::post('/product/insert', 'ProductController@insert');
+Route::post('/product/delete', 'ProductController@delete');
 
-Route::get('/logincheck')->middleware('admin.login');
+Route::get('/logincheck', 'IndexController@index')->middleware('admin.login');
 
 
 

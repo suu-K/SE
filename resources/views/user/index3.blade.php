@@ -20,12 +20,9 @@
     <div class="display2">
         <div class="items">
             @foreach($products as $product)
-            <a href="/product/detail/{{ $product->id }}"><div><div class="item_div"><img src="{{ $product->image }}"></div><div class="text_div">{{ $product->name }}</div></div></a>
+            <a href="product.detail.{{ $product->id }}"><div class="item_div"><img src="{{ $product->image }}">{{ $product->name }}</div></a>
             @endforeach
         </div>
     </div>
-@endsection
 
-@section('footer')
-    <script async src="index.js"></script>
-@endsection
+    @endsection

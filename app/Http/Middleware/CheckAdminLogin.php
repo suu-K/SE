@@ -23,6 +23,6 @@ class CheckAdminLogin
             }
 
         }
-        return redirect('/');
+        return $next($request);
     }
 }
