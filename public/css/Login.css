@@ -99,6 +99,7 @@ header{
     justify-content: center;
     margin-right:10px;
     color: dimgray;
+    outline: none;
 }
 
 /*login_form*/
@@ -110,7 +111,7 @@ header{
     align-items: center;
     margin-top: 50px;
 }
- #Email{
+ #email{
     width: 460px;
     height: 48px;
     border: 1px solid lightskyblue;

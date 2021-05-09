@@ -49,6 +49,6 @@ class ProductController extends Controller
 
         Storage::delete($request->image);
 
-        return redirect('/admin/event');
+        return redirect('/admin');
     }
 }

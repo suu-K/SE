@@ -21,9 +21,13 @@
     <div class="display2">
         <div class="items">
             @foreach($products as $product)
-            <a href="{{ $product->id }}"><div class="item_div"><img src="{{ url("/storage/$product->image") }}">{{ $product->name }}</div></a>
+            <a href="/product/detail/{{ $product->id }}"><div><div class="item_div"><img src="{{ url("storage/$product->image") }}"></div><div class="text_div">{{ $product->name }}</div></div></a>
             @endforeach
         </div>
     </div>
 
     @endsection
+
+@section('footer')
+    <script async src="{{ asset('js/index.js') }}"></script>
+@endsection

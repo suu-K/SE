@@ -27,5 +27,5 @@
 @endsection
 
 @section('footer')
-    <script async src="index.js"></script>
+    <script async src="{{ asset('js/index.js') }}"></script>
 @endsection

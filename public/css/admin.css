@@ -134,6 +134,13 @@ header {
   background-color: green;
 }
 
+.eventBody{
+  width: 870px;
+}
+.eventDel{
+  width: 31px;
+}
+
 .ctr {
   width: 955px;
   height: 500px;
@@ -158,13 +165,9 @@ header {
   margin-left: 30px;
 }
 
-#del {
-  margin-left: 0px;
+.regist{
+  margin-left: 485px;
 }
-#del2 {
-  margin-left: 0px;
-}
-
 
 .ctr .pageadmin {
   width: 895px;
@@ -181,18 +184,9 @@ header {
 #attribute{
   display: flex;
 }
-.stfForm li a{
-  display:inline-block;
-  width: 80px;
-  white-space: nowrap;
-  overflow:hidden;
-  text-overflow: ellipsis;
+.stfDiv{
+  height: 45px;
 }
-.stfForm a{
-  margin-left: 10px;
-  margin-right: 20px;
-}
-
 .stfForm .toggle{
   display: none;
 }

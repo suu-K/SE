@@ -18,7 +18,7 @@
     <header>
         <ul class="top">
             <li>{{Auth::user()->name}}</li>
-            <li><a href="/admin/admin">이벤트/상품 관리</a></li>
+            <li><a href="/admin">이벤트/상품 관리</a></li>
             <li>
                 <div><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                      로그아웃
@@ -32,7 +32,7 @@
 
         <div class="logo_search">
             <div class="logo">
-                <a href="index.html"><i class="fas fa-dice-d6 fa-2x"></i></a>
+                <a href="/admin/index"><i class="fas fa-dice-d6 fa-2x"></i></a>
             </div>
 
             <form action="#" accept-charset="utf-8" id="search" name="search" method="post">

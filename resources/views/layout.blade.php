@@ -42,7 +42,7 @@
 
         <div class="logo_search">
             <div class="logo">
-                <a href="index.html"><i class="fas fa-dice-d6 fa-2x"></i></a>
+                <a href="/"><i class="fas fa-dice-d6 fa-2x"></i></a>
             </div>
 
             <form action="#" accept-charset="utf-8" id="search" name="search" method="post">

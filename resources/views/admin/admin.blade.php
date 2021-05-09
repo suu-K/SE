@@ -19,7 +19,7 @@
                     <div style="padding-bottom:30px;">
                         <input type=date> ~ <input type=date>
                         <button>검색</button>
-                        <button type="button" class="regist" onclick="location.href='/admin/insert'">등록/수정</button>
+                        <button type="button" class="regist" onclick="location.href='/admin/event'">등록/수정</button>
                     </div>
                 </nav>
                 </nav>
@@ -133,7 +133,7 @@
                                 <button>검색</button>
                             </li>
                             <li style="margin-left: 20px;">
-                                <button type="button" onclick="location.href='/product/insert'">등록</button>
+                                <button type="button" onclick="location.href='/admin/insert'">등록</button>
                             </li>
                         </ul>
                     </div>

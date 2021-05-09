@@ -18,7 +18,7 @@ class AdminController extends Controller
 
     public function admin(){
         $products = DB::table('products')->get();
-        return view('admin.admin');
+        return view('admin.admin', ['products' => $products]);
     }
 
     public function event(){
@@ -34,5 +34,7 @@ class AdminController extends Controller
         return view('admin.enrollment');
     }
 
-
+    public function eventInsert(){
+        return view('admin.event');
+    }
 }
