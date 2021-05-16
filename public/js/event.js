@@ -99,5 +99,45 @@ $(document).ready(function(){
             $(".product4").prop("disabled","disabled");
         }
 	});
+    $("#product5").click(function(){
+		if(this.checked){
+			$(".product5").prop("disabled",false);
+		}
+        else{
+            $(".product5").prop("disabled","disabled");
+        }
+	});
+    $("#product6").click(function(){
+		if(this.checked){
+			$(".product6").prop("disabled",false);
+		}
+        else{
+            $(".product6").prop("disabled","disabled");
+        }
+	});
+    $("#product7").click(function(){
+		if(this.checked){
+			$(".product7").prop("disabled",false);
+		}
+        else{
+            $(".product7").prop("disabled","disabled");
+        }
+	});
+    $("#product8").click(function(){
+		if(this.checked){
+			$(".product8").prop("disabled",false);
+		}
+        else{
+            $(".product8").prop("disabled","disabled");
+        }
+	});
+    $("#product9").click(function(){
+		if(this.checked){
+			$(".product9").prop("disabled",false);
+		}
+        else{
+            $(".product9").prop("disabled","disabled");
+        }
+	});
 
 });

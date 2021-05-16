@@ -1,0 +1,262 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-decoration: none;
+  color: black;
+}
+html {
+  background-color: snow;
+}
+/*헤더 시작*/
+header {
+  display: flex;
+  flex-direction: column;
+}
+/*로그인 들어있는 div*/
+.top {
+  display: flex;
+  background-color: coral;
+  justify-content: flex-end;
+  font-size: 13px;
+}
+.top a {
+  color: white;
+}
+.top li {
+  padding: 0px 20px;
+}
+/*로고랑 검색바 있는 div*/
+.logo_search {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+/*로고 시작*/
+.logo {
+  display: flex;
+}
+.logo_search .logo i {
+  color: dimgray;
+  position: relative;
+  bottom: 5px;
+}
+/*검색바 시작*/
+#search {
+  width: 400px;
+  height: 30px;
+  display: flex;
+}
+#search i {
+  position: relative;
+  left: -25px;
+  color: coral;
+}
+#search input {
+  border: none;
+  border-bottom: 5px solid coral;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  outline: none;
+  display: flex;
+}
+#search button {
+  position: relative;
+  right: 25px;
+  bottom: 3px;
+  background: transparent;
+  border: 0px;
+  outline: none;
+  padding: 0;
+  overflow: visible;
+  text-decoration-style: none;
+}
+#search button i {
+  position: relative;
+  left: 0px;
+  bottom: 3px;
+}
+#search button:hover {
+  cursor: pointer;
+}
+/*카테고리 div*/
+.category {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.category ul {
+  display: flex;
+  border: 1px solid dimgray;
+  padding: 10px;
+}
+.category ul li {
+  width: 107px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+  color: dimgray;
+}
+
+/*product - 상품 및 선택란*/
+.prod {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+}
+
+.prod .product {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  width: 540px;
+}
+
+.prod .product #cate {
+  display: flex;
+  position: absolute;
+  top: 191px;
+  align-items: center;
+  margin-top: 20px;
+  width: 540px;
+  background-color: aquamarine;
+}
+
+.prod .product #pro_image {
+  display: flex;
+  position: absolute;
+  top: 236px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 410px;
+  height: 410px;
+  background-color: blue;
+}
+
+.prod .product image {
+  width: 410px;
+  height: 410px;
+}
+
+.prod .product #name {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  width: 540px;
+  height: 100px;
+  background-color: violet;
+}
+.prod .product #price {
+  display: flex;
+
+  align-items: center;
+  margin-top: 20px;
+  width: 540px;
+  height: 100px;
+  background-color: skyblue;
+}
+.prod .product #select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 540px;
+  background-color: goldenrod;
+}
+.prod .product #keep {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 800px;
+}
+
+.prod .product #address {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 540px;
+  height: 300px;
+  background-color: pink;
+}
+
+.prod .product #amount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+}
+
+.prod .product #num {
+  width: 100px;
+  height: 40px;
+}
+
+.prod .product .num_button {
+  width: 20px;
+  height: 18px;
+}
+
+.prod .product #cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+}
+
+.prod .product .cart_button {
+  width: 190px;
+  height: 40px;
+}
+
+.prod .product #buy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+}
+
+.prod .product .buy_button {
+  width: 190px;
+  height: 40px;
+}
+
+/*information-상품 정보란*/
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.info .information {
+  display: flex;
+  align-items: center;
+  width: 1080px;
+  background-color: blueviolet;
+}
+
+/*footer*/
+.others {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+  height: 200px;
+  border-top: 1px solid black;
+}
+
+/*너비 줄어들면 어느순간 고정*/
+@media screen and (max-width: 1100px) {
+  html {
+    width: 1100px;
+  }
+}

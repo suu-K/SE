@@ -1,10 +1,19 @@
-@extends('admin.layout')
+@extends('layout')
 
 @section('header')
     <link rel="stylesheet" type="text/css"  href="{{ asset('css/enrollment.css') }}"/>
 @endsection
 
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <form autocomplete="off" action="/product/insert" enctype="multipart/form-data" method="POST">
         @csrf
                 <div class="prod">
@@ -60,7 +69,7 @@
                         <div class="name">
                             <div id="a">이미지 등록</div>
                             <div id="b">
-                                <input type="file" name="image" size=40>
+                                <input type="file" name="image" size=40 required>
                             </div>
                         </div>
 

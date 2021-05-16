@@ -1,3 +1,6 @@
+
+
+
 /*페이지*/
     let totalData = 1000;    // 총 데이터 수
     let dataPerPage = 20;    // 한 페이지에 나타낼 데이터 수
@@ -65,3 +68,70 @@
     $('.check').click(function(){
 
     });
+
+/* 상품이름 누르면 수정창 뜨게 */
+
+$(".stfName").click(function(){
+    $(this).parent().find('.stfForm').find('.toggle').toggle();
+});
+
+
+    /* 체크박스 체크하면 수정가능하게 input태그 변경해주는 함수 */
+$(document).ready(function(){
+	$("#modify1").click(function(){
+		if($(".details1").prop("disabled")){
+			$(".details1").prop("disabled",false);
+		}
+        else{
+            $(".details1").prop("disabled",true);
+        }
+	});
+	$("#modify2").click(function(){
+		if($(".details2").prop("disabled")){
+			$(".details2").prop("disabled",false);
+		}
+        else{
+            $(".details2").prop("disabled",true);
+        }
+	});
+    $("#modify3").click(function(){
+		if($(".details3").prop("disabled")){
+			$(".details3").prop("disabled",false);
+		}
+        else{
+            $(".details3").prop("disabled",true);
+        }
+	});
+    $("#modify4").click(function(){
+		if($(".details4").prop("disabled")){
+			$(".details4").prop("disabled",false);
+		}
+        else{
+            $(".details4").prop("disabled",true);
+        }
+	});
+    $("#modify5").click(function(){
+		if($(".details5").prop("disabled")){
+			$(".details5").prop("disabled",false);
+		}
+        else{
+            $(".details5").prop("disabled",true);
+        }
+	});
+    $("#modify6").click(function(){
+		if($(".details6").prop("disabled")){
+			$(".details6").prop("disabled",false);
+		}
+        else{
+            $(".details6").prop("disabled",true);
+        }
+	});
+    $("#modify7").click(function(){
+		if($(".details7").prop("disabled")){
+			$(".details7").prop("disabled",false);
+		}
+        else{
+            $(".details7").prop("disabled",true);
+        }
+	});
+});

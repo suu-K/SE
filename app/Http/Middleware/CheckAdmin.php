@@ -19,7 +19,7 @@ class CheckAdmin
     {
         $admin = false;
         if(Auth::check()){
-            if(Auth::id() < 5){
+            if(Auth::id() < 2){
                 $admin = true;
             }
         }

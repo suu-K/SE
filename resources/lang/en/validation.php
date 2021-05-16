@@ -97,7 +97,8 @@ return [
     'password' => 'The password is incorrect.',
     'present' => 'The :attribute field must be present.',
     'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
+    #'required' => 'The :attribute field is required.',
+    'required' => ':attribute는 필수로 입력해야 합니다.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
     'required_with' => 'The :attribute field is required when :values is present.',
@@ -150,6 +151,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'image' => '이미지',
+        'name' => '상품명',
+        'price' => '원가'
+    ],
 
 ];

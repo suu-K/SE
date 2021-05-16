@@ -21,4 +21,8 @@ class user extends Authenticatable
         'birth'
     ];
 
+    public function Cart(){
+        return $this->hasMany('App\Models\Cart');
+    }
+
 }

@@ -21,10 +21,10 @@
     justify-content: flex-end;
     font-size: 13px;
   }
-  .top li{
+  .top li {
     color: white;
   }
-  .top li a{
+  .top li a {
     color: white;
   }
   .top li {
@@ -104,67 +104,87 @@
     color: dimgray;
   }
   
-  /* 바디 */
-  .all {
+  /* 관리 탭 */
+  
+  .ctrMenu {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 50px;
   }
+  .tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 500px;
+    margin-right: 20px;
+    border-radius: 20px;
+    border: 1px solid gray;
+  }
+  .tab ul {
+    text-align: center;
+  }
+  .tab ul li {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
   
-  .details {
-    width: 1075px;
+  .tab ul .active {
+    background-color: lightgray;
+  }
+
+  
+  .ctr {
+    width: 955px;
+    height: 500px;
+  }
+  .ctr .test {
+    position: absolute;
+    width: 955px;
     height: 500px;
     background-color: greenyellow;
   }
-
-  .details .regist {
+  .ctr .find {
     padding-top: 50px;
   }
   
-  .details .regist {
+  .ctr .find {
     margin-left: 30px;
   }
-  .list{
-      margin-left: 30px;
+  
+  .regist{
+    margin-left: 485px;
   }
-#mod{
-    margin-top: 30px;
+  
+  .ctr .pageadmin {
+    width: 895px;
+    height: 350px;
     margin-left: 30px;
-}
-  .list li{
-      margin-bottom: 10px;
+    margin-bottom: 20px;
+    background-color: moccasin;
   }
-  #img{
-      padding-left: 25px;
+  
+  .ctr .pageadmin .check {
+    margin-left: 5px;
+    margin-right: 10px;
   }
-  #title{
-      padding-left: 123px;
+  #attribute{
+    display: flex;
   }
-  #more{
-      padding-left: 160px;
+  .stfDiv{
+    height: 45px;
   }
-  #range{
-      padding-left: 230px;
+  .stfForm .toggle{
+    display: none;
   }
-  #imageUpload{
-      width:180px;
+  
+  .ctr .paging {
+    margin-left: 30px;
   }
-  #eventName{
-      width: 180px;
-  }
-  #inform{
-      margin-left: 10px;
-      width: 280px;
-  }
-  #start{
-      margin-left: 10px;
-  }
-
-#paging {
-    position: absolute;
-    margin-top: 400px;
-    margin-left: 430px;
+  
+  .pageadmin .stfForm {
+    display: flex;
   }
   
   /*footer*/

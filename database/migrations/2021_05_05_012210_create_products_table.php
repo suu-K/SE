@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->text('caption');
             $table->string('category');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

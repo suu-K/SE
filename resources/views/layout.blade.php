@@ -3,7 +3,6 @@
 <head>
     @yield('header')
 
-
     <title>TEAM NO.14의 게임 쇼핑몰</title>
     <meta name="description" content="TEAM NO.14의 게임 쇼핑몰" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -11,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a5f3739fb3.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
 
 <body>
@@ -25,9 +25,13 @@
                 <li><a href="register">회원가입</a></li>
                 @endif
             @else
-            <li>{{Auth::user()->name}}</li>
-            <li><a href="login">마이페이지</a></li>
-            <li><a href="login">장바구니</a></li>
+                <li>{{Auth::user()->name}}</li>
+                @if(Auth::user()->id<2)
+                <li><a href="/admin">이벤트/상품 관리</a></li>
+                @else
+                <li><a href="login">마이페이지</a></li>
+                <li><a href="/cart">장바구니@if(session()->has('cartNum'))({{ session('cartNum') }})@endif</a></li>
+                @endif
             <li>
                 <div><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                      로그아웃
@@ -55,14 +59,14 @@
 
         <div class="category">
             <ul>
-                <a href="1"><li>예약상품</li></a>
-                <a href="2"><li>PlayStation5</li></a>
-                <a href="3"><li>PlayStation4</li></a>
-                <a href="4"><li>PlayStationVR</li></a>
-                <a href="5"><li>PlayStation3</li></a>
-                <a href="6"><li>닌텐도Switch</li></a>
-                <a href="7"><li>닌텐도3DS</li></a>
-                <a href="8"><li>할인상품</li></a>
+                <a href="/productsFillter/latest"><li>최신상품</li></a>
+                <a href="/products/PlayStation5"><li>PlayStation5</li></a>
+                <a href="/products/PlayStation4"><li>PlayStation4</li></a>
+                <a href="/products/PlayStationVR"><li>PlayStationVR</li></a>
+                <a href="/products/PlayStation3"><li>PlayStation3</li></a>
+                <a href="/products/닌텐도Switch"><li>닌텐도Switch</li></a>
+                <a href="/products/닌텐도3DS"><li>닌텐도3DS</li></a>
+                <a href="/productsFillter/sale"><li>할인상품</li></a>
                 <a href="9"><li>기타상품</li></a>
             </ul>
         </div>
@@ -100,7 +104,7 @@
         </ul>
 
     </footer>
-    <script async src="index.js"></script>
+    @yield('footer')
 </body>
 
 

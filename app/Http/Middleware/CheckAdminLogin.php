@@ -18,8 +18,8 @@ class CheckAdminLogin
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check()){
-            if(Auth::id() < 5){
-                return redirect('/admin');
+            if(Auth::id() < 2){
+                return redirect('/admin/index');
             }
 
         }
