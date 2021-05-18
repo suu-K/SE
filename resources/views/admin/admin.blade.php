@@ -33,8 +33,12 @@
                                 <input type=hidden name="id" value="{{ $event->id }}">
                             </span>
                             <span class="eventDel">
-                                <button formaction="#">비활성화</button>
-                                <button formaction="#">삭제</button>
+                                @if($event->deleted_at == null)
+                                <button formaction="/event/softDelete">비활성화</button>
+                                @else
+                                <button formaction="/event/restore">활성화</button>
+                                @endif
+                                <button formaction="/event/delete">삭제</button>
                             </span>
                         </form>
                     </li>

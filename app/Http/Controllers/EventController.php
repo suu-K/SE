@@ -48,13 +48,26 @@ class EventController extends Controller
     }
 
     public function delete(Request $request){
-        $event = event::find($request->id);
-        $event->delete();
+        $event = event::withTrashed()->find($request->id)->forceDelete();
 
-        Storage::delete($request->image);
+        Storage::delete(url('storage/$request->image'));
 
         return redirect('/admin');
     }
+
+    public function softDelete(Request $request){
+        $event = event::find($request->id);
+        $event->delete();
+
+        return redirect('/admin');
+    }
+
+    public function restore(Request $request){
+        $event = event::withTrashed()->find($request->id)->restore();
+
+        return redirect('/admin');
+    }
+
 
     # $event->trashed() 소프트 딜리트 확인 함수
     # $events = event::withTrashed()->get() 소프트 삭제된 것도 포함되게

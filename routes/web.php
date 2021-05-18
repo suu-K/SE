@@ -39,6 +39,8 @@ Route::post('/product/delete', 'ProductController@delete');
 Route::post('/event/update', 'eventController@update');
 Route::post('/event/insert', 'eventController@insert');
 Route::post('/event/delete', 'eventController@delete');
+Route::post('/event/softDelete', 'eventController@softDelete');
+Route::post('/event/restore', 'eventController@restore');
 
 
 Route::get('/logincheck', 'IndexController@index')->middleware('admin.login');

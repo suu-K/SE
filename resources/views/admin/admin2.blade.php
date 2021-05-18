@@ -109,5 +109,20 @@
 @endsection
 
 @section('footer')
-    <script src="{{asset('js/admin2.js')}}"></script>
+    <script src="{{ asset('js/admin2.js') }}"></script>
+    <script language="javascript">
+    $(document).ready(function(){
+    @for($i = 1; $i < 8; $i++)
+    $("#modify{{ $i }}").click(function(){
+		if($(".details{{ $i }}").prop("disabled")){
+			$(".details{{ $i }}").prop("disabled",false);
+		}
+        else{
+            $(".details{{ $i }}").prop("disabled",true);
+        }
+	});
+    @endfor
+});
+    </script>
+
 @endsection

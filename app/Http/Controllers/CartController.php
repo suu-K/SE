@@ -21,7 +21,6 @@ class CartController extends Controller
         $cart->save();
 
 
-        #$request->session()->push('cart', [$request->product_id, $request->num]);
         if($request->session()->has('cartNum')){
             $request->session()->put('cartNum', $request->session()->get('cartNum')+1);
         }
@@ -41,23 +40,6 @@ class CartController extends Controller
     }
 
     public function delete(Request $request){
-        /*
-        $id = $request->product_id;
-        $cart = $request->session()->get('cart');
-        $newCart = array();
-        $cartNum = $request->session()->get('cartNum');
-
-        #삭제 목적인 원소만 제거된 새로운 배열
-        foreach($cart as $p){
-            if($p[0] == $id) { continue; }
-            else{
-                $newCart[] = $p;
-            }
-        }
-
-        $request->session()->put('cart', $newCart);
-        */
-
 
         $cart = cart::find($request->id);
         $cart->delete();

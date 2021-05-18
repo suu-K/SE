@@ -20,7 +20,7 @@ class AdminController extends Controller
     }
 
     public function admin(){
-        $events = DB::table('events')->paginate(10);
+        $events = event::withTrashed()->paginate(10);
         return view('admin.admin', ['events' => $events]);
     }
 

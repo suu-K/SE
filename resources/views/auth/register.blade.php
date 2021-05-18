@@ -13,12 +13,16 @@
             </div>
             <div>
                 아이디<br><input type="email" id="email" name="email" placeholder="아이디" onfocus="this.placeholder=''" onblur="this.placeholder='아이디'" required>
+                <button type="button" id="check" onclick="id_check()">중복확인</button>
+            <img id="id_check_sucess" style="display: none;">
             </div>
             <div>
-                비밀번호<br><input type="password" id="pw" name="password" placeholder="비밀번호" onfocus="this.placeholder=''" onblur="this.placeholder='비밀번호'" required>
+                비밀번호<br><input type="password" class="password" id="pw" name="pw" placeholder="비밀번호" onfocus="this.placeholder=''" onblur="this.placeholder='비밀번호'" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" title="소문자, 숫자, 특수문자 사용 8~16자리" required>
             </div>
             <div>
-                비밀번호 확인<br><input type="password" id="confirm_pw" name="password_confirmation" placeholder="비밀번호 확인" onfocus="this.placeholder=''" onblur="this.placeholder='비밀번호 확인'" required>
+                비밀번호 확인<br><input type="password" class="password" id="confirm_pw" name="password_confirmation" placeholder="비밀번호 확인" onfocus="this.placeholder=''" onblur="this.placeholder='비밀번호 확인'" required>
+                <div id="alert_success" style="color: blue;">비밀번호가 일치합니다.</div>
+                <div id="alert_danger" style="color: #d92742;">비밀번호가 일치하지 않습니다.</div>
             </div>
 
             <div>
@@ -35,4 +39,8 @@
 
         </br>
     </form>
-  @endsection
+@endsection
+
+@section('footer')
+    <script src="{{ asset('js/sign_up.js') }}"></script>
+@endsection
