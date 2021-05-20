@@ -16,9 +16,11 @@
             <div class="test" id="event" action="#" method="POST">
                 <nav class="range" style="padding-top:50px; margin-left: 30px;">
                     <div style="padding-bottom:30px;">
-                        <input type=date> ~ <input type=date>
-                        <button formaction="#">검색</button>
+                        <form method="GET">
+                        <input type=date name="sdate" value="{{ session()->pull('sdate') }}"> ~ <input type=date name="ldate" value="{{ session()->pull('ldate') }}">
+                        <button formaction="/admin">검색</button>
                         <button type="button" class="regist" onclick="location.href='/admin/event'">등록/수정</button>
+                        </form>
                     </div>
                 </nav>
                 </nav>
@@ -45,7 +47,7 @@
                     @endforeach
 
                 </ul>
-                {{ $events->links() }}
+                {{ $events->withQueryString()->links() }}
             </div>
 
 

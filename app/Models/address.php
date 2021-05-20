@@ -13,8 +13,15 @@ class address extends Model
 
     protected $fillable = [
         'user_id',
-        'zip_code',
+        'destination',
+        'postcode',
         'address',
-        'detailed_address'
+        'detailAddress',
+        'extraAddress',
+        'phone'
     ];
+
+    public function user(){
+        return $this->belongsTo('App\Models\user');
+    }
 }

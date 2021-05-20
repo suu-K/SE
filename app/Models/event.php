@@ -18,4 +18,5 @@ class event extends Model
         'ldate',
         'image'
     ];
+
 }

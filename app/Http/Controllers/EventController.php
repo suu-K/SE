@@ -19,16 +19,14 @@ class EventController extends Controller
         $validate = $request->validate([
             'title' => 'required',
             'body' => 'required',
-            'image' => 'required'
         ]);
-
-        $path = $request->file('image')->store('event', 'public');
-
+        $image = $request->image;
+        $path = $image->store('event', 'public');
+        $event->image = $path;
         $event->title = $request->title;
         $event->body = $request->body;
         $event->sdate = $request->sdate;
         $event->ldate = $request->ldate;
-        $event->image = $path;
 
         $event->save();
 
@@ -36,13 +34,19 @@ class EventController extends Controller
     }
 
     public function update(Request $request){
-        $aff = DB::table('products')->where('id', $request->id)->update([
-            'title' => $request->title,
-            'body' => $request->body,
-            'sdate' => $request->sdate,
-            'ldate' => $request->ldate,
-            'image' => $request->image
-        ]);
+
+        for($i=0;$i<count($request->id);$i++){
+            $event = event::find($request->id[$i]);
+            $event->title = $request->title[$i];
+            $event->body = $request->body[$i];
+            $event->sdate = $request->sdate[$i];
+            $event->ldate = $request->ldate[$i];
+            if($request->filled('image')){
+                $path = $request->image[$i]->store('event', 'public');
+                $event->image = $path;
+            }
+            $event->save();
+        }
 
         return redirect('/admin/event');
     }

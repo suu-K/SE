@@ -8,6 +8,10 @@ use app\Models\address;
 
 class AddressController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function insert(Request $request){
         $address = new address;
 

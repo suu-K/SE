@@ -35,7 +35,7 @@
 
                         <div class="name">
                             <div id="a">상품명</div>
-                            <div id="b"><input type="text" id="name" name="name" placeholder="상품명" onfocus="this.placeholder=''" onblur="this.placeholder='상품명'" required></div>
+                            <div id="b"><input type="text" id="prod_name" name="name" placeholder="상품명" onfocus="this.placeholder=''" onblur="this.placeholder='상품명'" required></div>
                         </div>
 
                         <div class="name">
@@ -62,14 +62,14 @@
                         <div class="name">
                             <div id="a">상품 정보</div>
                             <div id="b">
-                                <textarea placeholder="상품 정보" onfocus="this.placeholder=''" name="caption" onblur="this.placeholder='상품 정보'" required></textarea>
+                                <textarea placeholder="상품 정보" name="caption" onfocus="this.placeholder=''" onblur="this.placeholder='상품 정보'" required></textarea>
                             </div>
                         </div>
 
                         <div class="name">
                             <div id="a">이미지 등록</div>
                             <div id="b">
-                                <input type="file" name="image" size=40 required>
+                                <input multiple="multiple" type="file" name="images[]" size=40 required>
                             </div>
                         </div>
 

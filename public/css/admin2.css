@@ -1,207 +1,255 @@
 * {
-    margin: 0px;
-    padding: 0px;
-    list-style: none;
-    text-decoration: none;
-    color: black;
-    outline: none;
-  }
-  html {
-    background-color: snow;
-  }
-  /*헤더 시작*/
-  header {
-    display: flex;
-    flex-direction: column;
-  }
-  /*로그인 들어있는 div*/
-  .top {
-    display: flex;
-    background-color: coral;
-    justify-content: flex-end;
-    font-size: 13px;
-  }
-  .top li {
-    color: white;
-  }
-  .top li a {
-    color: white;
-  }
-  .top li {
-    padding: 0px 20px;
-  }
-  /*로고랑 검색바 있는 div*/
-  .logo_search {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-  }
-  /*로고 시작*/
-  .logo {
-    display: flex;
-  }
-  .logo_search .logo i {
-    color: dimgray;
-    position: relative;
-    bottom: 5px;
-  }
-  /*검색바 시작*/
-  #search {
-    width: 400px;
-    height: 30px;
-    display: flex;
-  }
-  #search i {
-    position: relative;
-    left: -25px;
-    color: coral;
-  }
-  #search input {
-    border: none;
-    border-bottom: 5px solid coral;
-    width: 100%;
-    height: 100%;
-    font-size: 20px;
-    outline: none;
-    display: flex;
-  }
-  #search button {
-    position: relative;
-    right: 25px;
-    bottom: 3px;
-    background: transparent;
-    border: 0px;
-    outline: none;
-    padding: 0;
-    overflow: visible;
-    text-decoration-style: none;
-  }
-  #search button i {
-    position: relative;
-    left: 0px;
-    bottom: 3px;
-  }
-  #search button:hover {
-    cursor: pointer;
-  }
-  /*카테고리 div*/
-  .category {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-  }
-  .category ul {
-    display: flex;
-    border: 1px solid dimgray;
-    padding: 10px;
-  }
-  .category ul li {
-    width: 107px;
-    height: 20px;
-    display: flex;
-    justify-content: center;
-    margin-right: 10px;
-    color: dimgray;
-  }
-  
-  /* 관리 탭 */
-  
-  .ctrMenu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-  }
-  .tab {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 500px;
-    margin-right: 20px;
-    border-radius: 20px;
-    border: 1px solid gray;
-  }
-  .tab ul {
-    text-align: center;
-  }
-  .tab ul li {
-    margin-top: 100px;
-    margin-bottom: 100px;
-  }
-  
-  .tab ul .active {
-    background-color: lightgray;
-  }
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-decoration: none;
+  color: black;
+  outline: none;
+}
+html {
+  background-color: snow;
+}
+/*헤더 시작*/
+header {
+  display: flex;
+  flex-direction: column;
+}
+/*로그인 들어있는 div*/
+.top {
+  display: flex;
+  background-color: coral;
+  justify-content: flex-end;
+  font-size: 13px;
+}
+.top li {
+  color: white;
+}
+.top li a {
+  color: white;
+}
+.top li {
+  padding: 0px 20px;
+}
+/*로고랑 검색바 있는 div*/
+.logo_search {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+/*로고 시작*/
+.logo {
+  display: flex;
+}
+.logo_search .logo i {
+  color: dimgray;
+  position: relative;
+  bottom: 5px;
+}
+/*검색바 시작*/
+#search {
+  width: 400px;
+  height: 30px;
+  display: flex;
+}
+#search i {
+  position: relative;
+  left: -25px;
+  color: coral;
+}
+#search input {
+  border: none;
+  border-bottom: 5px solid coral;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  outline: none;
+  display: flex;
+}
+#search button {
+  position: relative;
+  right: 25px;
+  bottom: 3px;
+  background: transparent;
+  border: 0px;
+  outline: none;
+  padding: 0;
+  overflow: visible;
+  text-decoration-style: none;
+}
+#search button i {
+  position: relative;
+  left: 0px;
+  bottom: 3px;
+}
+#search button:hover {
+  cursor: pointer;
+}
+/*카테고리 div*/
+.category {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.category ul {
+  display: flex;
+  border: 1px solid dimgray;
+  padding: 10px;
+}
+.category ul li {
+  width: 107px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+  color: dimgray;
+}
 
-  
-  .ctr {
-    width: 955px;
-    height: 500px;
+/* 관리 탭 */
+
+.ctrMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+.tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 500px;
+  margin-right: 20px;
+  border-radius: 20px;
+  border: 1px solid gray;
+}
+.tab ul {
+  text-align: center;
+}
+.tab ul li {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.tab ul .active {
+  background-color: lightgray;
+}
+
+.ctr {
+  width: 955px;
+  height: 500px;
+}
+.ctr .test {
+  position: absolute;
+  width: 955px;
+  height: 500px;
+  background-color: greenyellow;
+}
+.ctr .find {
+  padding-top: 50px;
+}
+
+.ctr .find {
+  margin-left: 30px;
+}
+
+.ctr .find .number {
+  width: 100px;
+}
+
+.regist {
+  margin-left: 485px;
+}
+
+.ctr .pageadmin {
+  width: 895px;
+  height: 350px;
+  margin-left: 30px;
+  margin-bottom: 20px;
+  background-color: moccasin;
+}
+
+.ctr .pageadmin .check {
+  margin-left: 5px;
+  margin-right: 10px;
+}
+#attribute {
+  display: flex;
+}
+.stfDiv {
+  height: 45px;
+}
+
+.ctr .paging {
+  margin-left: 30px;
+}
+
+.pageadmin .stfForm {
+  display: flex;
+  height: 40px;
+  margin-top: 5px;
+  margin-left: 30px;
+}
+
+.pageadmin .name {
+  width: 300px;
+  height: 45px;
+}
+
+.pageadmin .price {
+  width: 110px;
+  height: 45px;
+}
+
+.pageadmin .buy {
+  width: 110px;
+  height: 45px;
+}
+
+.pageadmin .delete {
+  margin-left: auto;
+  margin-right: 50px;
+}
+
+.deleteStf {
+  display: flex;
+  height: 40px;
+  margin-top: 5px;
+  margin-left: 30px;
+  color: gray;
+}
+
+.pageadmin .deleteStf .name a {
+  width: 300px;
+  height: 45px;
+  color: gray;
+}
+
+.pageadmin .deleteStf .price {
+  width: 110px;
+  height: 45px;
+  color: gray;
+}
+
+.pageadmin .deleteStf .buy {
+  width: 110px;
+  height: 45px;
+  color: gray;
+}
+
+/*footer*/
+.others {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+  height: 200px;
+  border-top: 1px solid black;
+}
+
+/*너비 줄어들면 어느순간 고정*/
+@media screen and (max-width: 1100px) {
+  html {
+    width: 1100px;
   }
-  .ctr .test {
-    position: absolute;
-    width: 955px;
-    height: 500px;
-    background-color: greenyellow;
-  }
-  .ctr .find {
-    padding-top: 50px;
-  }
-  
-  .ctr .find {
-    margin-left: 30px;
-  }
-  
-  .regist{
-    margin-left: 485px;
-  }
-  
-  .ctr .pageadmin {
-    width: 895px;
-    height: 350px;
-    margin-left: 30px;
-    margin-bottom: 20px;
-    background-color: moccasin;
-  }
-  
-  .ctr .pageadmin .check {
-    margin-left: 5px;
-    margin-right: 10px;
-  }
-  #attribute{
-    display: flex;
-  }
-  .stfDiv{
-    height: 45px;
-  }
-  .stfForm .toggle{
-    display: none;
-  }
-  
-  .ctr .paging {
-    margin-left: 30px;
-  }
-  
-  .pageadmin .stfForm {
-    display: flex;
-  }
-  
-  /*footer*/
-  .others {
-    display: flex;
-    justify-content: center;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 50px;
-    height: 200px;
-    border-top: 1px solid black;
-  }
-  
-  /*너비 줄어들면 어느순간 고정*/
-  @media screen and (max-width: 1100px) {
-    html {
-      width: 1100px;
-    }
-  }
-  
+}

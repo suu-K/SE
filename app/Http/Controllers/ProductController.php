@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\product;
+use App\Models\image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -16,16 +17,6 @@ class ProductController extends Controller
     public function insert(Request $request){
         $product = new product;
 
-        $validate = $request->validate([
-            'name' => 'required',
-            'price' => 'required',
-            'image' => 'required'
-        ]);
-
-
-
-        $path = $request->file('image')->store('image', 'public');
-
         $product->name = $request->name;
         $product->price = $request->price;
         if($request->sale_price == null){
@@ -37,15 +28,28 @@ class ProductController extends Controller
         $product->caption = $request->caption;
         $product->num = $request->num;
         $product->category = $request->category;
-        $product->image = $path;
-
         $product->save();
+
+        $images = $request->images;
+        $first = true;
+        foreach($images as $image){
+            $ima = new image;
+            $path = $image->store('image', 'public');
+            $ima->product_id = $product->id;
+            $ima->url = $path;
+            if($first){
+                $product->image = $path;
+                $product->save();
+                $first=false;
+            }
+            $ima->save();
+        }
 
         return redirect('/admin2');
     }
 
     public function update(Request $request){
-        $aff = DB::table('products')->where('id', $request->id)->update([
+        $product = product::find($request->id)->update([
             'name' => $request->name,
             'price' => $request->price,
             'sale_price' => $request->sale_price,
@@ -53,14 +57,29 @@ class ProductController extends Controller
             'num' => $request->num
         ]);
 
-        return redirect('/admin2');
+        $images = $product->image;
+        foreach($images as $image){
+            Storage::delete(url("storage/$image->url"));
+            $image->delete();
+        }
+
+        $newImages = $request->file('image');
+
+        foreach($newImages as $image){
+            $ima = new image;
+            $path = $image->store('image', 'public');
+            $ima->imageable_id = $product->id;
+            $ima->imageable_type = 'product';
+            $ima->url = $path;
+            $image->save();
+        }
+
+        return redirect("/admin3/$request->id");
     }
 
     public function delete(Request $request){
         $product = Product::find($request->id);
         $product->delete();
-
-        Storage::delete(url("storage/$request->image"));
 
         return redirect('/admin2');
     }

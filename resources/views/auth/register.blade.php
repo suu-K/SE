@@ -17,7 +17,7 @@
             <img id="id_check_sucess" style="display: none;">
             </div>
             <div>
-                비밀번호<br><input type="password" class="password" id="pw" name="pw" placeholder="비밀번호" onfocus="this.placeholder=''" onblur="this.placeholder='비밀번호'" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" title="소문자, 숫자, 특수문자 사용 8~16자리" required>
+                비밀번호<br><input type="password" class="password" id="pw" name="password" placeholder="비밀번호" onfocus="this.placeholder=''" onblur="this.placeholder='비밀번호'" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" title="소문자, 숫자, 특수문자 사용 8~16자리" required>
             </div>
             <div>
                 비밀번호 확인<br><input type="password" class="password" id="confirm_pw" name="password_confirmation" placeholder="비밀번호 확인" onfocus="this.placeholder=''" onblur="this.placeholder='비밀번호 확인'" required>
@@ -27,7 +27,7 @@
 
             <div>
                 전화번호<br>
-                <input type="text" name="phone" class="phone" maxlength="13" placeholder="전화번호" onfocus="this.placeholder=''" onblur="this.placeholder='전화번호'" required>
+                <input type="text" pattern="[0-9]{11,11}$" name="phone" class="phone" maxlength="13" placeholder="전화번호" onfocus="this.placeholder=''" onblur="this.placeholder='전화번호'" required>
             </div>
             <div>
                 생년월일<br>

@@ -14,6 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="https://d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 
 <body>
@@ -22,10 +23,10 @@
         <ul class="top">
             @guest
                 @if(Route::has('login'))
-                <li><a href="login">로그인</a></li>
+                <li><a href="/login">로그인</a></li>
                 @endif
                 @if(Route::has('register'))
-                <li><a href="register">회원가입</a></li>
+                <li><a href="/register">회원가입</a></li>
                 @endif
             @else
                 <li>{{Auth::user()->name}}</li>

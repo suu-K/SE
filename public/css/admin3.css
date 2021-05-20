@@ -1,0 +1,368 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-decoration: none;
+  color: black;
+  outline: none;
+}
+html {
+  background-color: snow;
+}
+/*헤더 시작*/
+header {
+  display: flex;
+  flex-direction: column;
+}
+/*로그인 들어있는 div*/
+.top {
+  display: flex;
+  background-color: coral;
+  justify-content: flex-end;
+  font-size: 13px;
+}
+.top li {
+  color: white;
+}
+.top li a {
+  color: white;
+}
+.top li {
+  padding: 0px 20px;
+}
+/*로고랑 검색바 있는 div*/
+.logo_search {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+/*로고 시작*/
+.logo {
+  display: flex;
+}
+.logo_search .logo i {
+  color: dimgray;
+  position: relative;
+  bottom: 5px;
+}
+/*검색바 시작*/
+#search {
+  width: 400px;
+  height: 30px;
+  display: flex;
+}
+#search i {
+  position: relative;
+  left: -25px;
+  color: coral;
+}
+#search input {
+  border: none;
+  border-bottom: 5px solid coral;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  outline: none;
+  display: flex;
+}
+#search button {
+  position: relative;
+  right: 25px;
+  bottom: 3px;
+  background: transparent;
+  border: 0px;
+  outline: none;
+  padding: 0;
+  overflow: visible;
+  text-decoration-style: none;
+}
+#search button i {
+  position: relative;
+  left: 0px;
+  bottom: 3px;
+}
+#search button:hover {
+  cursor: pointer;
+}
+/*카테고리 div*/
+.category {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.category ul {
+  display: flex;
+  border: 1px solid dimgray;
+  padding: 10px;
+}
+.category ul li {
+  width: 107px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+  color: dimgray;
+}
+
+/* 관리 탭 */
+.cut {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 910px;
+}
+
+.ctrMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+.tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 500px;
+  margin-right: 20px;
+  border-radius: 20px;
+  border: 1px solid gray;
+}
+.tab ul {
+  text-align: center;
+}
+.tab ul li {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.tab ul .active {
+  background-color: lightgray;
+}
+
+.ctr {
+  width: 955px;
+  height: 500px;
+}
+.ctr .find {
+  padding-top: 50px;
+}
+
+.ctr .find {
+  margin-left: 30px;
+}
+
+.regist {
+  margin-left: 485px;
+}
+
+/* 이벤트 베너 + 아이템들 */
+.display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+/*이벤트 베너 div*/
+
+.event_banner {
+  width: 255px;
+  height: 350px;
+  position: relative;
+  background-color: antiquewhite;
+  overflow: hidden;
+}
+.slider {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.event {
+  width: 255px;
+  height: 350px;
+  font-size: 35px;
+}
+
+.event_banner ul {
+  -webkit-transition: all 1.5s cubic-bezier(1, 0.01, 0.32, 1);
+  -o-transition: all 1.5s cubic-bezier(1, 0.01, 0.32, 1);
+  transition: all 1.5s cubic-bezier(1, 0.01, 0.32, 1);
+}
+.event_banner img {
+  width: 255px;
+  height: 350px;
+}
+.event_banner i {
+  font-size: 50px;
+}
+
+.previous {
+  position: relative;
+  top: 170px;
+}
+.next {
+  position: relative;
+  left: 225px;
+  top: 120px;
+}
+
+/*dd*/
+.ctr .pageadmin {
+  width: 895px;
+  height: 350px;
+  margin-left: 30px;
+  margin-bottom: 20px;
+  background-color: moccasin;
+}
+.ctr .first {
+  display: flex;
+  word-break: break-all;
+  width: 145px;
+}
+.ctr .second {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 955px;
+  height: 500px;
+  background-color: #c2ccbd;
+}
+
+.ctr .second .image {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 295px;
+  height: 500px;
+}
+
+.ctr .second .image .img1 {
+  display: flex;
+  justify-content: center;
+  width: 275px;
+  height: 350px;
+  margin-top: 30px;
+}
+
+.ctr .second .image .img1 img {
+  width: 255px;
+  height: 350px;
+  object-fit: scale-down;
+}
+
+.ctr .second .image .img2 {
+  display: flex;
+  width: 230px;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.ctr .second .part {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 660px;
+  height: 500px;
+}
+
+.ctr .second .part .part1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 640px;
+  height: 25px;
+  margin-bottom: 5px;
+}
+
+.ctr .second .part .part2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 660px;
+  height: 470px;
+}
+.ctr .second .part .part2 input {
+  margin-top: 5px;
+  margin-left: 10px;
+  width: 635px;
+  height: 50px;
+}
+.ctr .second .part .part2 .platform {
+  display: flex;
+  width: 660px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.ctr .second .part .part2 .name {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 660px;
+  height: 90px;
+}
+
+.ctr .second .part .part2 .name .a {
+  display: flex;
+  width: 640px;
+  height: 20px;
+}
+
+.ctr .second .part .part2 .name .b {
+  display: flex;
+  width: 660px;
+  height: 70px;
+}
+
+.ctr .pageadmin .check {
+  margin-left: 5px;
+  margin-right: 10px;
+}
+#attribute {
+  display: flex;
+}
+.stfDiv {
+  word-wrap: break-word;
+  height: 45px;
+}
+.stfForm .toggle {
+  display: none;
+}
+
+.ctr .paging {
+  margin-left: 30px;
+}
+
+.pageadmin .stfForm {
+  display: flex;
+}
+.deleteStf {
+  color: gray;
+}
+
+/*footer*/
+.others {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+  height: 200px;
+  border-top: 1px solid black;
+}
+
+/*너비 줄어들면 어느순간 고정*/
+@media screen and (max-width: 1100px) {
+  html {
+    width: 1100px;
+  }
+}

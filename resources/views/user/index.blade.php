@@ -8,18 +8,27 @@
     <div class="display">
         <div class="event_banner">
             <ul class="slider">
-                <li class="event"><img src="C:\Users\USER\Web_Front\SE_project_1\image\event\test_img.jpg"></li>
-                <li class="event"><img src="C:\Users\USER\Web_Front\SE_project_1\image\event\test_img2.png"></li>
-                <li class="event"><img src="C:\Users\USER\Web_Front\SE_project_1\image\event\test_img3.jpg"></li>
+                @foreach($events as $event)
+                    <li class="event"><a href="#"><img src="{{ url("storage/$event->image")}}"></a></li>
+                @endforeach
             </ul>
-            <p class ="previous"><i class="fas fa-chevron-left"></i></p>
-            <p class = "next"><i class="fas fa-chevron-right"></i></p>>
+            <button type="button" class ="previous"><i class="fas fa-chevron-left"></i></button>
+            <button type="button" class="next"><i class="fas fa-chevron-right"></i></button>
         </div>
     </div>
 
     <div class="display2">
+        <p id="newProd">최신 등록 상품</p>
         <div class="items">
-            @foreach($products as $product)
+            @foreach($newProducts as $product)
+            <a href="/product/detail/{{ $product->id }}"><div><div class="item_div"><img src="{{ url("storage/$product->image") }}"></div><div class="text_div">{{ $product->name }}</div></div></a>
+            @endforeach
+        </div>
+    </div>
+    <div class="display2">
+        <p id="popular">인기 상품</p>
+        <div class="items">
+            @foreach($bestProducts as $product)
             <a href="/product/detail/{{ $product->id }}"><div><div class="item_div"><img src="{{ url("storage/$product->image") }}"></div><div class="text_div">{{ $product->name }}</div></div></a>
             @endforeach
         </div>

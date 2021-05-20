@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CheckAdmin
+class adminDeny
 {
     /**
      * Handle an incoming request.
@@ -24,10 +24,10 @@ class CheckAdmin
             }
         }
         if($admin){
-            return $next($request);
+            return redirect(url()->previous());
         }
         else{
-            return redirect('/');
+            return $next($request);
         }
     }
 }

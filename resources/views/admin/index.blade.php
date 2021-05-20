@@ -9,9 +9,9 @@
     <div class="display">
         <div class="event_banner">
             <ul class="slider">
-                <li class="event"><img src="C:\Users\USER\Web_Front\SE_project_1\image\event\test_img.jpg"></li>
-                <li class="event"><img src="C:\Users\USER\Web_Front\SE_project_1\image\event\test_img2.png"></li>
-                <li class="event"><img src="C:\Users\USER\Web_Front\SE_project_1\image\event\test_img3.jpg"></li>
+                @foreach($events as $event)
+                    <li class="event"><img src="{{ url("event/$event->image")}}"></li>
+                @endforeach
             </ul>
             <p class ="previous"><i class="fas fa-chevron-left"></i></p>
             <p class = "next"><i class="fas fa-chevron-right"></i></p>>

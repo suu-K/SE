@@ -17,7 +17,7 @@ class cart extends Model
         'num',
     ];
 
-    public function users(){
+    public function user(){
         return $this->belongsTo('App\Models\user');
     }
 }

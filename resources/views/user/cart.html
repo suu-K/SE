@@ -1,0 +1,147 @@
+<html>
+
+<head>
+    <link href="cart.css" rel="stylesheet" type="text/css" />
+    
+    <title>TEAM NO.14의 게임 쇼핑몰</title>
+    <meta name="description" content="TEAM NO.14의 게임 쇼핑몰" />
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a5f3739fb3.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="https://d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+    
+    <header>
+        <ul class="top">
+            <li><a href="Log_in.html">로그인</a></li>
+            <li><a href="sign_up.html">회원가입</a></li>
+            <li><a href="log-in">마이페이지</a></li>
+            <li><a href="log-in">장바구니</a></li>
+        </ul>
+    
+        <div class="logo_search">
+            <div class="logo">
+                <a href="index.html"><i class="fas fa-dice-d6 fa-2x"></i></a>
+            </div>
+            
+            <form action="#" accept-charset="utf-8" id="search" name="search" method="post">
+                <input type="text" name="need_search">
+                
+                <button type="submit" form="search"><i class="fas fa-search fa-2x"></i></button>
+            </form>
+    
+        </div>
+    
+        <div class="category">
+            <ul>
+                <a href="products.html"><li>예약상품</li></a>
+                <a href="products.html"><li>PlayStation5</li></a>
+                <a href="products.html"><li>PlayStation4</li></a>
+                <a href="products.html"><li>PlayStationVR</li></a>
+                <a href="products.html"><li>PlayStation3</li></a>
+                <a href="products.html"><li>닌텐도Switch</li></a>
+                <a href="products.html"><li>닌텐도3DS</li></a>
+                <a href="products.html"><li>할인상품</li></a>
+                <a href="products.html"><li>기타상품</li></a>
+            </ul>
+        </div>
+    </header>
+    
+    <body>
+        <form action="#" accept-charset="utf-8" method="POST" onkeydown="return captureReturnKey(event)">
+        <div class="prod">
+            <div id="product">
+                <!-- 장바구니 쪽 head -->
+                <div id="head_image">
+                    이미지
+                </div>
+                <div id="head_name">
+                    상품명
+                </div>
+                <div id="head_price">
+                    개별가
+                </div>
+                <div id="head_amount">
+                    수량
+                </div>
+                <div id="head_price">
+                    상품금액
+                </div>
+                <div id="head_delete">삭제</div>
+
+                <!-- 여기서부터 상품 추가 -->
+                <div id="image">
+                    <img src="C:\Users\pega0\OneDrive\바탕 화면\download.jpg">
+                </div>
+                <div id="name">a</div>
+                <div id="price">3000</div>
+                <div id="amount">
+                    <input name="amount" id="num" class="num" type="number" value="1" min="1" style="text-align:center;" onchange="sum();"/>
+                </div>
+                <div id="price"><div id="price1">3000</div><nav>원</nav></div>
+                <div id="delete"><button type="submit" value="삭제" formaction="">삭제</button></div>
+
+                <div id="image">
+                    <img src="C:\Users\pega0\OneDrive\바탕 화면\download.jpg">
+                </div>
+                <div id="name">a</div>
+                <div id="price2">4000</div>
+                <div id="amount">
+                    <input name="amount" id="num1" class="num" type="number" value="1" min="1" style="text-align:center;" onchange="sum1();"/>
+                </div>
+                <div id="price"><div id="price3">4000</div><nav>원</nav></div>
+                <div id="delete"><button type="submit" value="삭제" formaction="">삭제</button></div>
+
+                <!-- 총 금액 -->
+                <div class="sum">
+                    총 금액
+                </div>
+                <div class="result"><div id="sum_price">7000</div><nav id="result">원</nav></div>
+
+                <!-- 결제 버튼 -->
+                <div class="buy">
+                    <button value="">결제하기</button>
+                </div>
+            </div>
+        </div>
+        </form>
+    </body>
+
+    <footer class="others">
+        <ul>
+            <li>1111</li>
+            <li>2222</li>
+            <li>3333</li>
+            <li>4444</li>
+        </ul>
+    
+        <ul>
+            <li>111</li>
+            <li>222</li>
+            <li>333</li>
+            <li>444</li>
+        </ul>
+    
+        <ul>
+            <li>11</li>
+            <li>22</li>
+            <li>33</li>
+            <li>44</li>
+        </ul>
+    
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>   
+    
+        </footer>
+        <script async src="cart.js"></script>
+    </body>
+</html>
