@@ -85,8 +85,8 @@ class ProductController extends Controller
             Storage::delete(url("storage/$image->url"));
             $image->delete();
         }
-        $product->delete();
 
+        $product->delete();
         return redirect('/admin2');
     }
 }
