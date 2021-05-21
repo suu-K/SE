@@ -80,6 +80,11 @@ class ProductController extends Controller
 
     public function delete(Request $request){
         $product = Product::find($request->id);
+        $images = image::where('product_id', '=', $product->id)->get();
+        foreach($images as $image){
+            Storage::delete(url("storage/$image->url"));
+            $image->delete();
+        }
         $product->delete();
 
         return redirect('/admin2');
