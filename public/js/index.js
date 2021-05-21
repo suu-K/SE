@@ -11,57 +11,57 @@ let sliderWidth = $('#slider-wrap').width();
 
 
 $(document).ready(function(){
-  
-  
+
+
   /*****************
    BUILD THE SLIDER
   *****************/
   //set width to be 'x' times the number of slides
   $('#slider-wrap ul#slider').width(sliderWidth*totalSlides);
-  
-    //next slide  
+
+    //next slide
   $('#next').click(function(){
     slideRight();
   });
-  
+
   //previous slide
   $('#previous').click(function(){
     slideLeft();
   });
-  
-  
-  
+
+
+
   /*************************
    //*> OPTIONAL SETTINGS
   ************************/
   //automatic slider
   let autoSlider = setInterval(slideRight, 5000);
-  
-  //for each slide 
-  $.each($('#slider-wrap ul li'), function() { 
+
+  //for each slide
+  $.each($('#slider-wrap ul li'), function() {
 
      //create a pagination
      let li = document.createElement('li');
-     $('#pagination-wrap ul').append(li);    
+     $('#pagination-wrap ul').append(li);
   });
-  
+
   //counter
   countSlides();
-  
+
   //pagination
   pagination();
-  
+
   //hide/show controls/btns when hover
   //pause automatic slide when hover
   $('#slider-wrap').hover(
-    function(){ $(this).addClass('active'); clearInterval(autoSlider); }, 
+    function(){ $(this).addClass('active'); clearInterval(autoSlider); },
     function(){ $(this).removeClass('active'); autoSlider = setInterval(slideRight, 5000); }
   );
-  
-  
+
+
 
 });//DOCUMENT READY
-  
+
 
 
 /***********
@@ -70,8 +70,8 @@ $(document).ready(function(){
 function slideLeft(){
   pos--;
   if(pos==-1){ pos = totalSlides-1; }
-  $('#slider-wrap ul#slider').css('left', -(sliderWidth*pos));  
-  
+  $('#slider-wrap ul#slider').css('left', -(sliderWidth*pos));
+
   //*> optional
   countSlides();
   pagination();
@@ -84,16 +84,16 @@ function slideLeft(){
 function slideRight(){
   pos++;
   if(pos==totalSlides){ pos = 0; }
-  $('#slider-wrap ul#slider').css('left', -(sliderWidth*pos)); 
-  
-  //*> optional 
+  $('#slider-wrap ul#slider').css('left', -(sliderWidth*pos));
+
+  //*> optional
   countSlides();
   pagination();
 }
 
 
 
-  
+
 /************************
  //*> OPTIONAL SETTINGS
 ************************/
@@ -105,4 +105,3 @@ function pagination(){
   $('#pagination-wrap ul li').removeClass('active');
   $('#pagination-wrap ul li:eq('+pos+')').addClass('active');
 }
-    

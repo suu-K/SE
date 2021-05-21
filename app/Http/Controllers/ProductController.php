@@ -56,22 +56,23 @@ class ProductController extends Controller
             'caption' => $request->caption,
             'num' => $request->num
         ]);
+        if($request->image != null){
+            $images = image::where('product_id', '=', $request->id)->get();
+            foreach($images as $image){
+                Storage::delete(url("storage/$image->url"));
+                $image->delete();
+            }
 
-        $images = $product->image;
-        foreach($images as $image){
-            Storage::delete(url("storage/$image->url"));
-            $image->delete();
-        }
+            $newImages = $request->file('image');
 
-        $newImages = $request->file('image');
-
-        foreach($newImages as $image){
-            $ima = new image;
-            $path = $image->store('image', 'public');
-            $ima->imageable_id = $product->id;
-            $ima->imageable_type = 'product';
-            $ima->url = $path;
-            $image->save();
+            foreach($newImages as $image){
+                $ima = new image;
+                $path = $image->store('image', 'public');
+                $ima->imageable_id = $product->id;
+                $ima->imageable_type = 'product';
+                $ima->url = $path;
+                $image->save();
+            }
         }
 
         return redirect("/admin3/$request->id");

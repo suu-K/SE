@@ -44,7 +44,7 @@
 
     <div class="part2">
         <div class="platform">
-            <select name="platform" size="1"  class="details1" value="{{ $product->category }}" disabled>
+            <select name="category" size="1"  class="details1" disabled>
                 <option selected="selected" disabled>=선택=</option>
                 <option value="PlayStation5">PlayStation5</option>
                 <option value="PlayStation4">PlayStation4</option>

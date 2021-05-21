@@ -86,7 +86,7 @@
                                         <input type="text" id="extraAddress" name="extraAddress" placeholder="참고항목" autocomplete="off">
                                     </li>
                                     <li>
-                                        <div>연락처 <input type="text" pattern="[0-9]{11,11}$" name="phone" id="phoneNo" placeholder="전화번호" onfocus="this.placeholder=''" onblur="this.placeholder='전화번호'" title="-없이 숫자 11자리를 입력하세요." required></div>
+                                        <div>연락처 <input type="text" pattern="[0-9]{11,11}$" name="phone" id="phoneNo" placeholder="전화번호" onfocus="this.placeholder=''" onblur="this.placeholder='전화번호'" title="-없이 숫자 11자리를 입력하세요."></div>
                                     </li>
                                 </ul>
 
@@ -94,8 +94,6 @@
                             <button type="button" onclick="showPopup()">배송지 등록/수정</button>
                         </div>
                     </div>
-                </form>
-                <form method="POST">
                     @csrf
                     <div id="keep">
                         <div class="sub">
@@ -128,7 +126,9 @@
         </div>
         <div class="info">
             <div class="information">
+            <pre>
                 {{$product->caption}}
+            </pre>
             </div>
         </div>
     </div>
