@@ -11,13 +11,27 @@
                 <div id="cate">
                     {{ $product->category }}
                 </div>
-                <div id="pro_image">
-                    <ul class="slider">
-                        @foreach($images as $image)
-                        <li class="picture"><img src="{{ url("storage/$image->url") }}"></li>
-                        @endforeach
-                    </ul>
+                <div id="wrapper">
+                    <div id="slider-wrap">
+                        <ul id="slider">
+                            @foreach($images as $image)
+                            <li>
+                                <img src="{{ url("storage/$image->url") }}">
+                            </li>
+                            @endforeach
+                        </ul>
 
+                        <div class="btns" id="next"><i class="fa fa-arrow-right"></i></div>
+                        <div class="btns" id="previous"><i class="fa fa-arrow-left"></i></div>
+
+                        <!--counter는 오른쪽 위에 1/5요거-->
+                        <div id="counter"></div>
+                        <!--pagination-wrap은 하얀색 점들.-->
+                        <div id="pagination-wrap">
+                          <ul>
+                          </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -36,50 +50,21 @@
                     <div id="addressTab">
                         <div>
                             <ul id="selectAdd">
-                                <li><label><input type="radio" name="addlist" id="first" checked>이름</label></li>
-                                <li><label><input type="radio" name="addlist" id="second">이름</label></li>
+                                @foreach($addresses as $address)
+                                <li><label><input type="radio" name="addlist" id="addinfo" @if($loop->iteration == 1) checked @endif>이름</label></li>
+                                @endforeach
                                 <li><label><input type="radio" name="addlist" id="new">새로운 배송지</label></li>
                             </ul>
                             <div class="tog" style="width:500px;">
-                                <ul class="active test" id="addinfo1">
-                                    <li>
-                                        <div class="infoName">배송지</div>
-                                        <div class="inform">집</div>
-                                    </li>
-                                    <li>
-                                        <div class="infoName">주소</div>
-                                        <div class="inform">서울특별시 도봉구 우이천로 394 (쌍문동) 경기도 장학관 율곡 453호</div>
-                                    </li>
-                                    <li>
-                                        <div class="infoName">연락처</div>
-                                        <div class="inform">010-4165-9853</div>
-                                    </li>
-                                </ul>
-
-                                <ul class="test" id="addinfo2">
-                                    <li>
-                                        <div class="infoName">배송지</div>
-                                        <div class="inform">집1</div>
-                                    </li>
-                                    <li>
-                                        <div class="infoName">주소</div>
-                                        <div class="inform">서울특별시1 도봉구 우이천로 394 (쌍문동) 경기도 장학관 율곡 453호</div>
-                                    </li>
-                                    <li>
-                                        <div class="infoName">연락처</div>
-                                        <div class="inform">010-4165-9853f</div>
-                                    </li>
-                                </ul>
-                                @if($addresses != null)
                                 @foreach($addresses as $address)
-                                <ul class="test" id="addinfo2">
+                                <ul class="@if($loop->iteration == 1) active @endif test" id="addinfo{{ $loop->iteration }}">
                                     <li>
                                         <div class="infoName">배송지</div>
                                         <div class="inform">{{ $address->destination }}</div>
                                     </li>
                                     <li>
                                         <div class="infoName">주소</div>
-                                        <div class="inform">{{ $address->address }}</div>
+                                        <div class="inform">{{ $address->postcond }} {{ $address->address }} {{ $address->detailAddress }} {{ $address->extraAddress }}</div>
                                     </li>
                                     <li>
                                         <div class="infoName">연락처</div>
@@ -87,7 +72,7 @@
                                     </li>
                                 </ul>
                                 @endforeach
-                                @endif
+
                                 <ul class="test" id="newinfo">
                                     <li id="desli">배송지<input type="text" id="destination" name="destination" autocomplete="off"></li>
                                     <li>

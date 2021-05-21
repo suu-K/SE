@@ -29,24 +29,26 @@
                 <div id="head_delete">삭제</div>
 
                 <!-- 여기서부터 상품 추가 -->
+                {{ session()->put('sum', 0) }}
                 @foreach($carts as $product)
+                <a href="/product/detail/{{ $product->product_id }}">
                 <div id="image">
                     <img src="{{ url("storage/$product->image") }}">
-                </div>
-                <div id="name">{{ $product->name }}</div>
-                <div id="price{{ $loop->iteration }}">{{ $product->sale_price }}</div>
+                </div></a>
+                <div id="name"><a href="/product/detail/{{ $product->product_id }}">{{ $product->name }}</a></div>
+                <div class="price" id="price{{ $loop->iteration }}">{{ $product->sale_price }}</div>
                 <div id="amount">
-                    <input name="num" id="num{{ $loop->iteration }}" class="num" type="number" value="{{ $product->num }}" min="1" style="text-align:center;" onchange="sum();"/>
+                    <input name="num" id="num{{ $loop->iteration }}" class="num" type="number" value="{{ $product->num }}" min="1" style="text-align:center;" onchange="sum{{ $loop->iteration }}();"/>
                 </div>
                 <div id="price"><div id="sumprice{{ $loop->iteration }}">{{ $product->sale_price * $product->num }}</div><nav>원</nav></div>
-                <div id="delete"><button type="submit" value="삭제" formaction="">삭제</button></div>
+                <div id="delete"><button type="submit" value="삭제" formaction="/cart/delete/{{ $product->id }}">삭제</button></div>
+                {{ session()->put('sum', session('sum') + ($product->sale_price * $product->num)) }}
                 @endforeach
-
                 <!-- 총 금액 -->
                 <div class="sum">
                     총 금액
                 </div>
-                <div class="result"><div id="sum_price">7000</div><nav id="result">원</nav></div>
+                <div class="result"><div id="sum_price">{{session()->pull('sum')}}</div><nav id="result">원</nav></div>
 
                 <!-- 결제 버튼 -->
                 <div class="buy">
@@ -63,7 +65,7 @@
 
     <script>
         function fnCalCount(type, ths){
-            var $input = $(ths).parents("div").find("input[name='amount']");
+            var $input = $(ths).parents("div").find("input[name='num']");
             var tCount = Number($input.val());
 
             if(type=='p'){
@@ -75,7 +77,7 @@
         }
 
     @foreach($carts as $product)
-    function sum()  {
+    function sum{{ $loop->iteration }}()  {
         const name = document.getElementById('num{{ $loop->iteration }}').value;
         const price = $("#price{{ $loop->iteration }}").text();
         document.getElementById("sumprice{{ $loop->iteration }}").innerHTML = (name * price);

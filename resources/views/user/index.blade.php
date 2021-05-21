@@ -5,15 +5,30 @@
 @endsection
 
 @section('content')
-    <div class="display">
-        <div class="event_banner">
-            <ul class="slider">
+    <div id="wrapper">
+        <div id="slider-wrap">
+            <ul id="slider">
                 @foreach($events as $event)
-                    <li class="event"><a href="#"><img src="{{ url("storage/$event->image")}}"></a></li>
+                    <li>
+                        <div>
+                            <h3>{{ $event->title }}</h3>
+                            <span>{{ $event->body }}</span>
+                        </div>
+                        <img src="{{ url("storage/$event->image")}}" onclick="javascript:location.href='address.html'">
+                    </li>
                 @endforeach
             </ul>
-            <button type="button" class ="previous"><i class="fas fa-chevron-left"></i></button>
-            <button type="button" class="next"><i class="fas fa-chevron-right"></i></button>
+
+            <div class="btns" id="next"><i class="fa fa-arrow-right"></i></div>
+            <div class="btns" id="previous"><i class="fa fa-arrow-left"></i></div>
+
+            <!--counter는 오른쪽 위에 1/5요거-->
+            <div id="counter"></div>
+            <!--pagination-wrap은 하얀색 점들.-->
+            <div id="pagination-wrap">
+              <ul>
+              </ul>
+            </div>
         </div>
     </div>
 

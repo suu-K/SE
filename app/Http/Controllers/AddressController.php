@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use app\Models\address;
+use Illuminate\Support\Facades\Auth;
+use App\Models\address;
 
 class AddressController extends Controller
 {
@@ -15,30 +16,37 @@ class AddressController extends Controller
     public function insert(Request $request){
         $address = new address;
 
-        $address->user_id = $request->user_id;
-        $address->zip_code = $request->zip_code;
+        $address->user_id = Auth::id();
+        $address->destination = $request->destination;
+        $address->postcode = $request->postcode;
         $address->address = $request->address;
-        $address->detailed_address = $request->detailed_address;
+        $address->detailAddress = $request->detailAddress;
+        $address->extraAddress = $request->extraAddress;
+        $address->phone = $request->phone;
 
         $address->save();
 
-        return redirect('/');
+        return redirect('/address');
     }
 
     public function update(Request $request){
-        $aff = DB::table('address')->where('id', $request->id)->update([
-            'zip_code' => $request->zip_code,
-            'address' => $request->address,
-            'detailed_address' => $request->detailed_address,
-        ]);
+        $address = address::find($request->id);
 
-        return redirect('/admin/address');
+        $address->destination = $request->destination;
+        $address->postcode = $request->postcode;
+        $address->address = $request->address;
+        $address->detailAddress = $request->detailAddress;
+        $address->extraAddress = $request->extraAddress;
+        $address->phone = $request->phone;
+        $address->save();
+
+        return redirect('/address');
     }
 
     public function delete(Request $request){
         $address = address::find($request->id);
         $address->delete();
 
-        return redirect('/admin');
+        return redirect('/address');
     }
 }

@@ -18,3 +18,7 @@
 
 
 @endsection
+
+@section('footer')
+
+@endsection

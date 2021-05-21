@@ -30,7 +30,7 @@
                 @endif
             @else
                 <li>{{Auth::user()->name}}</li>
-                @if(Auth::user()->id<2)
+                @if(Auth::user()->id<3)
                 <li><a href="/admin">이벤트/상품 관리</a></li>
                 @else
                 <li><a href="login">마이페이지</a></li>

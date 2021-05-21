@@ -119,10 +119,6 @@
     text-align: center;
     background-color: silver;
 }
-#address{
-    width:67%;
-    text-align: center;
-}
   .info{
     display: flex;
     text-align: center;
@@ -137,22 +133,31 @@
 .infoForm > .info{
     width: 500px;
 }
+.info li{
+    display: flex;
+    align-items: center;
+}
+.info li:not(:last-child){
+    justify-content: center;
+}
+
 
 .name{
-    width: 14%;
+    width: 70px;
 }
 .phoneNum{
-    width: 19%;
+    width: 130px;;
 }
 .address{
-    width: 67%;
+    width: 265px;
     text-align: left;
 }
 .controll{
-    width: 8%;
+    width: 40px;
 }
 .but{
-    width: 8%;
+    width: 40px;
+    text-align: center;
 }
 
 

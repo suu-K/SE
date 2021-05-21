@@ -38,21 +38,21 @@ class AdminController extends Controller
             $order = request('order', 'none');
             switch($order){
                 case 'asc':
-                    $products = product::where($condition)->orderBy('price', 'asc')->paginate(7);
+                    $products = product::withTrashed()->where($condition)->orderBy('price', 'asc')->paginate(7);
                     break;
                 case 'desc':
-                    $products = product::where($condition)->orderBy('price', 'desc')->paginate(7);
+                    $products = product::withTrashed()->where($condition)->orderBy('price', 'desc')->paginate(7);
                     break;
                 case 'nameOrder':
-                    $products = product::where($condition)->orderBy('name', 'asc')->paginate(7);
+                    $products = product::withTrashed()->where($condition)->orderBy('name', 'asc')->paginate(7);
                     break;
                 default:
-                    $products = Product::where($condition)->paginate(7);
+                    $products = Product::withTrashed()->where($condition)->paginate(7);
                     break;
             }
         }
         else{
-            $products = Product::where($condition)->paginate(7);
+            $products = Product::withTrashed()->where($condition)->paginate(7);
         }
         return view('admin.admin2', ['products' => $products]);
     }
@@ -62,42 +62,6 @@ class AdminController extends Controller
         $images  = image::where('product_id', '=', $id)->get();
         return view('admin.admin3', ['product' => $product, 'images' => $images]);
     }
-/*
-    public function admin2Search(Request $request){
-        $name = request('name', '');
-        $max = request('max');
-        $min = request('min');
-        $order = request('order', 'none');
-
-        $condition = array();
-        if($request->filled('name')){ $condition[] = ['name', 'like', '%'.$request->name.'%']; }
-        if($request->filled('max')){ $condition[] = ['price', '<=', $request->max]; }
-        if($request->filled('min')){ $condition[] = ['price', '>=', $request->min]; }
-
-        switch($order){
-            case 'asc':
-                $products = product::where($condition)->orderBy('price', 'asc')->paginate(7);
-                break;
-            case 'desc':
-                $products = product::where($condition)->orderBy('price', 'desc')->paginate(7);
-                break;
-            case 'nameOrder':
-                $products = product::where($condition)->orderBy('name', 'asc')->paginate(7);
-                break;
-            default:
-                $products = Product::where($condition)->paginate(7);
-                break;
-        }
-
-        session([
-            'name' => $name,
-            'max' => $max,
-            'min' => $min,
-            'order' => $order
-        ]);
-        return view('admin.admin2', ['products' => $products]);
-    }
-    */
 
     public function eventInsert(){
         $events = DB::table('events')->paginate(5);
@@ -113,4 +77,10 @@ class AdminController extends Controller
 
         return view('admin.productDetail', ['product' => $product]);
     }
+
+    # $event->trashed() 소프트 딜리트 확인 함수
+    # $events = event::withTrashed()->get() 소프트 삭제된 것도 포함되게
+    # $events = event::onlyTrashed()->get() 소프트 삭제된 것만
+    # $evnets->where('id', id)->restore()  복구
+    # $event->forceDelete() 완전삭제
 }

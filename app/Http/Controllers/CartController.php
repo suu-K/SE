@@ -14,21 +14,26 @@ class CartController extends Controller
     }
 
     public function insert(Request $request){
-
-        $cart = new cart;
-
-        $cart->user_id = Auth::id();
-        $cart->product_id = $request->product_id;
-        $cart->num = $request->num;
-
-        $cart->save();
-
-
-        if($request->session()->has('cartNum')){
-            $request->session()->put('cartNum', $request->session()->get('cartNum')+1);
+        $existCart = cart::where([['user_id', '=', Auth::id()], ['product_id', '=', $request->product_id]])->first();
+        if($existCart != null){
+            $existCart->num += $request->num;
+            $existCart->save();
         }
         else{
-            $request->session()->put('cartNum', 1);
+            $cart = new cart;
+            $cart->user_id = Auth::id();
+            $cart->product_id = $request->product_id;
+            $cart->num = $request->num;
+
+            $cart->save();
+
+
+            if($request->session()->has('cartNum')){
+                $request->session()->put('cartNum', $request->session()->get('cartNum')+1);
+            }
+            else{
+                $request->session()->put('cartNum', 1);
+            }
         }
 
         return redirect()->back();
@@ -42,9 +47,9 @@ class CartController extends Controller
         return redirect('/admin/cart');
     }
 
-    public function delete(Request $request){
+    public function delete(Request $request, $id){
 
-        $cart = cart::find($request->id);
+        $cart = cart::find($id);
         $cart->delete();
 
 

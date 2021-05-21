@@ -35,9 +35,12 @@ Route::get('/productsFillter/{fillter}', 'IndexController@products');
 #장바구니 라우팅
 Route::get('/cart', 'IndexController@cart');
 Route::post('/cart/add', 'CartController@insert')->middleware('admin.deny');
-Route::post('/cart/delete', 'CartController@delete');
+Route::post('/cart/delete/{id}', 'CartController@delete');
 #배송지 관리 라우팅
 Route::get('/address', 'IndexController@address');
+Route::post('/address/insert', 'AddressController@insert');
+Route::post('/address/update', 'AddressController@update');
+Route::post('/address/delete', 'AddressController@delete');
 
 #상품 등록, 수정, 삭제
 Route::post('/product/update', 'ProductController@update');

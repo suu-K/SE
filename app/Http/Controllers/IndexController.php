@@ -16,7 +16,7 @@ class IndexController extends Controller
 {
     public function index(){
         $newProducts = product::orderBy('created_at', 'desc')->paginate(8);
-        $bestProducts = product::all();
+        $bestProducts = product::all()->take(8);
         $now = Carbon::now()->getTimestamp();
         $events = event::where([['sdate', '<=', date('Y-m-d 23:59:59')], ['ldate', '>=', date('Y-m-d 00:00:00')]])->get();
         return view('user.index', ['newProducts' => $newProducts, 'bestProducts' => $bestProducts, 'events' => $events]);
@@ -25,7 +25,7 @@ class IndexController extends Controller
     public function productDetail($id){
         $product = product::find($id);
         $images = image::where('product_id', '=', $id)->get();
-        $addresses = address::where('user_id', '=', Auth::id());
+        $addresses = address::where('user_id', '=', Auth::id())->get();
 
         return view('user.productDetail', ['product' => $product, 'images' => $images, 'addresses' => $addresses]);
     }
@@ -64,13 +64,13 @@ class IndexController extends Controller
 
     public function cart(Request $request){
         $carts = user::find(Auth::id())->cart()->join('products', 'cart.product_id', '=', 'products.id')
-                                    ->select('cart.id', 'products.name', 'products.price', 'products.sale_price', 'cart.num', 'products.image')->get();
+                                    ->select('cart.id', 'cart.product_id', 'products.name', 'products.price', 'products.sale_price', 'cart.num', 'products.image')->get();
         return view('user.cart', ['carts' => $carts]);
     }
 
     public function address(Request $request){
-        $addresses = address::find(Auth::id());
+        $addresses = address::where('user_id', '=', Auth::id())->get();
 
-        return view('user.address', ['addresses', $addresses]);
+        return view('user.address', ['addresses' => $addresses]);
     }
 }

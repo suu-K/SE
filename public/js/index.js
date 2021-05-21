@@ -1,34 +1,108 @@
 
-let slideWrapper = document.querySelector('.event_banner');
-    let slides = document.querySelectorAll('.event');
-    let totalSlides = slides.length; // item의 갯수
-    
-    
-    let sliderWidth = slideWrapper.clientWidth; // container의 width
-    let slideIndex = 0;
-    let slider = document.querySelector('.slider');
-    
-    slider.style.width = sliderWidth * totalSlides + 'px';
 
-showSlides()
 
-function showSlides() {
+//이벤트 배너 함수들.
+//current position
+let pos = 0;
+//number of slides
+let totalSlides = $('#slider-wrap ul li').length;
+//get the slide width
+let sliderWidth = $('#slider-wrap').width();
 
-    for(let i=0;i<slides.length;i++){
-        slider.style.left = -(sliderWidth * slideIndex) + 'px';    
-    }
-    slideIndex++;
-    if (slideIndex === totalSlides) {
-        slideIndex = 0;
-    }
-    setTimeout(showSlides, 4000); 
+
+$(document).ready(function(){
+  
+  
+  /*****************
+   BUILD THE SLIDER
+  *****************/
+  //set width to be 'x' times the number of slides
+  $('#slider-wrap ul#slider').width(sliderWidth*totalSlides);
+  
+    //next slide  
+  $('#next').click(function(){
+    slideRight();
+  });
+  
+  //previous slide
+  $('#previous').click(function(){
+    slideLeft();
+  });
+  
+  
+  
+  /*************************
+   //*> OPTIONAL SETTINGS
+  ************************/
+  //automatic slider
+  let autoSlider = setInterval(slideRight, 5000);
+  
+  //for each slide 
+  $.each($('#slider-wrap ul li'), function() { 
+
+     //create a pagination
+     let li = document.createElement('li');
+     $('#pagination-wrap ul').append(li);    
+  });
+  
+  //counter
+  countSlides();
+  
+  //pagination
+  pagination();
+  
+  //hide/show controls/btns when hover
+  //pause automatic slide when hover
+  $('#slider-wrap').hover(
+    function(){ $(this).addClass('active'); clearInterval(autoSlider); }, 
+    function(){ $(this).removeClass('active'); autoSlider = setInterval(slideRight, 5000); }
+  );
+  
+  
+
+});//DOCUMENT READY
+  
+
+
+/***********
+ SLIDE LEFT
+************/
+function slideLeft(){
+  pos--;
+  if(pos==-1){ pos = totalSlides-1; }
+  $('#slider-wrap ul#slider').css('left', -(sliderWidth*pos));  
+  
+  //*> optional
+  countSlides();
+  pagination();
 }
 
 
-function slideNext(){
-    let nextEvent = document.getElementsByClassName('next')
-    nextEvent.addEventListener('click', function(){
-        slider.style.left = -(sliderWidth * slideIndex) + 'px';
-        slideIndex++;
-    });
+/************
+ SLIDE RIGHT
+*************/
+function slideRight(){
+  pos++;
+  if(pos==totalSlides){ pos = 0; }
+  $('#slider-wrap ul#slider').css('left', -(sliderWidth*pos)); 
+  
+  //*> optional 
+  countSlides();
+  pagination();
 }
+
+
+
+  
+/************************
+ //*> OPTIONAL SETTINGS
+************************/
+function countSlides(){
+  $('#counter').html(pos+1 + ' / ' + totalSlides);
+}
+
+function pagination(){
+  $('#pagination-wrap ul li').removeClass('active');
+  $('#pagination-wrap ul li:eq('+pos+')').addClass('active');
+}
+    

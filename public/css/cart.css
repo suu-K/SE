@@ -211,8 +211,15 @@ header {
   height: 20px;
 }
 
-.prod #price,
-#price2 {
+.prod #price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  margin-top: 5px;
+  border-bottom: 1px solid gray;
+}
+.prod .price {
   display: flex;
   justify-content: center;
   align-items: center;
