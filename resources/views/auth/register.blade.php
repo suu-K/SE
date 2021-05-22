@@ -34,7 +34,7 @@
                 <input type="date" id="birth" name="birth" placeholder="생년월일" onfocus="this.placeholder=''" onblur="this.placeholder='생년월일'" required>
             </div>
 
-            <button type="submit" id="sign_btn" value="submit">회원가입</button>
+            <button type="submit" id="sign_btn" value="submit" disabled>회원가입</button>
 
 
         </br>
@@ -70,12 +70,15 @@
           if (data['result']) {
             alert("이미 존재하는 아이디 입니다.");
             id_overlap_input.focus();
+            $("#sign_btn").attr("disabled", "disabled");
             return;
           } else {
             alert("사용가능한 아이디 입니다.");
             $('#email').attr("check_result", "success");
             $('#id_check_sucess').show();
-            $('#check').hide();
+            $('#check').attr("disabled", "disabled");
+            $("#email").attr("disabled", "disabled");
+            $("#sign_btn").removeAttr("disabled");
             return;
           }
         }

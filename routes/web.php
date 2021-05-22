@@ -33,14 +33,14 @@ Route::get('/products/{category}', 'IndexController@products');
 Route::get('/productsFillter/{fillter}', 'IndexController@products');
 
 #장바구니 라우팅
-Route::get('/cart', 'IndexController@cart')->middleware('admin.deny');
-Route::post('/cart/add', 'CartController@insert')->middleware('admin.deny');
-Route::post('/cart/delete/{id}', 'CartController@delete')->middleware('admin.deny');
+Route::get('/cart', 'IndexController@cart')->middleware('admin.deny', 'auth');
+Route::post('/cart/add', 'CartController@insert')->middleware('admin.deny', 'auth');
+Route::post('/cart/delete/{id}', 'CartController@delete')->middleware('admin.deny', 'auth');
 #배송지 관리 라우팅
-Route::get('/address', 'IndexController@address')->middleware('admin.deny');
-Route::post('/address/insert', 'AddressController@insert')->middleware('admin.deny');
-Route::post('/address/update', 'AddressController@update')->middleware('admin.deny');
-Route::post('/address/delete', 'AddressController@delete')->middleware('admin.deny');
+Route::get('/address', 'IndexController@address')->middleware('admin.deny', 'auth');
+Route::post('/address/insert', 'AddressController@insert')->middleware('admin.deny', 'auth');
+Route::post('/address/update', 'AddressController@update')->middleware('admin.deny', 'auth');
+Route::post('/address/delete', 'AddressController@delete')->middleware('admin.deny', 'auth');
 
 #상품 등록, 수정, 삭제
 Route::post('/product/update', 'ProductController@update');

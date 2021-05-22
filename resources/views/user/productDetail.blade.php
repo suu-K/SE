@@ -53,7 +53,7 @@
                                 @foreach($addresses as $address)
                                 <li><label><input type="radio" name="addlist" id="addinfo" @if($loop->iteration == 1) checked @endif>이름</label></li>
                                 @endforeach
-                                <li><label><input type="radio" name="addlist" id="new">새로운 배송지</label></li>
+                                <li><label><input type="radio" name="addlist" id="new" @if($addresses->count() == 0) checked @endif>새로운 배송지</label></li>
                             </ul>
                             <div class="tog" style="width:500px;">
                                 @foreach($addresses as $address)
@@ -73,7 +73,7 @@
                                 </ul>
                                 @endforeach
 
-                                <ul class="test" id="newinfo">
+                                <ul class="@if($addresses->count() == 0) active @endif test" id="newinfo">
                                     <li id="desli">배송지<input type="text" id="destination" name="destination" autocomplete="off"></li>
                                     <li>
                                         <input type="text" id="postcode" name="postcode" placeholder="우편번호" autocomplete="off">
