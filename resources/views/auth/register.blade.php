@@ -77,7 +77,6 @@
             $('#email').attr("check_result", "success");
             $('#id_check_sucess').show();
             $('#check').attr("disabled", "disabled");
-            $("#email").attr("disabled", "disabled");
             $("#sign_btn").removeAttr("disabled");
             return;
           }

@@ -28,19 +28,19 @@ class UserController extends Controller
     }
 
     public function signup(Request $request){
+        $user = new user;
         $email = $request->input('email');
         $name = $request->input('name');
-        $pw = $request->input('password');
+        $password = $request->input('password');
         $phone = $request->input('phone');
         $birth = $request->input('birth');
 
-        user::create([
-            'email' => $email,
-            'name' => $name,
-            'pw' => $pw,
-            'phone' => $phone,
-            'birth' => $birth
-        ]);
+        $user->email = $email;
+        $user->name = $name;
+        $user->password = $password;
+        $user->phone = $phone;
+        $user->birth = $birth;
+        $user->save();
 
         return redirect('/');
     }
