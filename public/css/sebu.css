@@ -507,7 +507,7 @@ input[type="number"]::-webkit-inner-spin-button {
   display: flex;
   align-items: center;
   width: 1080px;
-  white-space:pre-line;
+  white-space:normal;
   background-color: blueviolet;
 }
 
