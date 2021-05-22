@@ -30,7 +30,7 @@ class UserController extends Controller
     public function signup(Request $request){
         $email = $request->input('email');
         $name = $request->input('name');
-        $pw = $request->input('pw');
+        $pw = $request->input('password');
         $phone = $request->input('phone');
         $birth = $request->input('birth');
 
