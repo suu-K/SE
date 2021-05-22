@@ -126,7 +126,7 @@
         </div>
         <div class="info">
             <div class="information">
-            <pre>{{$product->caption}}</pre>
+            {{$product->caption}}
             </div>
         </div>
     </div>
