@@ -80,32 +80,26 @@
 
     <footer class="others">
         <ul>
-            <li>1111</li>
+            <li>사업자 정보</li>
             <li>2222</li>
             <li>3333</li>
             <li>4444</li>
         </ul>
 
         <ul>
-            <li>111</li>
+            <li>이용약관</li>
             <li>222</li>
             <li>333</li>
             <li>444</li>
         </ul>
 
         <ul>
-            <li>11</li>
+            <li>개인정보 관리 방침</li>
             <li>22</li>
             <li>33</li>
             <li>44</li>
         </ul>
 
-        <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-        </ul>
 
     </footer>
     @yield('footer')
