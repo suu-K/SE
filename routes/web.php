@@ -46,6 +46,8 @@ Route::post('/address/delete', 'AddressController@delete')->middleware('admin.de
 Route::post('/product/update', 'ProductController@update');
 Route::post('/product/insert', 'ProductController@insert');
 Route::post('/product/delete', 'ProductController@delete');
+Route::post('/product/softDelete', 'ProductController@softDelete');
+Route::post('/product/restore', 'ProductController@restore');
 #이벤트 등록, 수정, 삭제
 Route::post('/event/update', 'eventController@update');
 Route::post('/event/insert', 'eventController@insert');
@@ -55,6 +57,7 @@ Route::post('/event/restore', 'eventController@restore');
 
 
 Route::get('/logincheck', 'IndexController@index')->middleware('admin.login');
+Route::get('/login/idcheck', 'UserController@idcheck')->name('check');
 
 Auth::routes();
 

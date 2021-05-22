@@ -72,8 +72,13 @@
                             <div class="name"><a href="/admin3/{{ $product->id }}">{{ $product->name }}</a></div>
                             <div class="price">{{ $product->price }}</div>
                             <div class="buy"> {{ $product->sale_price }}</div>
-                            <input type="hidden" name="id" value="{{ $product->id }}">
-                            <div class="delete"><button type="submit">삭제</button></div>
+                            <input type="hidden" name="id" value="{{ $product->id }}"><div class="delete">
+                            @if($product->deleted_at == null)
+                            <button formaction="/product/softDelete">삭제</button>
+                            @else
+                            <button formaction="/product/restore">활성화</button>
+                            <button type="submit" fromaction="/product/delete">완전삭제</button></div>
+                            @endif
                         </li>
                     </form>
                     @endforeach

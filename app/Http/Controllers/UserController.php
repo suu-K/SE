@@ -44,4 +44,16 @@ class UserController extends Controller
 
         return redirect('/');
     }
+
+    public function idcheck(Request $request){
+        $email = $request->input('email');
+
+        $user = user::where('email', '=', $email)->count();
+        if($user > 0){
+            return response()->json(['result' => true]);
+        }
+        else{
+            return response()->json(['result' => false]);
+        }
+    }
 }

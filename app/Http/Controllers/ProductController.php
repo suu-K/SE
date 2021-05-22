@@ -82,11 +82,25 @@ class ProductController extends Controller
         $product = Product::find($request->id);
         $images = image::where('product_id', '=', $request->id)->get();
         foreach($images as $image){
-            Storage::delete(url("storage/$image->url"));
+            Storage::disk('public')->delete($image->url);
             $image->delete();
         }
 
-        $product->delete();
-        return redirect('/admin2');
+        $product->forceDelete();
+        return redirect(url()->previous());
     }
+
+    public function softDelete(Request $request){
+        $product = product::find($request->id);
+        $product->delete();
+
+        return redirect(url()->previous());
+    }
+
+    public function restore(Request $request){
+        $product = product::withTrashed()->find($request->id)->restore();
+
+        return redirect(url()->previous());
+    }
+
 }
