@@ -20,7 +20,9 @@ Route::get('/admin2', 'AdminController@admin2');
 Route::get('/admin3/{id}', 'AdminController@admin3');
 Route::get('/admin/index', 'AdminController@index');
 Route::get('/admin/event', 'AdminController@eventInsert');
+Route::get('/admin/event/{sort}', 'AdminController@eventInsert');
 Route::get('/admin/product', 'AdminController@productInsert');
+Route::get('/admin/{sort}', 'AdminController@admin');
 
 Route::get('/admin/productSearch', 'AdminController@admin2Search');
 
@@ -49,11 +51,11 @@ Route::post('/product/delete', 'ProductController@delete');
 Route::post('/product/softDelete', 'ProductController@softDelete');
 Route::post('/product/restore', 'ProductController@restore');
 #이벤트 등록, 수정, 삭제
-Route::post('/event/update', 'eventController@update');
-Route::post('/event/insert', 'eventController@insert');
-Route::post('/event/delete', 'eventController@delete');
-Route::post('/event/softDelete', 'eventController@softDelete');
-Route::post('/event/restore', 'eventController@restore');
+Route::post('/event/update', 'EventController@update');
+Route::post('/event/insert', 'EventController@insert');
+Route::post('/event/delete', 'EventController@delete');
+Route::post('/event/softDelete', 'EventController@softDelete');
+Route::post('/event/restore', 'EventController@restore');
 
 
 Route::get('/logincheck', 'IndexController@index')->middleware('admin.login');

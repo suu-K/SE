@@ -34,21 +34,22 @@ class EventController extends Controller
     }
 
     public function update(Request $request){
+        $event = event::find($request->id);
+        $event->title = $request->title;
+        $event->body = $request->body;
+        $event->sdate = $request->sdate;
+        $event->ldate = $request->ldate;
 
-        for($i=0;$i<count($request->id);$i++){
-            $event = event::find($request->id[$i]);
-            $event->title = $request->title[$i];
-            $event->body = $request->body[$i];
-            $event->sdate = $request->sdate[$i];
-            $event->ldate = $request->ldate[$i];
-            if($request->filled('image')){
-                $path = $request->image[$i]->store('event', 'public');
-                $event->image = $path;
-            }
-            $event->save();
+        if($request->has('image')){
+            Storage::disk('public')->delete($event->image);
+            $image = $request->image;
+            $path = $image->store('event', 'public');
+            $event->image = $path;
         }
 
-        return redirect('/admin/event');
+        $event->save();
+
+        return redirect(url()->previous());
     }
 
     public function delete(Request $request){
@@ -56,20 +57,20 @@ class EventController extends Controller
 
         Storage::disk('public')->delete($event->image);
 
-        return redirect('/admin');
+        return redirect(url()->previous());
     }
 
     public function softDelete(Request $request){
         $event = event::find($request->id);
         $event->delete();
 
-        return redirect('/admin');
+        return redirect(url()->previous());
     }
 
     public function restore(Request $request){
         $event = event::withTrashed()->find($request->id)->restore();
 
-        return redirect('/admin');
+        return redirect(url()->previous());
     }
 
 

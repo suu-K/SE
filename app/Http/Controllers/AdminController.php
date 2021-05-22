@@ -15,16 +15,22 @@ class AdminController extends Controller
         $this->middleware('admin');
     }
 
-    public function index(){
-        $products = DB::table('products')->get();
-        return view('admin.index', ['products' => $products]);
-    }
-
-    public function admin(Request $request){
+    public function admin(Request $request, $sort=null){
         $condition = array();
         if($request->filled('sdate')) { $condition[] = ['sdate', '>=', $request->sdate]; session(['sdate' => $request->sdate]); }
         if($request->filled('ldate')) { $condition[] = ['ldate', '<=', $request->ldate]; session(['ldate' => $request->ldate]); }
-        $events = event::withTrashed()->where($condition)->paginate(10);
+        $order = request('order', 'none');
+        switch($order){
+            case 'asc':
+                $events = event::withTrashed()->where($condition)->orderBy('sdate', 'asc')->paginate(10);
+                break;
+            case 'desc':
+                $events = event::withTrashed()->where($condition)->orderBy('sdate', 'desc')->paginate(10);
+                break;
+            default:
+                $events = event::withTrashed()->where($condition)->paginate(10);
+                break;
+        }
         return view('admin.admin', ['events' => $events]);
     }
 
@@ -63,8 +69,13 @@ class AdminController extends Controller
         return view('admin.admin3', ['product' => $product, 'images' => $images]);
     }
 
-    public function eventInsert(){
-        $events = DB::table('events')->paginate(5);
+    public function eventInsert($sort=null){
+        if($sort == null){
+            $events = DB::table('events')->paginate(7);
+        }
+        else{
+            $events = DB::table('events')->orderBy('sdate', $sort)->paginate(7);
+        }
         return view('admin.eventEnrollment', ['events' => $events]);
     }
 

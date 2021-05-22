@@ -59,7 +59,7 @@ class ProductController extends Controller
         if($request->image != null){
             $images = image::where('product_id', '=', $request->id)->get();
             foreach($images as $image){
-                Storage::delete(url("storage/$image->url"));
+                Storage::disk('public')->delete($image->url);
                 $image->delete();
             }
 

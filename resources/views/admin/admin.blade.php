@@ -22,6 +22,11 @@
                         <button type="button" class="regist" onclick="location.href='/admin/event'">등록/수정</button>
                         </form>
                     </div>
+                    <ul id="sort">
+                        <li><a href="/admin">등록순</a></li>
+                        <li><a href="/admin/asc">기간빠른순</a></li>
+                        <li><a href="/admin/desc">기간느린순</a></li>
+                    </ul>
                 </nav>
                 </nav>
                 <ul class="pageadmin">

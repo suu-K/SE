@@ -156,6 +156,14 @@ header {
   margin-left: 485px;
 }
 
+#sort {
+  display: flex;
+width: 200px;
+font-size: 13px;
+justify-content: space-between;
+text-decoration: underline;
+margin-left: 690px;
+}
 .ctr .pageadmin {
   width: 895px;
   height: 350px;
