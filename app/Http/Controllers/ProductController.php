@@ -79,7 +79,7 @@ class ProductController extends Controller
     }
 
     public function delete(Request $request){
-        $product = Product::find($request->id);
+        $product = Product::withTrashed()->find($request->id);
         $images = image::where('product_id', '=', $request->id)->get();
         foreach($images as $image){
             Storage::disk('public')->delete($image->url);
