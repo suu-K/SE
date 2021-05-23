@@ -41,21 +41,21 @@ class IndexController extends Controller
         if($request->filled('order')){
             switch($request->order){
                 case 'asc':
-                    $products = product::where($condition)->orderBy('price', 'asc')->paginate(20);
+                    $products = product::withTrashed()->where($condition)->orderBy('price', 'asc')->paginate(20);
                     break;
                 case 'desc':
-                    $products = product::where($condition)->orderBy('price', 'desc')->paginate(20);
+                    $products = product::withTrashed()->where($condition)->orderBy('price', 'desc')->paginate(20);
                     break;
                 case 'nameOrder':
-                    $products = product::where($condition)->orderBy('name', 'asc')->paginate(20);
+                    $products = product::withTrashed()->where($condition)->orderBy('name', 'asc')->paginate(20);
                     break;
                 default:
-                    $products = Product::where($condition)->paginate(20);
+                    $products = Product::withTrashed()->where($condition)->paginate(20);
                     break;
             }
         }
         else{
-            $products = Product::where($condition)->paginate(15);
+            $products = Product::withTrashed()->where($condition)->paginate(15);
         }
 
         return view('user.products', ['products' => $products, 'category' => $category]);

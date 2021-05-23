@@ -46,7 +46,11 @@
             <div>상품 준비중입니다</div>
             @endempty
             @foreach($products as $product)
+            @if($product->deleted_at == null)
             <a href="/product/detail/{{ $product->id }}"><div><div class="item_div"><img src="{{ url("storage/$product->image") }}"></div><div class="text_div">{{ $product->name }}</div></div></a>
+            @else
+            <a href="/product/detail/{{ $product->id }}"><div><div class="item_div"><img src="{{ url("storage/$product->image") }}"></div><div class="text_div">{{ $product->name }} - 삭제됨</div></div></a>
+            @endif
             @endforeach
         </div>
         {{ $products->withQueryString()->links() }}

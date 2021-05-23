@@ -19,7 +19,6 @@ class AdminController extends Controller
         $condition = array();
         if($request->filled('sdate')) { $condition[] = ['sdate', '>=', $request->sdate]; session(['sdate' => $request->sdate]); }
         if($request->filled('ldate')) { $condition[] = ['ldate', '<=', $request->ldate]; session(['ldate' => $request->ldate]); }
-        $order = request('order', 'none');
         switch($sort){
             case 'asc':
                 $events = event::withTrashed()->where($condition)->orderBy('sdate', 'asc')->paginate(10);
