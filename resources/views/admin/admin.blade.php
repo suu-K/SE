@@ -19,12 +19,12 @@
                         <form method="GET">
                         <input type=date name="sdate" value="{{ session()->pull('sdate') }}"> ~ <input type=date name="ldate" value="{{ session()->pull('ldate') }}">
                         <button formaction="/admin">검색</button>
-                        <button type="button" class="regist" onclick="location.href='/admin/event'">등록/수정</button>
                         <select name="order">
                             <option value="none">=== 정렬 ===</option>
                             <option value="asc" @if(session()->get('order') == 'asc') selected @endif>낮은가격순</option>
                             <option value="desc" @if(session()->get('order') == 'desc') selected @endif>높은가격순</option>
                         </select>
+                        <button type="button" class="regist" onclick="location.href='/admin/event'">등록/수정</button>
                         </form>
                     </div>
                 </nav>
