@@ -125,9 +125,7 @@
             </div>
         </div>
         <div class="info">
-            <div class="information">
-            {{$product->caption}}
-            </div>
+            <div class="information">{{$product->caption}}</div>
         </div>
     </div>
 @endsection
