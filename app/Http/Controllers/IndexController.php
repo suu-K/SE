@@ -49,6 +49,9 @@ class IndexController extends Controller
                 case 'nameOrder':
                     $products = product::withTrashed()->where($condition)->orderBy('name', 'asc')->paginate(8);
                     break;
+                case 'new':
+                    $products = product::withTrashed()->where($condition)->orderBy('created_at', 'desc')->paginate(8);
+                    break;
                 default:
                     $products = Product::withTrashed()->where($condition)->paginate(8);
                     break;
