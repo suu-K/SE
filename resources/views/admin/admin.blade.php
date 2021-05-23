@@ -50,8 +50,9 @@
                         </form>
                     </li>
                     @endforeach
+                    <nav class="paging">{{ $events->withQueryString()->links() }}</nav>
                 </ul>
-                <nav class="paging">{{ $events->withQueryString()->links() }}</nav>
+
             </div>
 
 
