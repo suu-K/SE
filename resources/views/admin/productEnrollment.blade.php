@@ -21,8 +21,8 @@
                         <div class="name">
                             <div id="a">카테고리</div>
                             <div id="b">
-                                <select name="category">
-                                    <option selected="selected">선택</option>
+                                <select name="category" required>
+                                    <option selected="selected" value="" disabled>선택</option>
                                     <option value="PlayStation5">PlayStation5</option>
                                     <option value="PlayStation4">PlayStation4</option>
                                     <option value="PlayStationVR">PlayStationVR</option>

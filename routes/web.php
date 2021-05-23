@@ -31,7 +31,8 @@ Route::get('/', 'IndexController@index');
 Route::get('/index', 'IndexController@index');
 Route::get('/product/detail/{id}', 'IndexController@productDetail');
 Route::get('/products', 'IndexController@products');
-Route::get('/products/{category}', 'IndexController@products');
+Route::post('/products', 'IndexController@products');
+Route::post('/products/{category}', 'IndexController@products');
 Route::get('/productsFillter/{fillter}', 'IndexController@products');
 
 #장바구니 라우팅

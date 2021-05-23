@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <form class="stfSearch" method="GET">
+    <form class="stfSearch" method="POST">
         <p6 style="font-size: 25px;">SEARCH for PRODUCT</p6>
         <div>
             <span>가격대<input type="text" name="min" autocomplete="off" value="{{ session()->get('min') }}" >~<input type="text" name="max" value="{{ session()->get('max') }}"></span>
@@ -46,10 +46,14 @@
             <div>상품 준비중입니다</div>
             @endempty
             @foreach($products as $product)
-            @if($product->deleted_at == null)
-            <a href="/product/detail/{{ $product->id }}"><div><div class="item_div"><img src="{{ url("storage/$product->image") }}"></div><div class="text_div">{{ $product->name }}</div></div></a>
-            @else
-            <a href="/product/detail/{{ $product->id }}"><div><div class="item_div"><img src="{{ url("storage/$product->image") }}"></div><div class="text_div">{{ $product->name }} - 삭제됨</div></div></a>
+            @if(Auth::id()<3)
+                @if($product->deleted_at == null)
+                <a href="/product/detail/{{ $product->id }}"><div><div class="item_div"><img src="{{ url("storage/$product->image") }}"></div><div class="text_div">{{ $product->name }}</div></div></a>
+                @else
+                <a href="/product/detail/{{ $product->id }}"><div><div class="item_div"><img src="{{ url("storage/$product->image") }}"></div><div class="text_div">{{ $product->name }} - 삭제됨</div></div></a>
+                @endif
+            @elseif($product->deleted_at == null)
+                <a href="/product/detail/{{ $product->id }}"><div><div class="item_div"><img src="{{ url("storage/$product->image") }}"></div><div class="text_div">{{ $product->name }}</div></div></a>
             @endif
             @endforeach
         </div>
