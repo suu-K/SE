@@ -17,8 +17,13 @@ class AdminController extends Controller
 
     public function admin(Request $request, $sort=null){
         $condition = array();
-        if($request->filled('sdate')) { $condition[] = ['sdate', '>=', $request->sdate]; session(['sdate' => $request->sdate]); }
-        if($request->filled('ldate')) { $condition[] = ['ldate', '<=', $request->ldate]; session(['ldate' => $request->ldate]); }
+        if($s = $request->filled('sdate')) { $condition[] = ['ldate', '>', $request->sdate]; session(['sdate' => $request->sdate]); };
+        if($l = $request->filled('ldate')) { $condition[]= ['sdate', '<', $request->ldate]; session(['ldate' => $request->ldate]); };
+        if($s && $l) {
+
+
+        }
+
         if($request->filled('order')){
             switch($request->order){
                 case 'asc':
