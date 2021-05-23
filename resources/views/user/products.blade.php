@@ -21,7 +21,7 @@
                 <option value="닌텐도3DS" @if(session()->get('category') == '닌텐도3DS') selected @endif>닌텐도3DS</option>
             </select>
             <select name="order">
-                <option value="none">=== 정렬 ===</option>
+                <option value="none">최신순</option>
                 <option value="asc" @if(session()->get('order') == 'asc') selected @endif>낮은가격순</option>
                 <option value="desc" @if(session()->get('order') == 'desc') selected @endif>높은가격순</option>
                 <option value="nameOrder" @if(session()->pull('order') == 'nameOrder') selected @endif>이름순</option>
