@@ -8,8 +8,8 @@
     <form class="stfSearch" method="GET">
         <p6 style="font-size: 25px;">SEARCH for PRODUCT</p6>
         <div>
-            <span>가격대<input type="text" name="min" value="{{ session()->get('min') }}">~<input type="text" name="max" value="{{ session()->get('max') }}"></span>
-            제품명<input type="text" name="name" value={{ session()->get('name') }}>
+            <span>가격대<input type="text" name="min" value="{{ session()->get('min') }}" autocomplete="off">~<input type="text" name="max" value="{{ session()->get('max') }}" autocomplete="off"></span>
+            제품명<input type="text" name="name" value={{ session()->get('name') }} autocomplete="off">
             <select name="category" size="1" style="margin-left: 50px;">
                 <option selected="selected">===선택===</option>
                 <option value="PlayStation5" @if(session()->get('category') == 'PlayStation5') selected @endif>PlayStation5</option>
@@ -36,9 +36,9 @@
             @endif
             에 대한 검색결과
             <ul>
-                <li><a href="{{ url()->full() }}&order=asc">낮은 가격순</a></li>
-                <li><a href="{{ url()->full() }}&order=desc">높은 가격순</a></li>
-                <li><a href="{{ url()->full() }}&order=nameOrder">이름순</a></li>
+                <li><a href="/{{ url()->full() }}&order=asc">낮은 가격순</a></li>
+                <li><a href="/{{ url()->full() }}&order=desc">높은 가격순</a></li>
+                <li><a href="/{{ url()->full() }}&order=nameOrder">이름순</a></li>
             </ul>
         </div>
         <div class="items">
