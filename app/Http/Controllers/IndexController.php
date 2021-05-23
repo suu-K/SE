@@ -24,9 +24,16 @@ class IndexController extends Controller
     public function productDetail($id){
         $product = product::find($id);
         $images = image::where('product_id', '=', $id)->get();
-        $addresses = address::where('user_id', '=', Auth::id())->get();
+        $address = address::where('user_id', '=', Auth::id());
+        if($address->where('def', '=', 1)->count() > 0){
+            $default = $address->where('def', '=', 1)->first();
+            $addresses = address::where('user_id', '=', Auth::id())->get();
+        }else{
+            $default = null;
+            $addresses = address::where('user_id', '=', Auth::id())->take(3)->get();
+        }
 
-        return view('user.productDetail', ['product' => $product, 'images' => $images, 'addresses' => $addresses]);
+        return view('user.productDetail', ['product' => $product, 'images' => $images, 'addresses' => $addresses, 'default' => $default]);
     }
 
     public function products(Request $request, $category=null){

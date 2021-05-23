@@ -23,6 +23,16 @@ class AddressController extends Controller
         $address->detailAddress = $request->detailAddress;
         $address->extraAddress = $request->extraAddress;
         $address->phone = $request->phone;
+        if($request->default == 'true'){
+            $oldAddress = address::where([['user_id', '=', Auth::id()], ['def', '=', 1]])->first();
+            if($oldAddress != null){
+                $oldAddress->def = 0;
+                $oldAddress->save();
+            }
+            $address->def = 1;
+        }else{
+            $address->def = 0;
+        }
 
         $address->save();
 
@@ -38,6 +48,16 @@ class AddressController extends Controller
         $address->detailAddress = $request->detailAddress;
         $address->extraAddress = $request->extraAddress;
         $address->phone = $request->phone;
+        if($request->default == 'true'){
+            $oldAddress = address::where([['user_id', '=', Auth::id()], ['def', '=', 1]])->first();
+            if($oldAddress != null){
+                $oldAddress->def = 0;
+                $oldAddress->save();
+            }
+            $address->def = 1;
+        }else{
+            $address->def = 0;
+        }
         $address->save();
 
         return redirect('/address');

@@ -50,12 +50,17 @@
                     <div id="addressTab">
                         <div>
                             <ul id="selectAdd">
+                                @if($default == null)
                                 @foreach($addresses as $address)
                                 <li><label><input type="radio" name="addlist" id="addinfo" @if($loop->iteration == 1) checked @endif>{{ $address->destination }}</label></li>
                                 @endforeach
+                                @else
+                                <li><label><input type="radio" name="addlist" id="addinfo" checked>기본 배송지</label></li>
+                                @endif
                                 <li><label><input type="radio" name="addlist" id="new" @if($addresses->count() == 0) checked @endif>새로운 배송지</label></li>
                             </ul>
                             <div class="tog" style="width:500px;">
+                                @if($default == null)
                                 @foreach($addresses as $address)
                                 <ul class="@if($loop->iteration == 1) active @endif test" id="addinfo{{ $loop->iteration }}">
                                     <li>
@@ -72,6 +77,22 @@
                                     </li>
                                 </ul>
                                 @endforeach
+                                @else
+                                <ul class="active test" id="addinfo1">
+                                    <li>
+                                        <div class="infoName">배송지</div>
+                                        <div class="inform">{{ $default->destination }}</div>
+                                    </li>
+                                    <li>
+                                        <div class="infoName">주소</div>
+                                        <div class="inform">{{ $default->postcond }} {{ $default->address }} {{ $default->detailAddress }} {{ $default->extraAddress }}</div>
+                                    </li>
+                                    <li>
+                                        <div class="infoName">연락처</div>
+                                        <div class="inform">{{ $default->phone }}</div>
+                                    </li>
+                                </ul>
+                                @endif
 
                                 <ul class="@if($addresses->count() == 0) active @endif test" id="newinfo">
                                     <li id="desli">배송지<input type="text" id="destination" name="destination" autocomplete="off"></li>
@@ -91,7 +112,7 @@
                                 </ul>
 
                             </div>
-                            <button type="button" onclick="showPopup()">배송지 관리</button>
+                            <button type="button" onclick="showPopup()">배송지 선택</button>
                         </div>
                     </div>
                     @csrf

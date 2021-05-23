@@ -32,6 +32,13 @@
                 </ul>
             </div>
             <div>연락처  <input type="text" pattern="[0-9]{11,11}$" name="phone" id="phoneNo" placeholder="전화번호" onfocus="this.placeholder=''" onblur="this.placeholder='전화번호'" title="-없이 숫자 11자리를 입력하세요." required></div>
+            <div>
+                기본배송지 설정
+                <ul id="selectAdd">
+                    <li><label><input type="radio" name="default" value="true" id="first">Yes</label></li>
+                    <li><label><input type="radio" name="default" value="false" id="second" checked>No</label></li>
+                </ul>
+            </div>
             <div class="submitbtn"><button type="submit" class="subbtn" name="subbtn" formaction="/address/insert">등록</button></div>
         </div>
     </form>
@@ -64,7 +71,8 @@
                     </ul>
                 </div>
             </form>
-            <form class="modify">
+            <form class="modify" method="POST">
+                @csrf
                 <div class="moddiv">
                     <div>수정하기 x</div>
                     <div id="des">배송지<input type="text" class="destination" name="destination" value="{{ $address->destination }}" autocomplete="off" required></div>
@@ -81,7 +89,14 @@
                         </ul>
                     </div>
                     <div id="tell">연락처  <input type="text" pattern="[0-9]{11,11}$" name="phone" id="phoneNo" value="{{ $address->phone }}" placeholder="전화번호" onfocus="this.placeholder=''" onblur="this.placeholder='전화번호'" title="-없이 숫자 11자리를 입력하세요." required></div>
-                        <input type="hidden" name="id" value="{{ $address->id }}">
+                    <div>
+                        기본배송지 설정
+                        <ul id="selectAdd">
+                            <li><label><input type="radio" name="default" value="true" id="first" @if($address->def == true) checked @endif>Yes</label></li>
+                            <li><label><input type="radio" name="default" value="false" id="second" @if($address->def == false) checked @endif>No</label></li>
+                        </ul>
+                    </div>
+                    <input type="hidden" name="id" value="{{ $address->id }}">
                     <div class="submitbtn"><button type="submit" class="subbtn" formaction="/address/update" name="subbtn">확인</button></div>
                 </div>
             </form>
