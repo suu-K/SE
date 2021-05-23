@@ -33,6 +33,9 @@ class AdminController extends Controller
             }
             session(['order' => $request->order]);
         }
+        else{
+            $events = event::withTrashed()->where($condition)->paginate(10);
+        }
         return view('admin.admin', ['events' => $events]);
     }
 
