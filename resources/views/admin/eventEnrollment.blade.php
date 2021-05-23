@@ -35,7 +35,7 @@
                             <input type=file name="image" accept="image/*" class="product{{ $loop->iteration }}" id="imageUpload"/>
                             <input type="text" name="title" class="product{{ $loop->iteration }}" id="eventName" value="{{ $event->title }}"/>
                             <input type="text" name="body" class="product{{ $loop->iteration }}" id="inform" value="{{ $event->body }}"/>
-                            <input type="date" name="sdate" value="{{ $event->sdate }}" class="product{{ $loop->iteration }}" id="start"/> ~ <input type="date" name="ldate" value="{{ $event->ldate }}" class="product{{ $loop->iteration }}" id="end"/>
+                            <input type="date" name="sdate" value="{{ date("Y-m-d", strtotime($event->sdate)) }}" class="product{{ $loop->iteration }}" id="start"/> ~ <input type="date" name="ldate" value="{{ date("Y-m-d", strtotime($event->ldate)) }}" class="product{{ $loop->iteration }}" id="end"/>
                             <button type="submit" class="mod" formaction="/event/update">수정</button>
                         </form>
                     </li>
