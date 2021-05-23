@@ -6,6 +6,7 @@
 
 @section('content')
     <form class="stfSearch" method="POST">
+        @csrf
         <p6 style="font-size: 25px;">SEARCH for PRODUCT</p6>
         <div>
             <span>가격대<input type="text" name="min" autocomplete="off" value="{{ session()->get('min') }}" >~<input type="text" name="max" value="{{ session()->get('max') }}"></span>
