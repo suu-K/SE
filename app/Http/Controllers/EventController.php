@@ -53,9 +53,10 @@ class EventController extends Controller
     }
 
     public function delete(Request $request){
-        $event = event::withTrashed()->find($request->id)->forceDelete();
+        $event = event::withTrashed()->find($request->id);
 
         Storage::disk('public')->delete($event->image);
+        $event->forceDelete();
 
         return redirect(url()->previous());
     }
