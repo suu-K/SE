@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <form class="stfSearch" method="POST">
+    <form class="stfSearch" method="GET">
         @csrf
         <p6 style="font-size: 25px;">SEARCH for PRODUCT</p6>
         <div>
