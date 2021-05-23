@@ -53,6 +53,7 @@ class IndexController extends Controller
                     $products = Product::withTrashed()->where($condition)->paginate(8);
                     break;
             }
+            session(['order'=> $request->order]);
         }
         else{
             $products = Product::withTrashed()->where($condition)->paginate(8);
