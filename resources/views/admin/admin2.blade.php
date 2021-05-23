@@ -84,7 +84,7 @@
                     @endforeach
 
                 </ul>
-                {{ $products->withQueryString()->links() }}
+                <nav class="paging">{{ $products->withQueryString()->links() }}</nav>
             </div>
         </div>
     </div>
