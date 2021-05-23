@@ -38,7 +38,6 @@
     <div class="part1">
             <button class="details1" disabled  formaction="/product/update">저장</button>
             <button type="button" id="modify1">수정</button>
-            <button type="submit" value="삭제" formaction="/product/delete">삭제</button>
             <input type="hidden" name="id" value="{{ $product->id }}">
     </div>
 
