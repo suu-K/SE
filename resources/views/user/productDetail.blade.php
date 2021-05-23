@@ -91,7 +91,7 @@
                                 </ul>
 
                             </div>
-                            <button type="button" onclick="showPopup()">배송지 등록/수정</button>
+                            <button type="button" onclick="showPopup()">배송지 관리</button>
                         </div>
                     </div>
                     @csrf

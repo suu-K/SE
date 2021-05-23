@@ -19,6 +19,12 @@
                 <option value="닌텐도Switch" @if(session()->get('category') == '닌텐도Switch') selected @endif>닌텐도Switch</option>
                 <option value="닌텐도3DS" @if(session()->get('category') == '닌텐도3DS') selected @endif>닌텐도3DS</option>
             </select>
+            <select name="order">
+                <option value="none">=== 선택 ===</option>
+                <option value="asc" @if(session()->get('order') == 'asc') selected @endif>낮은가격순</option>
+                <option value="desc" @if(session()->get('order') == 'desc') selected @endif>높은가격순</option>
+                <option value="nameOrder" @if(session()->pull('order') == 'nameOrder') selected @endif>이름순</option>
+            </select>
             <button type="submit" formaction="/products" style="margin-left: 50px;">검색하기</button>
         </div>
     </form>
@@ -35,11 +41,6 @@
             @else
             @endif
             에 대한 검색결과
-            <ul>
-                <li><a href="{{ url()->full() }}&order=asc">낮은 가격순</a></li>
-                <li><a href="{{ url()->full() }}&order=desc">높은 가격순</a></li>
-                <li><a href="{{ url()->full() }}&order=nameOrder">이름순</a></li>
-            </ul>
         </div>
         <div class="items">
             @empty($products)
