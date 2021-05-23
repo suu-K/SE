@@ -51,7 +51,7 @@
                         <div>
                             <ul id="selectAdd">
                                 @foreach($addresses as $address)
-                                <li><label><input type="radio" name="addlist" id="addinfo" @if($loop->iteration == 1) checked @endif>{{ $address->name }}</label></li>
+                                <li><label><input type="radio" name="addlist" id="addinfo" @if($loop->iteration == 1) checked @endif>{{ $address->destination }}</label></li>
                                 @endforeach
                                 <li><label><input type="radio" name="addlist" id="new" @if($addresses->count() == 0) checked @endif>새로운 배송지</label></li>
                             </ul>
