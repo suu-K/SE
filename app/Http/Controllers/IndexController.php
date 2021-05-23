@@ -15,7 +15,7 @@ use App\Models\address;
 class IndexController extends Controller
 {
     public function index(){
-        $newProducts = product::orderBy('created_at', 'desc')->paginate(8);
+        $newProducts = product::orderBy('created_at', 'desc')->paginate(4);
         $bestProducts = product::all()->take(8);
         $events = event::where([['sdate', '<=', date('Y-m-d 23:59:59')], ['ldate', '>=', date('Y-m-d 00:00:00')]])->orderBy('sdate', 'asc')->get();
         return view('user.index', ['newProducts' => $newProducts, 'bestProducts' => $bestProducts, 'events' => $events]);
