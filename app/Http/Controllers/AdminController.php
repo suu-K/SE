@@ -19,16 +19,19 @@ class AdminController extends Controller
         $condition = array();
         if($request->filled('sdate')) { $condition[] = ['sdate', '>=', $request->sdate]; session(['sdate' => $request->sdate]); }
         if($request->filled('ldate')) { $condition[] = ['ldate', '<=', $request->ldate]; session(['ldate' => $request->ldate]); }
-        switch($sort){
-            case 'asc':
-                $events = event::withTrashed()->where($condition)->orderBy('sdate', 'asc')->paginate(10);
-                break;
-            case 'desc':
-                $events = event::withTrashed()->where($condition)->orderBy('sdate', 'desc')->paginate(10);
-                break;
-            default:
-                $events = event::withTrashed()->where($condition)->paginate(10);
-                break;
+        if($request->filled('order')){
+            switch($request->order){
+                case 'asc':
+                    $events = event::withTrashed()->where($condition)->orderBy('sdate', 'asc')->paginate(10);
+                    break;
+                case 'desc':
+                    $events = event::withTrashed()->where($condition)->orderBy('sdate', 'desc')->paginate(10);
+                    break;
+                default:
+                    $events = event::withTrashed()->where($condition)->paginate(10);
+                    break;
+            }
+            session(['order' => $request->order]);
         }
         return view('admin.admin', ['events' => $events]);
     }
