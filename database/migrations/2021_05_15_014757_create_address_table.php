@@ -22,7 +22,7 @@ class CreateAddressTable extends Migration
             $table->string('detailAddress');
             $table->string('extraAddress');
             $table->string('phone');
-            $table->boolean('default')->nullable;
+            $table->boolean('def')->nullable;
             $table->timestamps();
         });
     }

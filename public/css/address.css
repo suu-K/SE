@@ -218,6 +218,14 @@ input[type="number"]::-webkit-inner-spin-button {
   margin: 0;
 }
 
+#selectAdd{
+    display: flex;
+    justify-content: space-evenly;
+}
+label{
+    cursor: pointer;
+}
+
 
   /*footer*/
   .others {

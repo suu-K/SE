@@ -19,7 +19,7 @@ class address extends Model
         'detailAddress',
         'extraAddress',
         'phone',
-        'default'
+        'def'
     ];
 
     public function user(){
