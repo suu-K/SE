@@ -24,7 +24,7 @@
                 <option value="none">=== 정렬 ===</option>
                 <option value="asc" @if(session()->get('order') == 'asc') selected @endif>낮은가격순</option>
                 <option value="desc" @if(session()->get('order') == 'desc') selected @endif>높은가격순</option>
-                <option value="nameOrder" @if(session()->pull('order') == 'nameOrder') selected @endif>이름순</option>
+                <option value="nameOrder" @if(session()->get('order') == 'nameOrder') selected @endif>이름순</option>
                 <option value="new" @if(session()->pull('order') == 'new') selected @endif>최신순</option>
             </select>
             <button type="submit" formaction="/products" style="margin-left: 50px;">검색하기</button>
