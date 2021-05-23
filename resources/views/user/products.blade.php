@@ -39,6 +39,7 @@
             @if(session()->has('min') && session()->has('max')) {{ session()->pull('min') }}~{{ session()->pull('max') }}
             @elseif(session()->has('min')) {{ session()->pull('min') }}~
             @elseif(session()->has('max')) ~{{ session()->pull('max') }}
+            @elseif(session()->has('order')) {{ session()->pull('order') }}
             @else
             @endif
             에 대한 검색결과
