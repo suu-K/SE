@@ -112,7 +112,7 @@
                                 </ul>
 
                             </div>
-                            <button type="button" onclick="showPopup()">배송지 선택</button>
+                            <button type="button" onclick="showPopup()" @auth @if(Auth::user()->id < 3) disabled @endif @endauth>배송지 선택/관리</button>
                         </div>
                     </div>
                     @csrf
@@ -134,7 +134,7 @@
                             <div id="buySector">
                                 <div id="cart">
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                    <button class="cart_button" formaction="/cart/add">장바구니 담기</button>
+                                    <button class="cart_button" formaction="/cart/add" @auth @if(Auth::user()->id<3) disabled  @endif @endauth>장바구니 담기</button>
                                 </div>
                                 <div id="buy">
                                     <button class="buy_button" formaction="/buy" disabled>바로 구매</button>
