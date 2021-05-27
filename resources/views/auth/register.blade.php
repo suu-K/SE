@@ -12,7 +12,7 @@
                 닉네임<br><input type="text" id="name" name="name" placeholder="닉네임" onfocus="this.placeholder=''" onblur="this.placeholder='닉네임'" required>
             </div>
             <div>
-                아이디<br><input type="email" id="email" name="email" placeholder="아이디" onfocus="this.placeholder=''" onblur="this.placeholder='아이디'" required>
+                아이디(이메일)<br><input type="email" id="email" name="email" placeholder="아이디(이메일)" onfocus="this.placeholder=''" onblur="this.placeholder='아이디'" required>
                 <button type="button" id="check" onclick="id_check()">중복확인</button>
             <img id="id_check_sucess" style="display: none;">
             </div>
@@ -44,6 +44,14 @@
 @section('footer')
     <script src="{{ asset('js/sign_up.js') }}"></script>
     <script>
+    $('#email').change(function () {
+        $('#check').removeAttr("disabled");
+        $("#sign_btn").attr("disabled", "disabled");
+        $('#id_check_sucess').hide();
+        $('#check').show();
+        $('#email').attr("check_result", "fail");
+    })
+
     function id_check() {
     $('#email').change(function () {
         $('#id_check_sucess').hide();
