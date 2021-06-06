@@ -106,16 +106,15 @@ class AdminController extends Controller
         if($request->filled('sdate')) { $condition[] = ['order_products.created_at', '>=', $request->sdate]; session(['sdate' => $request->sdate]); };
         if($request->filled('ldate')) { $condition[] = ['order_products.created_at', '<=', date("Y-m-d", strtotime($request->ldate . " +1 days"))]; session(['ldate' => $request->ldate]); };
         $orderLists = order_product::where($condition)->join('products', 'order_products.product_id', '=', 'products.id')
-                                        ->select('order_products.id', 'order_products.product_id', 'order_products.created_at', 'products.name', 'products.category', 'order_products.num', 'order_products.price', 'order_products.state', 'products.sales')->paginate(6);
+                                        ->select('order_products.id', 'order_products.product_id', 'order_products.created_at', 'products.name', 'products.category', 'order_products.num', 'order_products.price', 'order_products.state', 'products.sales')->get();
 
         $statistics = array();
         $category = array();
         $i = 0;
         foreach($orderLists as $orderList){
             foreach($statistics as $statistic){
-                if($statistic->product_id == $orderList->product_id){
-                    $statistic->sales += $orderList->num;
-                    $statistic->price += $orderList->price;
+                if(array_key_exists($orderList->name, $statistics)){
+                    $statistics[$orderList->name] = $orderList->num;
                     break;
                 }
             }
@@ -127,16 +126,17 @@ class AdminController extends Controller
                 $category[$orderList->category] = $orderList->num;
             }
 
-            $statistics[$i] = $orderList;
-            $statistics[$i]->sales = 1;
+            $statistics[$orderList->name] = $orderList->num;
             $i += 1;
         }
         arsort($category);
         $sales = order_product::where($condition)->sum('price');
         arsort($statistics);
 
+        $orderLists = order_product::where($condition)->join('products', 'order_products.product_id', '=', 'products.id')
+        ->select('order_products.id', 'order_products.product_id', 'order_products.created_at', 'products.name', 'products.category', 'order_products.num', 'order_products.price', 'order_products.state', 'products.sales')->paginate(6);;
 
-        return view('admin.admin4', ['orderLists' => $orderLists, 'sales' => $sales, 'category' => $category, 'statistics' => $statistics]);
+        return view('admin.admin4', ['orderLists' => $orderLists, 'sales' => $sales,  'category' => $category, 'statistics' => $statistics]);
     }
 
     public function admin5(Request $request){

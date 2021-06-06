@@ -42,14 +42,14 @@
                             @endforeach
                         </ul>
                         <ul id="stfRank">
-                            @foreach($statistics as $statistic)
+                            @foreach($statistics as $key => $statistic)
                             @if($loop->iteration == 4)
                             @break;
                             @endif
                             <li>
                                 <ul>
-                                    <li>{{ $statistic->name }}</li>
-                                    <li>{{ $statistic->sales }}개</li>
+                                    <li>{{ $key }}</li>
+                                    <li>{{ $statistic }}개</li>
                                 </ul>
                             </li>
                             @endforeach
