@@ -144,7 +144,7 @@ class AdminController extends Controller
         if($request->filled('sdate')) { $condition[] = ['order_products.created_at', '>=', $request->sdate]; session(['sdate' => $request->sdate]); };
         if($request->filled('ldate')) { $condition[] = ['order_products.created_at', '<=', date("Y-m-d", strtotime($request->ldate . " +1 days"))]; session(['ldate' => $request->ldate]); };
         $questions = question::where($condition)->join('order_products', 'order_products.id', '=', 'questions.order_list_id')->join('products', 'order_products.product_id', '=', 'products.id')
-                        ->select('products.name', 'questions.created_at', 'questions.title', 'questions.id')->orderBy('questions.created_at', 'desc')->paginate(7);
+                        ->select('products.name', 'questions.answer', 'questions.created_at', 'questions.title', 'questions.id')->orderBy('questions.created_at', 'desc')->paginate(7);
 
         return view('admin.admin5', ['questions' => $questions]);
     }
