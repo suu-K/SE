@@ -40,7 +40,11 @@
                                     <div id="day">{{$question->created_at}}</div>
                                     <div id="buy">{{$question->name}}</div>
                                     <div id="title">{{$question->title}}</div>
+                                    @if($question->answer == null)
                                     <div id="answer"><button onclick="window.open('/answer/{{ $question->id }}', 'a', 'width=500, height=500, left=100, top=50'); ">답변하기</button></div>
+                                    @else
+                                    <div id="answer"><button onclick="window.open('/questcontent/{{ $question->id }}', 'a', 'width=500, height=500, left=100, top=50'); ">답변완료</button></div>
+                                    @endif
                                 </form>
                             </li>
                         @endforeach
