@@ -148,7 +148,7 @@ class IndexController extends Controller
     }
 
     public function questionlist(){
-        $questions = question::where('user_id', '=', Auth::id())->paginate(10);
+        $questions = question::where('user_id', '=', Auth::id())->orderBy('created_at', 'desc')->paginate(10);
         return view('user.questlist', ['questions' => $questions]);
     }
 
