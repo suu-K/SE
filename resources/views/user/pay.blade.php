@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('header');
+@section('header')
     <link href="{{ asset('css/pay.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 

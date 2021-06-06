@@ -63,15 +63,12 @@
 
         <div class="category">
             <ul>
-                <a href="/productsFillter/latest"><li>최신상품</li></a>
                 <a href="/products/PlayStation5"><li>PlayStation5</li></a>
                 <a href="/products/PlayStation4"><li>PlayStation4</li></a>
                 <a href="/products/PlayStationVR"><li>PlayStationVR</li></a>
                 <a href="/products/PlayStation3"><li>PlayStation3</li></a>
                 <a href="/products/닌텐도Switch"><li>닌텐도Switch</li></a>
                 <a href="/products/닌텐도3DS"><li>닌텐도3DS</li></a>
-                <a href="/productsFillter/sale"><li>할인상품</li></a>
-                <a href="9"><li>기타상품</li></a>
             </ul>
         </div>
     </header>

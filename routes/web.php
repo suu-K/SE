@@ -50,6 +50,7 @@ Route::post('/products/{category}', 'IndexController@products');
 Route::get('/productsFillter/{fillter}', 'IndexController@products');
 Route::get('/eventSebu/{id}', 'IndexController@eventSebu');
 Route::get('/payment', 'IndexController@payment');
+Route::post('/payment2', 'IndexController@payment2');
 Route::get('/coupon', 'IndexController@coupon');
 Route::post('/pay', 'OrderListController@insert');
 Route::get('/orderList', 'IndexController@orderList');

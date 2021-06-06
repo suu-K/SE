@@ -118,6 +118,21 @@ class IndexController extends Controller
         return view('user.pay', ['carts' => $carts, 'addresses' => $addresses, 'default' => $default]);
     }
 
+    public function payment2(Request $request){
+        $carts = product::find($request->product_id);
+
+        $address = address::where('user_id', '=', Auth::id());
+        if($address->where('def', '=', 1)->count() > 0){
+            $default = $address->where('def', '=', 1)->first();
+            $addresses = address::where('user_id', '=', Auth::id())->get();
+        }else{
+            $default = null;
+            $addresses = address::where('user_id', '=', Auth::id())->take(3)->get();
+        }
+
+        return view('user.pay', ['carts' => $carts, 'addresses' => $addresses, 'default' => $default]);
+    }
+
 
     public function orderList(Request $request){
         $orderLists = order_product::where('user_id', '=', Auth::id())->join('products', 'order_products.product_id', '=', 'products.id')

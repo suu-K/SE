@@ -136,7 +136,7 @@
                                     <button class="cart_button" formaction="/cart/add" @auth @if(Auth::user()->id<3) disabled  @endif @endauth>장바구니 담기</button>
                                 </div>
                                 <div id="buy">
-                                    <button class="buy_button" formaction="/buy" disabled>바로 구매</button>
+                                    <button class="buy_button" formaction="/pay" @auth @if(Auth::user()->id<3) disabled  @endif @endauth>바로 구매</button>
                                 </div>
                             </div>
                         </div>
