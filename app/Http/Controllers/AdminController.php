@@ -133,10 +133,10 @@ class AdminController extends Controller
         }
         arsort($category);
         $sales = order_product::where($condition)->sum('price');
-        $best = arsort($statistics);
+        arsort($statistics);
 
 
-        return view('admin.admin4', ['orderLists' => $orderLists, 'sales' => $sales, 'best' => $best, 'category' => $category, 'statistics' => $statistics]);
+        return view('admin.admin4', ['orderLists' => $orderLists, 'sales' => $sales, 'category' => $category, 'statistics' => $statistics]);
     }
 
     public function admin5(Request $request){
