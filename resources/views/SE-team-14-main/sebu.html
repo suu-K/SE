@@ -1,0 +1,304 @@
+<head>
+    <link href="sebu.css" rel="stylesheet" type="text/css" />
+    
+    <title>TEAM NO.14의 게임 쇼핑몰</title>
+    <meta name="description" content="TEAM NO.14의 게임 쇼핑몰" />
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a5f3739fb3.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="https://d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</head>
+<body>
+    
+    <header>
+        <ul class="top">
+            <li><a href="Log_in.html">로그인</a></li>
+            <li><a href="sign_up.html">회원가입</a></li>
+            <li><a href="identification.html">마이페이지</a></li>
+            <li><a href="cart.html">장바구니</a></li>
+        </ul>
+    
+        <div class="logo_search">
+            <div class="logo">
+                <a href="index.html"><i class="fas fa-dice-d6 fa-2x"></i></a>
+            </div>
+            
+            <form action="#" accept-charset="utf-8" id="search" name="search" method="post">
+                <input type="text" name="need_search">
+                
+                <button type="submit" form="search"><i class="fas fa-search fa-2x"></i></button>
+            </form>
+    
+        </div>
+    
+        <div class="category">
+            <ul>
+                <a href="products.html"><li>예약상품</li></a>
+                <a href="products.html"><li>PlayStation5</li></a>
+                <a href="products.html"><li>PlayStation4</li></a>
+                <a href="products.html"><li>PlayStationVR</li></a>
+                <a href="products.html"><li>PlayStation3</li></a>
+                <a href="products.html"><li>닌텐도Switch</li></a>
+                <a href="products.html"><li>닌텐도3DS</li></a>
+                <a href="products.html"><li>할인상품</li></a>
+                <a href="products.html"><li>기타상품</li></a>
+            </ul>
+        </div>
+    </header>
+    <div>
+        <div class="prod">
+            <div class="product">
+                <div id="cate">
+                    category
+                </div>
+                <div id="wrapper">
+                    <div id="slider-wrap">
+                        <ul id="slider">
+                            <li>
+                                <div>
+                                    <h3>Slide #1</h3>
+                                    <span>Sub-title #1</span>
+                                </div>                
+                                <img src="image\event\images.jpg">
+                            </li>
+                           
+                            <li>
+                                <div>
+                                    <h3>Slide #2</h3>
+                                    <span>Sub-title #2</span>
+                                </div>
+                                <img src="https://fakeimg.pl/350x200/D27328/000?text=22222">
+                            </li>
+                           
+                            <li>
+                                <div>
+                                    <h3>Slide #3</h3>
+                                    <span>Sub-title #3</span>
+                                </div>
+                                <img src="https://fakeimg.pl/350x200/FF607F/000?text=33333">
+                            </li>
+                           
+                            <li>
+                                <div>
+                                    <h3>Slide #4</h3>
+                                    <span>Sub-title #4</span>
+                                </div>
+                                <img src="https://fakeimg.pl/350x200/0A6E0A/000?text=44444">
+                            </li>
+                           
+                            <li>
+                                <div>
+                                    <h3>Slide #5</h3>
+                                    <span>Sub-title #5</span>
+                                </div>
+                                <img src="https://fakeimg.pl/350x200/0064CD/000?text=55555">
+                            </li>
+                           
+                           
+                        </ul>
+                        
+                        <div class="btns" id="next"><i class="fa fa-arrow-right"></i></div>
+                        <div class="btns" id="previous"><i class="fa fa-arrow-left"></i></div>
+                        
+                        <!--counter는 오른쪽 위에 1/5요거-->
+                        <div id="counter"></div>
+                        <!--pagination-wrap은 하얀색 점들.-->
+                        <div id="pagination-wrap">
+                          <ul>
+                          </ul>
+                        </div>
+                               
+                    </div>
+                
+                 </div>
+            </div>
+            
+            <div class="product">
+                <div id="name">
+                    name
+                </div>
+                
+                <div class="price">
+                    상품 가격
+                    <div id="price">
+                        price
+                    </div>
+                </div>
+                <div class="price">
+                    배송비
+                    <div id="delivery">
+                        delivery
+                    </div>
+                </div>
+                
+                <form method="POST">
+                    @csrf
+                    <div id="addressTab">
+                        <div>
+                            <ul id="selectAdd">
+                                <li><label><input type="radio" name="addlist" id="first" checked>이름</label></li>
+                                <li><label><input type="radio" name="addlist" id="second">이름</label></li>
+                                <li><label><input type="radio" name="addlist" id="new">새로운 배송지</label></li>
+                            </ul>
+                            <div class="tog" style="width:500px;">
+                                <ul class="active test" id="addinfo1">
+                                    <li>
+                                        <div class="infoName">배송지</div>
+                                        <div class="inform">집</div>
+                                    </li>
+                                    <li>
+                                        <div class="infoName">주소</div>
+                                        <div class="inform">서울특별시 도봉구 우이천로 394 (쌍문동) 경기도 장학관 율곡 453호</div>
+                                    </li>
+                                    <li>
+                                        <div class="infoName">연락처</div>
+                                        <div class="inform">010-4165-9853</div>
+                                    </li>
+                                </ul>    
+                                
+                                <ul class="test" id="addinfo2">
+                                    <li>
+                                        <div class="infoName">배송지</div>
+                                        <div class="inform">집1</div>
+                                    </li>
+                                    <li>
+                                        <div class="infoName">주소</div>
+                                        <div class="inform">서울특별시1 도봉구 우이천로 394 (쌍문동) 경기도 장학관 율곡 453호</div>
+                                    </li>
+                                    <li>
+                                        <div class="infoName">연락처</div>
+                                        <div class="inform">010-4165-9853f</div>
+                                    </li>
+                                </ul>
+                               
+                                <ul class="test" id="newinfo">
+                                    <li id="desli">배송지<input type="text" id="destination" name="destination" autocomplete="off"></li>
+                                    <li>
+                                        <input type="text" id="postcode" name="postcode" placeholder="우편번호" autocomplete="off">
+                                        
+                                    <button class="address_button" type="button" onclick="execDaumPostcode()">주소 찾기</button>
+                                    </li>
+                                    <li><input type="text" id="address" name="address" placeholder="주소" autocomplete="off"><br></li>
+                                    <li>
+                                        <input type="text" id="detailAddress" name="detailAddress" placeholder="상세주소" autocomplete="off">
+                                        <input type="text" id="extraAddress" name="extraAddress" placeholder="참고항목" autocomplete="off">
+                                    </li>
+                                    <li>
+                                        <div>연락처 <input type="text" pattern="[0-9]{11,11}$" name="phoneNo" id="phoneNo" placeholder="전화번호" onfocus="this.placeholder=''" onblur="this.placeholder='전화번호'" title="-없이 숫자 11자리를 입력하세요."></div>
+                                    </li>
+                                </ul>
+                                
+                            </div>
+                            <button type="button" onclick="showPopup()">배송지 등록/수정</button>
+                        </div>
+                    </div>
+                    <div id="keep">
+                        <div class="sub">
+                                <div style="display: flex; margin-bottom: 10px;">
+                                    <input name="amount" id="num" type="text" value="1" readonly="readonly" style="text-align:center;" min="1"/>
+                                    <ul>
+                                        <li>
+                                            <button class="num_button" type="button" onclick="fnCalCount('p',this);">+</button>
+                                        </li>
+                                        <li>
+                                            <button class="num_button" type="button" onclick="fnCalCount('m', this);">-</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                        </div>
+                        <div class="sub">
+                            <div id="buySector">
+                                <div id="cart">
+                                    <button type="submit" class="cart_button" formaction="/cart/buy">장바구니 담기</button>
+                                </div>
+                                <div id="buy">
+                                    <button type="submit" class="buy_button"  formaction="/address/buy">바로 구매</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="info">
+            <div class="information">
+                <pre>
+                    information fdfㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ으ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+                    sdfsf
+                    sdfsdsdgsdgsdg
+                    sfd
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <!--여기서부터 상품평-->
+    <div class="r">
+        <div class="review">
+            <div class="averscore">
+                <h2>상품평</h2>
+                <div id="averscore">평균점수<nav> / {{$comment->average}}</nav></div>
+            </div>
+        @foreach($comments as $comment )
+            <div class="reviewlist">
+                <div class="recommend">
+                    {{$comment->recommend}}
+                </div>
+                <div class="speed">
+                    {{$comment->speed}}
+                </div>
+                <div class="score">
+                    개별점수<nav> / {{$comment->rating}}</nav>
+                </div>
+                <div class="rev">
+                    {{$comment->evaluation}}
+                </div>
+                <div class="person">
+                    <div id="name">
+                        {{$comment->user_id}}
+                    </div>
+                    <div id="day">
+                        {{$comment->created_at}}
+                    </div>
+                </div>
+            </div>
+        @endforeach
+            
+           
+
+            <nav class="paging">1, 2, 3, 4, 5 페이지 넣어주세요</nav>
+        </div>
+    </div>
+
+    <footer class="others">
+        <ul>
+            <li>1111</li>
+            <li>2222</li>
+            <li>3333</li>
+            <li>4444</li>
+        </ul>
+        <ul>
+            <li>111</li>
+            <li>222</li>
+            <li>333</li>
+            <li>444</li>
+        </ul>
+        <ul>
+            <li>11</li>
+            <li>22</li>
+            <li>33</li>
+            <li>44</li>
+        </ul>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </footer>
+</body>
+<script src="sebu.js"></script>
+</html>

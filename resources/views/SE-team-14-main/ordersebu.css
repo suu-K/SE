@@ -1,0 +1,37 @@
+
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+  }
+  html {
+    background-color: snow;
+  }
+  
+
+  /*바디 시작*/
+#a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+.cover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.what{
+    background-color: dimgrey;
+    text-align: center;
+    font-size: 20px;
+    width:120px;
+}
+.explane{
+    text-align: center;
+    font-size: 20px;
+    width:120px;
+}

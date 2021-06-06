@@ -115,7 +115,6 @@
                             <button type="button" onclick="showPopup()" @auth @if(Auth::user()->id < 3) disabled @endif @endauth>배송지 선택/관리</button>
                         </div>
                     </div>
-                    @csrf
                     <div id="keep">
                         <div class="sub">
                                 <div style="display: flex; margin-bottom: 10px;">
@@ -147,6 +146,46 @@
         </div>
         <div class="info">
             <div class="information">{{$product->caption}}</div>
+        </div>
+    </div>
+
+
+    <div class="r">
+        <div class="review">
+            <div class="averscore">
+                <h2>상품평</h2>
+                </div>
+                @if($average == null)
+                <div>아직 등록된 상품평이 없습니다</div>
+                @else
+                <div id="averscore">평균점수 <nav> {{ $average }} / 5.0</nav></div>
+            </div>
+        @foreach($comments as $comment )
+            <div class="reviewlist">
+                <div class="recommend">
+                    {{$comment->recommend}}
+                </div>
+                <div class="speed">
+                    {{$comment->speed}}
+                </div>
+                <div class="score">
+                    개별점수<nav> / {{$comment->rating}}</nav>
+                </div>
+                <div class="rev">
+                    {{$comment->evaluation}}
+                </div>
+                <div class="person">
+                    <div id="name">
+                        {{$comment->user_id}}
+                    </div>
+                    <div id="day">
+                        {{$comment->created_at}}
+                    </div>
+                </div>
+            </div>
+        @endforeach
+        {{ $comments->withQueryString()->links() }}
+        @endif
         </div>
     </div>
 @endsection

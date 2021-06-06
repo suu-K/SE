@@ -19,6 +19,7 @@ class product extends Model
         'num',
         'image',
         'caption',
+        'delivery',
         'category',
     ];
 

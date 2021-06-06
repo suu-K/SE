@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="review.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form id="review" onsubmit="return inputCheck();">
+        <ul>
+            <li>
+                <ul class="evaluation">
+                    <li>
+                        추천
+                    </li>
+                    <li id="recommendation">
+                        <label><input type="radio" name="recommendation" value="good">적극추천</label>
+                        <label><input type="radio" name="recommendation" value="okay">추천</label>
+                        <label><input type="radio" name="recommendation" value="no">비추천</label>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul class="evaluation">
+                    <li>
+                        배송평가
+                    </li>
+                    <li id="speed">
+                        <label><input type="radio" name="speed" value="fast">빠름</label>
+                        <label><input type="radio" name="speed" value="soso">보통</label>
+                        <label><input type="radio" name="speed" value="slow">느림</label>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul class="evaluation">
+                    <li>
+                        점수
+                    </li>
+                    <li id="score">
+                        <label><input type="radio" name="score" value="five">5</label>
+                        <label><input type="radio" name="score" value="four">4</label>
+                        <label><input type="radio" name="score" value="three">3</label>
+                        <label><input type="radio" name="score" value="two">2</label>
+                        <label><input type="radio" name="score" value="one">1</label>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul class="evaluation">
+                    <li>
+                        후기
+                    </li>
+                    <li>
+                        <textarea placeholder="후기를 입력해주세요."></textarea>
+                        <div id="test_cnt">(0 / 100)</div>
+                    </li>
+                </ul>
+            </li>
+            <li><button type="submit">제출</button></li>
+        </ul>
+    </form>
+</body>
+
+<script src="review.js"></script>
+
+</html>

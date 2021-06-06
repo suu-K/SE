@@ -1,0 +1,176 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-decoration: none;
+  color: black;
+  outline: none;
+}
+html {
+  background-color: snow;
+}
+/*헤더 시작*/
+header {
+  display: flex;
+  flex-direction: column;
+}
+/*로그인 들어있는 div*/
+.top {
+  display: flex;
+  background-color: coral;
+  justify-content: flex-end;
+  font-size: 13px;
+}
+.top a {
+  color: white;
+}
+.top li {
+  padding: 0px 20px;
+}
+/*로고랑 검색바 있는 div*/
+.logo_search {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+/*로고 시작*/
+.logo {
+  display: flex;
+}
+.logo_search .logo i {
+  color: dimgray;
+  position: relative;
+  bottom: 5px;
+}
+/*검색바 시작*/
+#search {
+  width: 400px;
+  height: 30px;
+  display: flex;
+}
+#search i {
+  position: relative;
+  left: -25px;
+  color: coral;
+}
+#search input {
+  border: none;
+  border-bottom: 5px solid coral;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  outline: none;
+  display: flex;
+}
+#search button {
+  position: relative;
+  right: 25px;
+  bottom: 3px;
+  background: transparent;
+  border: 0px;
+  outline: none;
+  padding: 0;
+  overflow: visible;
+  text-decoration-style: none;
+}
+#search button i {
+  position: relative;
+  left: 0px;
+  bottom: 3px;
+}
+#search button:hover {
+  cursor: pointer;
+}
+/*카테고리 div*/
+.category {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.category ul {
+  display: flex;
+  border: 1px solid dimgray;
+  padding: 10px;
+}
+.category ul li {
+  width: 107px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+  color: dimgray;
+}
+
+/*signUp_form*/
+.sign_up {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+.sign_up input {
+  width: 460px;
+  height: 48px;
+  border: 1px solid lightskyblue;
+  outline: none;
+}
+
+.sign_up #email {
+  width: 400px;
+  height: 48px;
+  border: 1px solid lightblue;
+  outline: none;
+}
+
+.sign_up #check {
+  height: 48px;
+}
+
+.sign_up div {
+  margin-top: 10px;
+}
+#search_ad2 {
+  margin-top: 10px;
+}
+
+#address {
+  width: 460px;
+  height: 150px;
+  margin-bottom: 10px;
+}
+#address input {
+  width: 140px;
+  height: 48px;
+  margin-right: 14px;
+}
+#address .postcodify_extra_info {
+  margin-right: 0px;
+}
+#address .postcodify_postcode5 {
+  width: 400px;
+  height: 48px;
+}
+.sign_up #sign_btn {
+  width: 460px;
+  height: 48px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+/*footer*/
+.others {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+  height: 200px;
+  border-top: 1px solid black;
+}
+
+/*너비 줄어들면 어느순간 고정*/
+@media screen and (max-width: 1100px) {
+  html {
+    width: 1100px;
+  }
+}

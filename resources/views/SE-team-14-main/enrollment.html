@@ -1,0 +1,162 @@
+<html>
+
+<head>
+    <link href="enrollment.css" rel="stylesheet" type="text/css" />
+    
+    <title>TEAM NO.14의 게임 쇼핑몰</title>
+    <meta name="description" content="TEAM NO.14의 게임 쇼핑몰" />
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a5f3739fb3.js" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="https://d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+</head>
+
+<body>
+    
+    <header>
+        <ul class="top">
+            <li><a href="Log_in.html">로그인</a></li>
+            <li><a href="log-in">회원가입</a></li>
+            <li><a href="log-in">마이페이지</a></li>
+            <li><a href="log-in">장바구니</a></li>
+        </ul>
+    
+        <div class="logo_search">
+            <div class="logo">
+                <a href="index.html"><i class="fas fa-dice-d6 fa-2x"></i></a>
+            </div>
+            
+            <form action="#" accept-charset="utf-8" id="search" name="search" method="post">
+                <input type="text" name="need_search">
+                
+                <button type="submit" form="search"><i class="fas fa-search fa-2x"></i></button>
+            </form>
+    
+        </div>
+    
+        <div class="category">
+            <ul>
+                <a href="products.html"><li>예약상품</li></a>
+                <a href="products.html"><li>PlayStation5</li></a>
+                <a href="products.html"><li>PlayStation4</li></a>
+                <a href="products.html"><li>PlayStationVR</li></a>
+                <a href="products.html"><li>PlayStation3</li></a>
+                <a href="products.html"><li>닌텐도Switch</li></a>
+                <a href="products.html"><li>닌텐도3DS</li></a>
+                <a href="products.html"><li>할인상품</li></a>
+                <a href="products.html"><li>기타상품</li></a>
+            </ul>
+        </div>
+    </header>
+
+    <form autocomplete="off" enctype="multipart/form-data" method="POST">
+        @csrf
+                <div class="prod">
+                    <div class="product">
+                        <div class="name">
+                            <div id="a">카테고리</div>
+                            <div id="b">
+                                <select name="" required>
+                                    <option selected="selected" value="" disabled>선택</option>
+                                    <option value="PlayStation5">PlayStation5</option>
+                                    <option value="PlayStation4">PlayStation4</option>
+                                    <option value="PlayStationVR">PlayStationVR</option>
+                                    <option value="PlayStation3">PlayStation3</option>
+                                    <option value="닌텐도Switch">닌텐도Switch</option>
+                                    <option value="닌텐도3DS">닌텐도3DS</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="name">
+                            <div id="a">상품명</div>
+                            <div id="b"><input type="text" id="prod_name" name="prod_name" placeholder="상품명" onfocus="this.placeholder=''" onblur="this.placeholder='상품명'" required></div>
+                        </div>
+                        
+                        <div class="name">
+                            <div id="a">원가</div>
+                            <div id="b">
+                                <input type="number" pattern="[0-9]+" oninvalid="alert('원가: 숫자(양수)만 입력하세요');" min="1" id="" name="" placeholder="원" onfocus="this.placeholder=''" onblur="this.placeholder='원'" required>
+                            </div>
+                        </div>
+
+                        <div class="name">
+                            <div id="a">할인가</div>
+                            <div id="b">
+                                <input type="number" pattern="[0-9]+" oninvalid="alert('할인가: 숫자(양수)만 입력하세요');" min="1" id="" name="" placeholder="원" onfocus="this.placeholder=''" onblur="this.placeholder='원'" required>
+                            </div>
+                        </div>
+
+                        <div class="name">
+                            <div id="a">재고량</div>
+                            <div id="b">                            
+                                <input type="number" pattern="[0-9]+" oninvalid="alert('재고량: 숫자(양수)만 입력하세요');" min="1" name="amount" placeholder="개" onfocus="this.placeholder=''" onblur="this.placeholder='개'" required>
+                            </div>
+                        </div>
+
+                        <div class="name">
+                            <div id="a">배송비</div>
+                            <div id="b">                            
+                                <input type="number" pattern="[0-9]+" oninvalid="alert('배송비: 숫자(양수)만 입력하세요');" min="1" name="delivery" placeholder="원" onfocus="this.placeholder=''" onblur="this.placeholder='원'" required>
+                            </div>
+                        </div>
+
+                        <div class="name">
+                            <div id="a">상품 정보</div>
+                            <div id="b">                           
+                                <textarea placeholder="상품 정보" onfocus="this.placeholder=''" onblur="this.placeholder='상품 정보'" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="name">
+                            <div id="a">이미지 등록</div>
+                            <div id="b">
+                                <input multiple="multiple" type="file" name="imageFile[]" size=40 required>
+                            </div>
+                        </div>
+
+                        <div id="keep">
+                            <button>상품 등록</button>
+                        </div>
+                    </div>
+            </div>
+    </form>
+    <footer class="others">
+        <ul>
+            <li>1111</li>
+            <li>2222</li>
+            <li>3333</li>
+            <li>4444</li>
+        </ul>
+
+        <ul>
+            <li>111</li>
+            <li>222</li>
+            <li>333</li>
+            <li>444</li>
+        </ul>
+
+        <ul>
+            <li>11</li>
+            <li>22</li>
+            <li>33</li>
+            <li>44</li>
+        </ul>
+
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </footer>
+</body>
+<<<<<<< HEAD
+=======
+
+<script src="sebu.js"></script>
+>>>>>>> origin/main
+</html>

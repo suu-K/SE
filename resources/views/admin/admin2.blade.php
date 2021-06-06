@@ -11,6 +11,9 @@
             <ul>
                 <li><a href="/admin">공지/이벤트 관리</a></li>
                 <li class="active"><a href="/admin2">상품관리</a></li>
+                <li><a href="/admin4">상품 판매 정보</a></li>
+                <li><a href="/admin5">고객 문의 관리</a></li>
+                <li><a href="/admin6">쿠폰 등록/관리</a></li>
             </ul>
         </aside>
         <div class="ctr">

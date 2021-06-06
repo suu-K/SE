@@ -1,0 +1,133 @@
+<html>
+
+<head>
+    <link href="questlist.css" rel="stylesheet" type="text/css" />
+    
+    <title>TEAM NO.14의 게임 쇼핑몰</title>
+    <meta name="description" content="TEAM NO.14의 게임 쇼핑몰" />
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a5f3739fb3.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>-->
+    <script src="https://d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>-->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+    
+    <header>
+        <ul class="top">
+            <li><a href="Log_in.html">로그인</a></li>
+            <li><a href="sign_up.html">회원가입</a></li>
+            <li><a href="log-in">마이페이지</a></li>
+            <li><a href="log-in">장바구니</a></li>
+        </ul>
+    
+        <div class="logo_search">
+            <div class="logo">
+                <a href="index.html"><i class="fas fa-dice-d6 fa-2x"></i></a>
+            </div>
+            
+            <form action="#" accept-charset="utf-8" id="search" name="search" method="post">
+                <input type="text" name="need_search">
+                
+                <button type="submit" form="search"><i class="fas fa-search fa-2x"></i></button>
+            </form>
+    
+        </div>
+    
+        <div class="category">
+            <ul>
+                <a href="products.html"><li>예약상품</li></a>
+                <a href="products.html"><li>PlayStation5</li></a>
+                <a href="products.html"><li>PlayStation4</li></a>
+                <a href="products.html"><li>PlayStationVR</li></a>
+                <a href="products.html"><li>PlayStation3</li></a>
+                <a href="products.html"><li>닌텐도Switch</li></a>
+                <a href="products.html"><li>닌텐도3DS</li></a>
+                <a href="products.html"><li>할인상품</li></a>
+                <a href="products.html"><li>기타상품</li></a>
+            </ul>
+        </div>
+    </header>
+    
+    <div>
+            <div class="prod">
+                <div id="product">
+                    <!-- 문의 확인 내역 쪽 head -->
+                    <div id="head_day">
+                        등록일시
+                    </div>
+                    <div id="head_quest_category">
+                        문의 종류
+                    </div>
+                    <div id="head_title">
+                        문의 제목
+                    </div>
+                    <div id="head_answer">
+                        답변
+                    </div>
+                    <div id="head_sebu">
+                        상세
+                    </div>
+                    <div id="head_add">
+                        추가 문의
+                    </div>
+    
+                    <!-- 여기서부터 문의 확인  -->
+                    @foreach($questions as $question)
+                    <form>                    
+                        <div id="day">
+                        {{question->created_at}}
+                    </div>
+                    <div id="quest_cate">{{question->category}}</div>
+                    <div id="title">{{question->title}}</div>
+                    <div id="answer">
+                        
+                    </div>
+                    <div id="sebu">
+                        <button type="button" onclick="showPopup()">보기</button>
+                    </div>
+                    <div id="add">
+                        <button type="submit" formaction="question.html">문의하기</button>
+                    </div></form>
+                    @endforeach
+
+                </div>
+            </div>
+    </div>
+
+        <footer class="others">
+            <ul>
+                <li>1111</li>
+                <li>2222</li>
+                <li>3333</li>
+                <li>4444</li>
+            </ul>
+    
+            <ul>
+                <li>111</li>
+                <li>222</li>
+                <li>333</li>
+                <li>444</li>
+            </ul>
+    
+            <ul>
+                <li>11</li>
+                <li>22</li>
+                <li>33</li>
+                <li>44</li>
+            </ul>
+    
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+    
+        </footer>
+        <script async src="questlist.js"></script>
+    </body>
+</html>

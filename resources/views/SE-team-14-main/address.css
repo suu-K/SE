@@ -1,0 +1,251 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+  }
+  html {
+    background-color: snow;
+  }
+  /*헤더 시작*/
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+  /*로그인 들어있는 div*/
+  .top {
+    display: flex;
+    background-color: coral;
+    justify-content: flex-end;
+    font-size: 13px;
+  }
+  .top a {
+    color: white;
+  }
+  .top li {
+    padding: 0px 20px;
+  }
+  /*로고랑 검색바 있는 div*/
+  .logo_search {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  /*로고 시작*/
+  .logo {
+    display: flex;
+  }
+  .logo_search .logo i {
+    color: dimgray;
+    position: relative;
+    bottom: 5px;
+  }
+  /*검색바 시작*/
+  #search {
+    width: 400px;
+    height: 30px;
+    display: flex;
+  }
+  #search i {
+    position: relative;
+    left: -25px;
+    color: coral;
+  }
+  #search input {
+    border: none;
+    border-bottom: 5px solid coral;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    outline: none;
+    display: flex;
+  }
+  #search button {
+    position: relative;
+    right: 25px;
+    bottom: 3px;
+    background: transparent;
+    border: 0px;
+    outline: none;
+    padding: 0;
+    overflow: visible;
+    text-decoration-style: none;
+  }
+  #search button i {
+    position: relative;
+    left: 0px;
+    bottom: 3px;
+  }
+  #search button:hover {
+    cursor: pointer;
+  }
+  /*카테고리 div*/
+  .category {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  .category ul {
+    display: flex;
+    border: 1px solid dimgray;
+    padding: 10px;
+  }
+  .category ul li {
+    width: 107px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+    color: dimgray;
+  }
+
+/*바디*/
+.regist{
+    float: right;
+}
+
+#list{
+    margin-bottom: 20px;
+}
+#introduce{
+    font-size: 20px;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.infoName{
+    display: flex;
+    text-align: center;
+    background-color: silver;
+}
+  .info{
+    display: flex;
+    text-align: center;
+}
+.info:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.infoForm{
+    display: flex;
+}
+.infoForm > .info{
+    width: 500px;
+}
+.info li{
+    display: flex;
+    align-items: center;
+}
+.info li:not(:last-child){
+    justify-content: center;
+}
+
+
+.name{
+    width: 70px;
+}
+.phoneNum{
+    width: 130px;;
+}
+.address{
+    width: 265px;
+    text-align: left;
+}
+.controll{
+    width: 40px;
+}
+.but{
+    width: 40px;
+    text-align: center;
+}
+
+
+/*수정버튼 누르면 나오는 부분*/
+.modify{
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid dimgray;
+    display:none;
+}
+.modify div div:not(:last-child){
+    border-bottom: 1px solid dimgray;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+/*수정 input css*/
+.moddiv{
+    width: 460px;
+}
+.modify input{
+    outline: none;
+}
+
+input[name='postcode']{
+    width: 100px;
+}
+input[name='modifyAddress']{
+    width: 400px;
+}
+input[name='firstnum']{
+    width: 40px;
+}
+input[name='backnum']{
+    width: 60px;
+}
+input[name='lastnum']{
+    width: 60px;
+}
+.submitbtn{
+    display: flex;
+    justify-content: center;
+}
+.subbtn{
+    width: 75%;
+    border:none;
+}
+.subbtn:hover{
+    cursor: pointer;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#selectAdd{
+    display: flex;
+    justify-content: space-evenly;
+}
+label{
+    cursor: pointer;
+}
+
+
+  /*footer*/
+  .others {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+    height: 200px;
+    border-top: 1px solid black;
+  }
+  
+  /*너비 줄어들면 어느순간 고정*/
+  @media screen and (min-width: 500px) {
+    html {
+      width: 500px;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    html {
+      width: 500px;
+    }
+  }

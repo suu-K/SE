@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <link href="admin9.css" rel="stylesheet" type="text/css" />
+    
+    <title>TEAM NO.14의 게임 쇼핑몰</title>
+    <meta name="description" content="TEAM NO.14의 게임 쇼핑몰" />
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a5f3739fb3.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="https://d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+    
+    <header>
+        <ul class="top">
+            <li><a href="Log_in.html">로그인</a></li>
+            <li><a href="sign_up.html">회원가입</a></li>
+            <li><a href="log-in">마이페이지</a></li>
+            <li><a href="log-in">장바구니</a></li>
+        </ul>
+    
+        <div class="logo_search">
+            <div class="logo">
+                <a href="index.html"><i class="fas fa-dice-d6 fa-2x"></i></a>
+            </div>
+            
+            <form action="#" accept-charset="utf-8" id="search" name="search" method="post">
+                <input type="text" name="need_search">
+                
+                <button type="submit" form="search"><i class="fas fa-search fa-2x"></i></button>
+            </form>
+    
+        </div>
+    
+        <div class="category">
+            <ul>
+                <a href="products.html"><li>예약상품</li></a>
+                <a href="products.html"><li>PlayStation5</li></a>
+                <a href="products.html"><li>PlayStation4</li></a>
+                <a href="products.html"><li>PlayStationVR</li></a>
+                <a href="products.html"><li>PlayStation3</li></a>
+                <a href="products.html"><li>닌텐도Switch</li></a>
+                <a href="products.html"><li>닌텐도3DS</li></a>
+                <a href="products.html"><li>할인상품</li></a>
+                <a href="products.html"><li>기타상품</li></a>
+            </ul>
+        </div>
+    </header>
+    
+    <form autocomplete="off" action="#" accept-charset="utf-8" class="question" name="question" method="POST">
+        <div class="quest">
+            <h2>일정가 이상 시 할인 쿠폰 등록</h2>
+            <div class="day">
+                유효기간(~까지)<br>
+                <input class="date" type="date" id="" name="" required>
+            </div>
+            <div class="buy">
+                할인가격<br>
+                <input class="text" type="number" pattern="[0-9]+" oninvalid="alert('할인가격: 숫자(양수)만 입력하세요');" min="1" id="" name="" placeholder="원" onfocus="this.placeholder=''" onblur="this.placeholder='원'" required>
+            </div>
+            <div class="require">
+                조건 금액<br>
+                <input class="text" type="number" pattern="[0-9]+" oninvalid="alert('조건 금액: 숫자(양수)만 입력하세요');" min="1" id="" name="" placeholder="원" onfocus="this.placeholder=''" onblur="this.placeholder='원'" required>
+            </div>
+        </div>
+        <div class="button">
+            <button type="submit" formaction="">등록</button>
+            <button type="submit" formaction="">취소</button>
+        </div>
+    </form>
+
+        <footer class="others">
+            <ul>
+                <li>1111</li>
+                <li>2222</li>
+                <li>3333</li>
+                <li>4444</li>
+            </ul>
+    
+            <ul>
+                <li>111</li>
+                <li>222</li>
+                <li>333</li>
+                <li>444</li>
+            </ul>
+    
+            <ul>
+                <li>11</li>
+                <li>22</li>
+                <li>33</li>
+                <li>44</li>
+            </ul>
+    
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+    
+        </footer>
+        <script async src="admin9.js"></script>
+    </body>
+</html>

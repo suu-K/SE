@@ -38,8 +38,9 @@
                 <div id="name"><a href="/product/detail/{{ $product->product_id }}">{{ $product->name }}</a></div>
                 <div class="price" id="price{{ $loop->iteration }}">{{ $product->sale_price }}</div>
                 <div id="amount">
-                    <input name="num" id="num{{ $loop->iteration }}" class="num" type="number" value="{{ $product->num }}" min="1" style="text-align:center;" onchange="sum{{ $loop->iteration }}();"/>
+                    <input name="num[]" id="num{{ $loop->iteration }}" class="num" type="number" value="{{ $product->num }}" min="1" style="text-align:center;" onchange="sum{{ $loop->iteration }}();"/>
                 </div>
+                <input type="hidden" name="product_id[]" value="{{ $product->id }}">
                 <div id="price"><div id="sumprice{{ $loop->iteration }}">{{ $product->sale_price * $product->num }}</div><nav>원</nav></div>
                 <div id="delete"><button type="submit" value="삭제" formaction="/cart/delete/{{ $product->id }}">삭제</button></div>
                 {{ session()->put('sum', session('sum') + ($product->sale_price * $product->num)) }}
@@ -49,14 +50,14 @@
                     총 금액
                 </div>
                 <div class="result"><div id="sum_price">{{session()->pull('sum')}}</div><nav id="result">원</nav></div>
+        </form>
 
                 <!-- 결제 버튼 -->
                 <div class="buy">
-                    <button value="">결제하기</button>
+                    <form method="GET"><button value="" formaction="/payment">결제하기</button></form>
                 </div>
             </div>
         </div>
-        </form>
     </body>
 @endsection
 

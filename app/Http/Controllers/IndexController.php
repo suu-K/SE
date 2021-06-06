@@ -11,6 +11,11 @@ use App\Models\image;
 use App\Models\event;
 use App\Models\product;
 use App\Models\address;
+use App\Models\comment;
+use App\Models\order_list;
+use App\Models\order_product;
+use App\Models\question;
+use App\Models\coupon;
 
 class IndexController extends Controller
 {
@@ -25,6 +30,12 @@ class IndexController extends Controller
         $product = product::find($id);
         $images = image::where('product_id', '=', $id)->get();
         $address = address::where('user_id', '=', Auth::id());
+        $comments = comment::where('product_id', '=', $id)->paginate(10);
+        $average = null;
+        if($comments != null){
+            $average = comment::where('product_id', '=', $id)->avg('rating');
+        }
+
         if($address->where('def', '=', 1)->count() > 0){
             $default = $address->where('def', '=', 1)->first();
             $addresses = address::where('user_id', '=', Auth::id())->get();
@@ -33,7 +44,7 @@ class IndexController extends Controller
             $addresses = address::where('user_id', '=', Auth::id())->take(3)->get();
         }
 
-        return view('user.productDetail', ['product' => $product, 'images' => $images, 'addresses' => $addresses, 'default' => $default]);
+        return view('user.productDetail', ['product' => $product, 'images' => $images, 'addresses' => $addresses, 'default' => $default, 'comments' => $comments, 'average' => $average]);
     }
 
     public function products(Request $request, $category=null){
@@ -72,9 +83,16 @@ class IndexController extends Controller
         return view('user.products', ['products' => $products, 'category' => $category]);
     }
 
+    public function eventSebu(Request $request, $id){
+        $event = event::find($id);
+
+        return view('user.eventSebu', ['event' => $event]);
+    }
+
     public function cart(Request $request){
         $carts = user::find(Auth::id())->cart()->join('products', 'cart.product_id', '=', 'products.id')
-                                    ->select('cart.id', 'cart.product_id', 'products.name', 'products.price', 'products.sale_price', 'cart.num', 'products.image')->get();
+                                    ->select('cart.id', 'cart.product_id', 'products.name', 'products.price', 'products.sale_price', 'cart.num', 'products.image', 'products.delivery')->get();
+
         return view('user.cart', ['carts' => $carts]);
     }
 
@@ -82,5 +100,62 @@ class IndexController extends Controller
         $addresses = address::where('user_id', '=', Auth::id())->get();
 
         return view('user.address', ['addresses' => $addresses]);
+    }
+
+    public function payment(Request $request){
+        $carts = user::find(Auth::id())->cart()->join('products', 'cart.product_id', '=', 'products.id')
+                                    ->select('cart.id', 'cart.product_id', 'products.name', 'products.price', 'products.sale_price', 'cart.num', 'products.delivery')->get();
+
+        $address = address::where('user_id', '=', Auth::id());
+        if($address->where('def', '=', 1)->count() > 0){
+            $default = $address->where('def', '=', 1)->first();
+            $addresses = address::where('user_id', '=', Auth::id())->get();
+        }else{
+            $default = null;
+            $addresses = address::where('user_id', '=', Auth::id())->take(3)->get();
+        }
+
+        return view('user.pay', ['carts' => $carts, 'addresses' => $addresses, 'default' => $default]);
+    }
+
+
+    public function orderList(Request $request){
+        $orderLists = order_product::where('user_id', '=', Auth::id())->join('products', 'order_products.product_id', '=', 'products.id')
+                                        ->select('order_products.id', 'order_products.product_id', 'order_products.question', 'order_products.comment', 'products.name', 'order_products.created_at', 'order_products.price', 'order_products.state')->orderBy('created_at', 'desc')->paginate(10);
+
+        return view('user.orderList', ['orderLists' => $orderLists]);
+    }
+
+    public function ordersebu(Request $request, $id){
+        $orderProduct = order_product::find($id);
+        $orderList = order_list::find($orderProduct->order_list_id);
+
+        return view('user.ordersebu', ['orderProduct' => $orderProduct, 'orderList' => $orderList]);
+    }
+
+    public function coupon(){
+        #$coupons = coupon::where('user_id', '=', Auth::id())->get();
+        $coupons = null;
+        return view('user.coupon', ['coupons' => $coupons]);
+    }
+
+    public function review(Request $request, $id, $product_id){
+        return view('user.review', ['id' => $id, 'product_id' => $product_id]);
+    }
+
+    public function question($id){
+        return view('user.question', ['id' => $id]);
+    }
+
+    public function questionlist(){
+        $questions = question::where('user_id', '=', Auth::id())->paginate(10);
+        return view('user.questlist', ['questions' => $questions]);
+    }
+
+    public function questcontent(Request $request, $id){
+        $question = question::find($id);
+        $order_product = order_product::find($question->order_list_id);
+        $product = product::find($order_product->product_id);
+        return view('user.questcontent', ['question' => $question, 'product' => $product]);
     }
 }

@@ -1,0 +1,185 @@
+<html>
+
+<head>
+    <link href="admin4.css" rel="stylesheet" type="text/css" />
+    
+    <title>TEAM NO.14의 게임 쇼핑몰</title>
+    <meta name="description" content="TEAM NO.14의 게임 쇼핑몰" />
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a5f3739fb3.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+
+<body>
+    
+    <header>
+        <ul class="top">
+            <li>환영합니다.</li>
+        </ul>
+    
+        <div class="logo_search">
+            <div class="logo">
+                <a href="index.html"><i class="fas fa-dice-d6 fa-2x"></i></a>
+            </div>
+            
+            <form action="#" accept-charset="utf-8" id="search" name="search" method="post">
+                <input type="text" name="need_search">
+                
+                <button type="submit" formaction="#"><i class="fas fa-search fa-2x"></i></button>
+            </form>
+    
+        </div>
+    
+        <div class="category">
+            <ul>
+                <a href="products.html"><li>예약상품</li></a>
+                <a href="products.html"><li>PlayStation5</li></a>
+                <a href="products.html"><li>PlayStation4</li></a>
+                <a href="products.html"><li>PlayStationVR</li></a>
+                <a href="products.html"><li>PlayStation3</li></a>
+                <a href="products.html"><li>닌텐도Switch</li></a>
+                <a href="products.html"><li>닌텐도3DS</li></a>
+                <a href="products.html"><li>할인상품</li></a>
+                <a href="products.html"><li>기타상품</li></a>
+            </ul>
+        </div>
+    </header>
+   <div id="full">
+        <div class="ctrMenu">
+            <aside class="tab">
+                <ul>
+                    <li><a href="admin.html">공지/이벤트 관리</a></li>
+                    <li><a href="admin2.html">상품관리</a></li> 
+                    <li class="active"><a href="admin4.html">상품 판매 정보</a></li>
+                    <li><a href="admin5.html">고객 문의 관리</a></li>
+                    <li><a href="admin6.html">쿠폰 등록/관리</a></li>   
+                </ul>
+            </aside>
+        </div>
+
+
+        <div>
+            <div id="statistic">
+                <ul id="income">
+                    <li>총 판매금액</li>
+                    <li>111,111,111,111원</li> <!--기간에 따라서 달라져야함-->
+                </ul>
+                <ul>
+                    <li>판매순위 TOP3</li>
+                    <div id="ranking">
+                        <ul id="categoryRank">
+                            <li>
+                                <ul>
+                                    <li>장난감</li>
+                                    <li>11,111개</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+                                    <li>신선식품</li>
+                                    <li>1,111개</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+                                    <li>모바일</li>
+                                    <li>111개</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul id="stfRank">
+                            <li>
+                                <ul>
+                                    <li>뽀로로</li>
+                                    <li>1,111개</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+                                    <li>꼬마버스 타요</li>
+                                    <li>111개</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+                                    <li>시크릿 쥬쥬</li>
+                                    <li>11개</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </ul>
+            </div>
+
+            <div id="orderList">
+                <form id="range">
+                    <ul id="selector">
+                        <li>검색기간</li>
+                        <li style="display: flex; width: 300px;"><input type="date"></input> ~ <input type="date"></input></li>
+                        <li><button formaction="">검색</button></li>
+                    </ul>
+                </form>
+                <div id="list">
+                    <ul>
+                        @foreach($orderLists as $orderList)
+                        <li class="contents">
+                            <form action="">
+                                <ul class="contentForm" onclick="window.open('ordersebu.html','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">
+                                    <li class="date">{{orderList->created_at}}</li>
+                                    <li class="stfName">{{orderList->name}}</li>
+                                    <li class="state">{{orderList->state}}</li>
+                                    <li class="price">{{orderList->price}}</li>
+                        
+                                </ul>
+                                <p class="additional"><button formaction="">문의하기</button></p>
+                            </form>
+                        @endforeach
+                
+                    </ul>
+                </div>
+                <div id="paging">
+                    1|2|3|4|5|6|7|8|9|10 paging 해주세요 그리고 이거 6개씩 들어가게 해둠
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="others">
+        <ul>
+            <li>1111</li>
+            <li>2222</li>
+            <li>3333</li>
+            <li>4444</li>
+        </ul>
+
+        <ul>
+            <li>111</li>
+            <li>222</li>
+            <li>333</li>
+            <li>444</li>
+        </ul>
+
+        <ul>
+            <li>11</li>
+            <li>22</li>
+            <li>33</li>
+            <li>44</li>
+        </ul>
+
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+
+    </footer>   
+    </body>
+    
+
+    <script src="admin4.js"></script>
+
+</html>

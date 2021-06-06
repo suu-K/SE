@@ -1,0 +1,194 @@
+<html>
+
+<head>
+    <link href="admin3.css" rel="stylesheet" type="text/css" />
+    
+    <title>TEAM NO.14의 게임 쇼핑몰</title>
+    <meta name="description" content="TEAM NO.14의 게임 쇼핑몰" />
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a5f3739fb3.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+
+<body>
+    
+    <header>
+        <ul class="top">
+            <li>환영합니다.</li>
+        </ul>
+    
+        <div class="logo_search">
+            <div class="logo">
+                <a href="index.html"><i class="fas fa-dice-d6 fa-2x"></i></a>
+            </div>
+            
+            <form action="#" accept-charset="utf-8" id="search" name="search" method="post">
+                <input type="text" name="need_search">
+                
+                <button type="submit" formaction="#"><i class="fas fa-search fa-2x"></i></button>
+            </form>
+    
+        </div>
+    
+        <div class="category">
+            <ul>
+                <a href="products.html"><li>예약상품</li></a>
+                <a href="products.html"><li>PlayStation5</li></a>
+                <a href="products.html"><li>PlayStation4</li></a>
+                <a href="products.html"><li>PlayStationVR</li></a>
+                <a href="products.html"><li>PlayStation3</li></a>
+                <a href="products.html"><li>닌텐도Switch</li></a>
+                <a href="products.html"><li>닌텐도3DS</li></a>
+                <a href="products.html"><li>할인상품</li></a>
+                <a href="products.html"><li>기타상품</li></a>
+            </ul>
+        </div>
+    </header>
+    
+    <div class="ctrMenu">
+        <aside class="tab">
+            <ul>
+                <li><a href="admin.html">공지/이벤트 관리</a></li>
+                <li class="active"><a href="admin2.html">상품관리</a></li>    
+            </ul>
+        </aside>
+        <div class="ctr">
+
+<form action="product/update" accept-charset="utf-8" enctype="multipart/form-data" method="POST">            
+    <div class="second">
+    <div class="image">
+        <div class="img1">
+            <div class="display">
+                <div class="event_banner">
+                    <ul class="slider">
+                        <li class="event"><img src="download.jpg"></li>
+                        <li class="event"><img src="Slime_c_Move.png"></li>
+                        <li class="event"><img src="Tile_Snow.png"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="img2">                       
+            <input multiple="multiple" type=file name="image[]" accept="image/*" class="details1" id="imageUpload" required disabled/>
+        </div>
+    </div>
+    <div class="part">
+        <div class="part1">
+                <button class="details1" disabled  formaction="/manage/save">저장</button>
+                <button type="button" id="modify1">수정</button>
+                <button type="submit" value="삭제" formaction="/manage/delete">삭제</button>
+        </div>
+
+        <div class="part2">
+            <div class="platform">
+                <select name="platform" size="1"  class="details1" value="{{ $product->category }}" disabled>
+                    <option selected="selected" disabled>=선택=</option>
+                    <option value="PlayStation5">PlayStation5</option>
+                    <option value="PlayStation4">PlayStation4</option>
+                    <option value="PlayStationVR">PlayStationVR</option>
+                    <option value="PlayStation3">PlayStation3</option>
+                    <option value="닌텐도Switch">닌텐도Switch</option>
+                    <option value="닌텐도3DS">닌텐도3DS</option>
+                </select>
+            </div>
+            
+            <div class="name">
+                <div class="a">
+                    이름
+                </div>
+                <div class="b">
+                <input type="text" name="name" class="details1" value="{{ $product->name }}" autocomplete="off" required disabled>
+                </div>
+            </div>
+
+            <div class="name">
+                <div class="a">
+                    가격
+                </div>
+                <div class="b">
+                <input type="text" name="price" class="details1" value="{{ $product->price }}" autocomplete="off" min="1" pattern="[0-9]+" oninvalid="alert('원가: 숫자(양수)만 입력하세요');" required disabled>
+                </div>
+            </div>
+
+            <div class="name">
+                <div class="a">
+                    재고량
+                </div>
+                <div class="b">
+                <input type="text" name="num" class="details1" value="{{ $product->num }}" autocomplete="off" min="1" pattern="[0-9]+" oninvalid="alert('원가: 숫자(양수)만 입력하세요');" required disabled>
+                </div>
+            </div>
+
+            <div class="name">
+                <div class="a">
+                    판매가
+                </div>
+                <div class="b">
+                <input type="text" name="sale_price" class="details1" value="{{ $product->sale_price }}" autocomplete="off" min="1" pattern="[0-9]+" oninvalid="alert('원가: 숫자(양수)만 입력하세요');"  required disabled>
+                </div>
+            </div>
+
+            <div class="name">
+                <div class="a">
+                    배송비
+                </div>
+                <div class="b">
+                <input type="text" name="delivery" class="details1" value="{{ $product->delivery }}" autocomplete="off" min="1" pattern="[0-9]+" oninvalid="alert('배송비: 숫자(양수)만 입력하세요');"  required disabled>
+                </div>
+            </div>
+
+            <div class="name">
+                <div class="a">
+                    상세 정보
+                </div>
+                <div class="b">
+                <input type="text" name="caption" class="details1" value="{{ $product->caption }}" autocomplete="off" required disabled>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+        </div>
+    </div>
+    </div>
+
+
+
+    <footer class="others">
+        <ul>
+            <li>1111</li>
+            <li>2222</li>
+            <li>3333</li>
+            <li>4444</li>
+        </ul>
+
+        <ul>
+            <li>111</li>
+            <li>222</li>
+            <li>333</li>
+            <li>444</li>
+        </ul>
+
+        <ul>
+            <li>11</li>
+            <li>22</li>
+            <li>33</li>
+            <li>44</li>
+        </ul>
+
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+
+    </footer>   
+    </body>
+    
+    <script src="admin3.js"></script>
+</html>

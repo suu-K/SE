@@ -28,6 +28,7 @@ class ProductController extends Controller
         $product->caption = $request->caption;
         $product->num = $request->num;
         $product->category = $request->category;
+        $product->delivery = $request->delivery;
         $product->save();
 
         $images = $request->images;
@@ -52,6 +53,7 @@ class ProductController extends Controller
         $product = product::find($request->id)->update([
             'name' => $request->name,
             'price' => $request->price,
+            'delivery' => $request->delivery,
             'sale_price' => $request->sale_price,
             'caption' => $request->caption,
             'num' => $request->num

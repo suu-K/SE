@@ -1,0 +1,189 @@
+<html>
+
+<head>
+    <link href="event.css" rel="stylesheet" type="text/css" />
+    
+    <title>TEAM NO.14의 게임 쇼핑몰</title>
+    <meta name="description" content="TEAM NO.14의 게임 쇼핑몰" />
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a5f3739fb3.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    
+    <header>
+        <ul class="top">
+            <li>환영합니다.</li>
+            <li><a href="event.html">이벤트  등록/수정</a></li>
+        </ul>
+    
+        <div class="logo_search">
+            <div class="logo">
+                <a href="admin.html"><i class="fas fa-dice-d6 fa-2x"></i></a>
+            </div>
+            
+            <form action="#" accept-charset="utf-8" id="search" name="search" method="post">
+                <input type="text" name="need_search">
+                
+                <button type="submit" form="search"><i class="fas fa-search fa-2x"></i></button>
+            </form>
+    
+        </div>
+    
+        <div class="category">
+            <ul>
+                <a href="products.html"><li>예약상품</li></a>
+                <a href="products.html"><li>PlayStation5</li></a>
+                <a href="products.html"><li>PlayStation4</li></a>
+                <a href="products.html"><li>PlayStationVR</li></a>
+                <a href="products.html"><li>PlayStation3</li></a>
+                <a href="products.html"><li>닌텐도Switch</li></a>
+                <a href="products.html"><li>닌텐도3DS</li></a>
+                <a href="products.html"><li>할인상품</li></a>
+                <a href="products.html"><li>기타상품</li></a>
+            </ul>
+        </div>
+    </header>
+    
+    <div class="all">
+        <nav class="details">
+            <form class="regist" action="#" method="POST">
+                <div>
+                    <input type=file name="imageUpload" accept="image/*" id="imageUpload">
+                    <input type="text" name="eventName" id="eventName" value="">
+                    <input type="text" name="inform" id="inform" value="">
+                    <input type="date" name="start" id="start" value=""> ~ <input type="date" name="end" id="end" value="">
+                    <button type="submit" formaction="#">등록</button>
+                    
+                </div>
+            </form>
+            
+                <nav id="paging"></nav>
+                <ul class="list">
+                    <li class="attribute"><p6 id="img">이미지</p6> <p6 id="title">제목</p6> <p6 id="more">세부정보</p6> <p6 id="range">유효기간</p6></li>
+                    <li>
+                        <form action="#" method="POST">
+                            <input type=file name="imageUpload" accept="image/*" class="product1" id="imageUpload"disabled/>
+                            <input type="text" name="eventName" class="product1" id="eventName" value="" disabled/>
+                            <input type="text" name="inform" class="product1" id="inform" value="" disabled/>
+                            <input type="date" name="start" class="product1" id="start" value="" disabled/> ~ <input type="date" name="end" class="product1" id="end" value="" disabled/> 
+                            <button type="submit" class="mod" formaction="#">수정</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="#" method="POST">
+                            <input type=file name="imageUpload" accept="image/*" class="product2" id="imageUpload"disabled/>
+                            <input type="text" name="eventName" class="product2" id="eventName" value="" disabled/>
+                            <input type="text" name="inform" class="product2" id="inform" value="" disabled/>
+                            <input type="date" name="start" class="product2" id="start" value="" disabled/> ~ <input type="date" name="end" class="product2" id="end" value="" disabled/> 
+                            <button type="submit" class="mod" formaction="#">수정</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="#" method="POST">
+                            <input type=file name="imageUpload" accept="image/*" class="product3" id="imageUpload"disabled/>
+                            <input type="text" name="eventName" class="product3" id="eventName" value="" disabled/>
+                            <input type="text" name="inform" class="product3" id="inform" value="" disabled/>
+                            <input type="date" name="start" class="product3" id="start" value="" disabled/> ~ <input type="date" name="end" class="product3" id="end" value="" disabled/> 
+                            <button type="submit" class="mod" formaction="#">수정</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="#" method="POST">
+                            <input type=file name="imageUpload" accept="image/*" class="product4" id="imageUpload"disabled/>
+                            <input type="text" name="eventName" class="product4" id="eventName" value="" disabled/>
+                            <input type="text" name="inform" class="product4" id="inform" value="" disabled/>
+                            <input type="date" name="start" class="product4" id="start" value="" disabled/> ~ <input type="date" name="end" class="product4" id="end" value="" disabled/> 
+                            <button type="submit" class="mod" formaction="#">수정</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="#" method="POST">
+                            <input type=file name="imageUpload" accept="image/*" class="product5" id="imageUpload"disabled/>
+                            <input type="text" name="eventName" class="product5" id="eventName" value="" disabled/>
+                            <input type="text" name="inform" class="product5" id="inform" value="" disabled/>
+                            <input type="date" name="start" class="product5" id="start" value="" disabled/> ~ <input type="date" name="end" class="product5" id="end" value="" disabled/> 
+                            <button type="submit" class="mod" formaction="#">수정</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="#" method="POST">
+                            <input type=file name="imageUpload" accept="image/*" class="product6" id="imageUpload"disabled/>
+                            <input type="text" name="eventName" class="product6" id="eventName" value="" disabled/>
+                            <input type="text" name="inform" class="product6" id="inform" value="" disabled/>
+                            <input type="date" name="start" class="product6" id="start" value="" disabled/> ~ <input type="date" name="end" class="product6" id="end" value="" disabled/> 
+                            <button type="submit" class="mod" formaction="#">수정</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="#" method="POST">
+                            <input type=file name="imageUpload" accept="image/*" class="product7" id="imageUpload"disabled/>
+                            <input type="text" name="eventName" class="product7" id="eventName" value="" disabled/>
+                            <input type="text" name="inform" class="product7" id="inform" value="" disabled/>
+                            <input type="date" name="start" class="product7" id="start" value="" disabled/> ~ <input type="date" name="end" class="product7" id="end" value="" disabled/> 
+                            <button type="submit" class="mod" formaction="#">수정</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="#" method="POST">
+                            <input type=file name="imageUpload" accept="image/*" class="product8" id="imageUpload"disabled/>
+                            <input type="text" name="eventName" class="product8" id="eventName" value="" disabled/>
+                            <input type="text" name="inform" class="product8" id="inform" value="" disabled/>
+                            <input type="date" name="start" class="product8" id="start" value="" disabled/> ~ <input type="date" name="end" class="product8" id="end" value="" disabled/> 
+                            <button type="submit" class="mod" formaction="#">수정</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="#" method="POST">
+                            <input type=file name="imageUpload" accept="image/*" class="product9" id="imageUpload"disabled/>
+                            <input type="text" name="eventName" class="product9" id="eventName" value="" disabled/>
+                            <input type="text" name="inform" class="product9" id="inform" value="" disabled/>
+                            <input type="date" name="start" class="product9" id="start" value="" disabled/> ~ <input type="date" name="end" class="product9" id="end" value="" disabled/> 
+                            <button type="submit" class="mod" formaction="#">수정</button>
+                        </form>
+                    </li>
+                </ul>
+            </form>
+        </nav>
+    </div>
+
+
+    <footer class="others">
+        <ul>
+            <li>1111</li>
+            <li>2222</li>
+            <li>3333</li>
+            <li>4444</li>
+        </ul>
+
+        <ul>
+            <li>111</li>
+            <li>222</li>
+            <li>333</li>
+            <li>444</li>
+        </ul>
+
+        <ul>
+            <li>11</li>
+            <li>22</li>
+            <li>33</li>
+            <li>44</li>
+        </ul>
+
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+
+    </footer>   
+    </body>
+    
+
+    <script src="event.js"></script>
+
+</html>

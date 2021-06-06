@@ -10,6 +10,9 @@
         <ul>
             <li><a href="/admin">공지/이벤트 관리</a></li>
             <li class="active"><a href="/admin2">상품관리</a></li>
+            <li><a href="/admin4">상품 판매 정보</a></li>
+            <li><a href="/admin5">고객 문의 관리</a></li>
+            <li><a href="/admin6">쿠폰 등록/관리</a></li>
         </ul>
     </aside>
     <div class="ctr">
@@ -87,6 +90,15 @@
             </div>
             <div class="b">
             <input type="text" name="sale_price" class="details1" value="{{ $product->sale_price }}" autocomplete="off" required disabled>
+            </div>
+        </div>
+
+        <div class="name">
+            <div class="a">
+                배송비
+            </div>
+            <div class="b">
+            <input type="text" name="delivery" class="details1" value="{{ $product->delivery }}" autocomplete="off" min="1" pattern="[0-9]+" oninvalid="alert('배송비: 숫자(양수)만 입력하세요');"  required disabled>
             </div>
         </div>
 

@@ -1,0 +1,215 @@
+<html>
+
+<head>
+    <link href="admin2.css" rel="stylesheet" type="text/css" />
+    
+    <title>TEAM NO.14의 게임 쇼핑몰</title>
+    <meta name="description" content="TEAM NO.14의 게임 쇼핑몰" />
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a5f3739fb3.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+
+<body>
+    
+    <header>
+        <ul class="top">
+            <li>환영합니다.</li>
+        </ul>
+    
+        <div class="logo_search">
+            <div class="logo">
+                <a href="index.html"><i class="fas fa-dice-d6 fa-2x"></i></a>
+            </div>
+            
+            <form action="#" accept-charset="utf-8" id="search" name="search" method="post">
+                <input type="text" name="need_search">
+                
+                <button type="submit" formaction="#"><i class="fas fa-search fa-2x"></i></button>
+            </form>
+    
+        </div>
+    
+        <div class="category">
+            <ul>
+                <a href="products.html"><li>예약상품</li></a>
+                <a href="products.html"><li>PlayStation5</li></a>
+                <a href="products.html"><li>PlayStation4</li></a>
+                <a href="products.html"><li>PlayStationVR</li></a>
+                <a href="products.html"><li>PlayStation3</li></a>
+                <a href="products.html"><li>닌텐도Switch</li></a>
+                <a href="products.html"><li>닌텐도3DS</li></a>
+                <a href="products.html"><li>할인상품</li></a>
+                <a href="products.html"><li>기타상품</li></a>
+            </ul>
+        </div>
+    </header>
+    
+    <div class="ctrMenu">
+        <aside class="tab">
+            <ul>
+                <li><a href="admin.html">공지/이벤트 관리</a></li>
+                <li class="active"><a href="admin2.html">상품관리</a></li>
+                <li><a href="admin4.html">상품 판매 정보</a></li>
+                <li><a href="admin5.html">고객 문의 관리</a></li>  
+                <li><a href="admin6.html">쿠폰 등록/관리</a></li>
+            </ul>
+        </aside>
+        <div class="ctr">
+            
+
+            <div class="test">
+                <form class="find" action="/admin/productSearch">
+                    <div style="padding-bottom:10px;">
+                        <div>
+                            <ul style="display: flex;">
+                                <li>이름</li>
+                                <li style="padding-left: 280px;">가격대</li>
+                                <li style="padding-left:330px;">정렬</li>
+                            </ul>
+                        </div>
+                        <ul style="display: flex;">
+                            <li style="margin-right: 140px;">
+                                <input type="text" name="name" value="{{ session()->pull('name') }}" autocomplete="off">
+                            </li>
+                            <li>
+                                <input type="number" name="min" class="number" value="{{ session()->pull('min') }}" autocomplete="off">
+                            </li>
+                            <li style="padding-left: 10px; padding-right: 10px;">~</li>
+                            <li>
+                                <input type="number" name="max" class="number" value="{{ session()->pull('max') }}" autocomplete="off">
+                            </li>
+                            <li style="margin-left: 140px;">
+                                <select name="order">
+                                    <option value="none">=== 선택 ===</option>
+                                    <option value="smaller">낮은가격순</option>
+                                    <option value="larger">높은가격순</option>
+                                    <option value="nameOrder">이름순</option>
+                                </select>
+                            </li>
+                            <li style="margin-left: 20px;">
+                                <button formaction="#">검색</button>
+                            </li>
+                            <li style="margin-left: 20px;">
+                                <button type="button" onclick="location.href='enrollment.html'">등록</button>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+                
+                <ul class="pageadmin">
+                    <li>
+                        <ul id="attribute">
+                            <li style="margin-left:27px;">이름</li>
+                            <li style="margin-left:265px;">가격</li>
+                            <li style="margin-left:80px;">판매가</li>
+                        </ul>
+                    </li>
+                    <form action="">
+                        <li class="stfForm">
+                            <div class="name"><a href="#">11111</a></div>
+                            <div class="price">가격</div>
+                            <div class="buy">판매가</div>
+                            <div class="delete"><button type="submit">삭제</button></div>
+                        </li>
+                    </form>
+
+                    <form action="">
+                        <li class="stfForm">
+                            <div class="name"><a href="#">22222</a></div>
+                            <div class="price">가격</div>
+                            <div class="buy">판매가</div>
+                            <div class="delete"><button type="submit">삭제</button></div>
+                        </li>
+                    </form>
+
+                    <form action="">
+                        <li class="stfForm">
+                            <div class="name"><a href="#">3333</a></div>
+                            <div class="price">가격</div>
+                            <div class="buy">판매가</div>
+                            <div class="delete"><button type="submit">삭제</button></div>
+                        </li>
+                    </form>
+
+                    <form action="">
+                        <li class="stfForm">
+                            <div class="name"><a href="#">4444</a></div>
+                            <div class="price">가격</div>
+                            <div class="buy">판매가</div>
+                            <div class="delete"><button type="submit">삭제</button></div>
+                        </li>
+                    </form>
+
+                    <form action="">
+                        <li class="stfForm">
+                            <div class="name"><a href="#">55555</a></div>
+                            <div class="price">가격</div>
+                            <div class="buy">판매가</div>
+                            <div class="delete"><button type="submit">삭제</button></div>
+                        </li>
+                    </form>
+
+                    <form action="">
+                        <li class="stfForm">
+                            <div class="name"><a href="#">66666</a></div>
+                            <div class="price">가격</div>
+                            <div class="buy">판매가</div>
+                            <div class="delete"><button type="submit">삭제</button></div>
+                        </li>
+                    </form>
+
+                    <form action="">
+                        <li class="deleteStf">
+                            <div class="name"><a href="#">7777</a></div>
+                            <div class="price">가격</div>
+                            <div class="buy">판매가</div>
+                            <div class="delete"><button type="submit">삭제</button></div>
+                        </li>
+                    </form>
+                </ul>
+                <nav class="paging"></nav>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="others">
+        <ul>
+            <li>1111</li>
+            <li>2222</li>
+            <li>3333</li>
+            <li>4444</li>
+        </ul>
+
+        <ul>
+            <li>111</li>
+            <li>222</li>
+            <li>333</li>
+            <li>444</li>
+        </ul>
+
+        <ul>
+            <li>11</li>
+            <li>22</li>
+            <li>33</li>
+            <li>44</li>
+        </ul>
+
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+
+    </footer>   
+    </body>
+    
+
+    <script src="admin2.js"></script>
+
+</html>

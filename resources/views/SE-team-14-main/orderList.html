@@ -1,0 +1,171 @@
+<html>
+
+<head>
+    <link href="orderList.css" rel="stylesheet" type="text/css" />
+    
+    <title>TEAM NO.14의 게임 쇼핑몰</title>
+    <meta name="description" content="TEAM NO.14의 게임 쇼핑몰" />
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a5f3739fb3.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+
+<body>
+    
+    <header>
+        <ul class="top">
+            <li><a href="Log_in.html">로그인</a></li>
+            <li><a href="sign_up.html">회원가입</a></li>
+            <li><a href="log-in">마이페이지</a></li>
+            <li><a href="log-in">장바구니</a></li>
+            <li><a href="orderList.html">주문내역</li>
+        </ul>
+    
+        <div class="logo_search">
+            <div class="logo">
+                <a href="index.html"><i class="fas fa-dice-d6 fa-2x"></i></a>
+            </div>
+            
+            <form action="#" accept-charset="utf-8" id="search" name="search" method="post">
+                <input type="text" name="need_search">
+                
+                <button type="submit" form="search"><i class="fas fa-search fa-2x"></i></button>
+            </form>
+    
+        </div>
+    
+        <div class="category">
+            <ul>
+                <a href="products.html"><li>예약상품</li></a>
+                <a href="products.html"><li>PlayStation5</li></a>
+                <a href="products.html"><li>PlayStation4</li></a>
+                <a href="products.html"><li>PlayStationVR</li></a>
+                <a href="products.html"><li>PlayStation3</li></a>
+                <a href="products.html"><li>닌텐도Switch</li></a>
+                <a href="products.html"><li>닌텐도3DS</li></a>
+                <a href="products.html"><li>할인상품</li></a>
+                <a href="products.html"><li>기타상품</li></a>
+            </ul>
+        </div>
+    </header>
+
+    <div id="orderList">
+        <div id="range">
+            <ul id="selector">
+                <li><a href="">오늘</a></li>
+                <li><a href="">최근 일주일</a></li>
+                <li style="background-color: dodgerblue"><a href="">1개월</a></li>
+                <li><a href="">전체</a></li>
+            </ul>
+        </div>
+        <div id="list">
+            <ul>
+
+                @foreach(orderLists as orderList)
+                <li class="contents">
+                    <ul class="contentForm" onclick="window.open('ordersebu.html','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">
+                        <li class="date">{{orderList->created_at}}</li>
+                        <li class="stfName">{{orderList->name}}</li>
+                        <li class="state">{{orderList->state}}</li>
+                        <li class="price">{{orderList->price}}</li>
+                        
+                    </ul>
+                    <p class="additional"><a href="">문의하기</a></p>
+                </li>
+                @endforeach
+
+
+                <li class="contents">
+                    <ul class="contentForm" onclick="window.open('ordersebu.html','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">
+                        <li class="date">2021-06-10</li>
+                        <li class="stfName">마리오 오딧세이ㅓㅓㅓㅓㅓㅓㅓㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㅓdddddddddddddddddㅓㅓㅓㅓㅓㅓㅓㅓㅓ</li>
+                        <li class="state">구매확정</li>
+                        <li class="price">120,000</li>
+                    </ul>
+                    <p class="additional"><a href="">구매확정</a></p>
+                </li>
+                <li class="contents">
+                    <ul class="contentForm" onclick="window.open('ordersebu.html','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">
+                        <li class="date">2021-06-10</li>
+                        <li class="stfName">마리오 오딧세이</li>
+                        <li class="state">구매확정</li>
+                        <li class="price">120,000</li>
+                    </ul>
+                    <p class="additional"><a onclick="window.open('review.html','window_name','width=480,height=500,location=no,status=no,scrollbars=yes');">상품평</a></p>
+                </li>
+                <li class="contents">
+                    <ul class="contentForm" onclick="window.open('ordersebu.html','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">
+                        <li class="date">2021-06-10</li>
+                        <li class="stfName">마리오 오딧세이</li>
+                        <li class="state">구매확정</li>
+                        <li class="price">120,000</li>
+                    </ul>
+                    <p class="additional"><a href="">문의하기</a></p>
+                </li>
+                <li class="contents">
+                    <ul class="contentForm" onclick="window.open('ordersebu.html','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">
+                        <li class="date">2021-06-10</li>
+                        <li class="stfName">마리오 오딧세이</li>
+                        <li class="state">구매확정</li>
+                        <li class="price">120,000</li>
+                    </ul>
+                    <p class="additional"><a href="">구매확정</a></p>
+                </li>
+                <li class="contents">
+                    <ul class="contentForm" onclick="window.open('ordersebu.html','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">
+                        <li class="date">2021-06-10</li>
+                        <li class="stfName">마리오 오딧세이</li>
+                        <li class="state">구매확정</li>
+                        <li class="price">120,000</li>
+                    </ul>
+                    <p class="additional"><a onclick="window.open('review.html','window_name','width=480,height=500,location=no,status=no,scrollbars=yes');">상품평</a></p>
+                </li>
+                
+            </ul>
+        </div>
+        <div id="paging">
+            1|2|3|4|5|6|7|8|9|10 paging 해주세요 그리고 이거 6개씩 들어가게 해둠
+            그리고 이거 처음에는 1개월보이게 하고 위에 범위중에 클릭하면 그 범위만 색깔 1개월처럼 바뀌게 해주세요
+        </div>
+    </div>
+
+
+
+
+    <footer class="others">
+        <ul>
+            <li>1111</li>
+            <li>2222</li>
+            <li>3333</li>
+            <li>4444</li>
+        </ul>
+
+        <ul>
+            <li>111</li>
+            <li>222</li>
+            <li>333</li>
+            <li>444</li>
+        </ul>
+
+        <ul>
+            <li>11</li>
+            <li>22</li>
+            <li>33</li>
+            <li>44</li>
+        </ul>
+
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+
+    </footer>
+    <script async src="orderList.js"></script>
+</body>
+
+
+</html>

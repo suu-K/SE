@@ -1,0 +1,141 @@
+<html>
+
+<head>
+    <link href="admin8.css" rel="stylesheet" type="text/css" />
+    
+    <title>TEAM NO.14의 게임 쇼핑몰</title>
+    <meta name="description" content="TEAM NO.14의 게임 쇼핑몰" />
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a5f3739fb3.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+
+<body>
+    
+    <header>
+        <ul class="top">
+            <li>환영합니다.</li>
+        </ul>
+    
+        <div class="logo_search">
+            <div class="logo">
+                <a href="index.html"><i class="fas fa-dice-d6 fa-2x"></i></a>
+            </div>
+            
+            <form action="#" accept-charset="utf-8" id="search" name="search" method="post">
+                <input type="text" name="need_search">
+                
+                <button type="submit" formaction="#"><i class="fas fa-search fa-2x"></i></button>
+            </form>
+    
+        </div>
+    
+        <div class="category">
+            <ul>
+                <a href="products.html"><li>예약상품</li></a>
+                <a href="products.html"><li>PlayStation5</li></a>
+                <a href="products.html"><li>PlayStation4</li></a>
+                <a href="products.html"><li>PlayStationVR</li></a>
+                <a href="products.html"><li>PlayStation3</li></a>
+                <a href="products.html"><li>닌텐도Switch</li></a>
+                <a href="products.html"><li>닌텐도3DS</li></a>
+                <a href="products.html"><li>할인상품</li></a>
+                <a href="products.html"><li>기타상품</li></a>
+            </ul>
+        </div>
+    </header>
+    
+    <div class="ctrMenu">
+        <aside class="tab">
+            <ul>
+                <li><a href="admin.html">공지/이벤트 관리</a></li>
+                <li><a href="admin2.html">상품관리</a></li>
+                <li><a href="admin4.html">상품 판매 정보</a></li>
+                <li><a href="admin5.html">고객 문의 관리</a></li>
+                <li class="active"><a href="admin6.html">쿠폰 등록/관리</a></li>
+            </ul>
+        </aside>
+        <div class="ctr">
+            <div class="test" id="event" action="#" method="POST">
+                <nav class="range" style="padding-top:50px; margin-left: 30px;">
+                    <div style="padding-bottom:30px;">
+                        <input type=date> ~ <input type=date>
+                        <button formaction="#">검색</button>
+                        <button class="sign" onclick="location.href='admin10.html'">신규 등록</button>
+                    </div>
+                </nav>
+                </nav>
+                <ul class="pageadmin">
+                    <div class="quest">
+                        <div class="head_quest">
+                            <div id="head_day">유효 기간</div>
+                            <div id="head_cate">카테고리</div>
+                            <div id="head_per">할인퍼센트</div>
+                            <div id="head_max">최대 할인가</div>
+                            <div id="head_amount">수량</div>
+                            <div id="head_del">삭제</div>
+
+                            @foreach($coupons as $coupon)
+                            <li class="head_quest">
+                                <form>
+                                    <div id="day">{{coupon->ldate}}</div>
+                                    <div id="cate">{{coupon->category}}</div>
+                                    <div id="per">{{coupon->sale_percent}}<nav>%</nav></div>
+                                    <div id="max">{{coupon->max_sale_price}}<nav>원</nav></div>
+                                    <div id="amount">몇<nav>개</nav></div>
+                                    <div id="del"><button formaction="">삭제</button></div>
+                                </form>
+                            </li>
+                            @endforeach
+
+
+                        </div>
+                    </div>
+                </ul>
+                <nav class="paging"></nav>
+            </div>
+
+            
+        </div>
+    </div>
+
+
+
+    <footer class="others">
+        <ul>
+            <li>1111</li>
+            <li>2222</li>
+            <li>3333</li>
+            <li>4444</li>
+        </ul>
+
+        <ul>
+            <li>111</li>
+            <li>222</li>
+            <li>333</li>
+            <li>444</li>
+        </ul>
+
+        <ul>
+            <li>11</li>
+            <li>22</li>
+            <li>33</li>
+            <li>44</li>
+        </ul>
+
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+
+    </footer>   
+    </body>
+    
+
+    <script src="admin8.js"></script>
+
+</html>

@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\DB;
 use App\Models\product;
 use App\Models\event;
 use App\Models\image;
+use App\Models\order_list;
+use App\Models\order_product;
+use App\Models\question;
+use App\Models\coupon;
+use PDO;
 use PhpOption\None;
 
 class AdminController extends Controller
@@ -19,10 +24,6 @@ class AdminController extends Controller
         $condition = array();
         if($s = $request->filled('sdate')) { $condition[] = ['ldate', '>=', $request->sdate]; session(['sdate' => $request->sdate]); };
         if($l = $request->filled('ldate')) { $condition[]= ['sdate', '<=', $request->ldate]; session(['ldate' => $request->ldate]); };
-        if($s && $l) {
-
-
-        }
 
         if($request->filled('order')){
             switch($request->order){
@@ -97,6 +98,87 @@ class AdminController extends Controller
         $product = \App\Models\product::find($id);
 
         return view('admin.productDetail', ['product' => $product]);
+    }
+
+    public function admin4(Request $request){
+        $condition = array();
+        $sales = 0;
+        if($request->filled('sdate')) { $condition[] = ['order_products.created_at', '>=', $request->sdate]; session(['sdate' => $request->sdate]); };
+        if($request->filled('ldate')) { $condition[] = ['order_products.created_at', '<=', date("Y-m-d", strtotime($request->ldate . " +1 days"))]; session(['ldate' => $request->ldate]); };
+        $orderLists = order_product::where($condition)->join('products', 'order_products.product_id', '=', 'products.id')
+                                        ->select('order_products.id', 'order_products.product_id', 'order_products.created_at', 'products.name', 'products.category', 'order_products.num', 'order_products.price', 'order_products.state', 'products.sales')->paginate(6);
+
+        $statistics = array();
+        $category = array();
+        $i = 0;
+        foreach($orderLists as $orderList){
+            foreach($statistics as $statistic){
+                if($statistic->product_id == $orderList->product_id){
+                    $statistic->sales += $orderList->num;
+                    $statistic->price += $orderList->price;
+                    break;
+                }
+            }
+
+            if(array_key_exists($orderList->category, $category)){
+                $category[$orderList->category] += $orderList->num;
+            }
+            else{
+                $category[$orderList->category] = $orderList->num;
+            }
+
+            $statistics[$i] = $orderList;
+            $statistics[$i]->sales = 1;
+            $i += 1;
+        }
+        arsort($category);
+        $sales = order_product::where($condition)->sum('price');
+        $best = arsort($statistics);
+
+
+        return view('admin.admin4', ['orderLists' => $orderLists, 'sales' => $sales, 'best' => $best, 'category' => $category, 'statistics' => $statistics]);
+    }
+
+    public function admin5(Request $request){
+        $condition = array();
+        if($request->filled('sdate')) { $condition[] = ['order_products.created_at', '>=', $request->sdate]; session(['sdate' => $request->sdate]); };
+        if($request->filled('ldate')) { $condition[] = ['order_products.created_at', '<=', date("Y-m-d", strtotime($request->ldate . " +1 days"))]; session(['ldate' => $request->ldate]); };
+        $questions = question::where($condition)->join('order_products', 'order_products.id', '=', 'questions.order_list_id')->join('products', 'order_products.product_id', '=', 'products.id')
+                        ->select('products.name', 'questions.created_at', 'questions.title', 'questions.id')->orderBy('questions.created_at', 'desc')->paginate(7);
+
+        return view('admin.admin5', ['questions' => $questions]);
+    }
+
+    public function admin6(Request $request){
+
+        return view('admin.admin6');
+    }
+
+    public function admin7(Request $request){
+        $coupons = coupon::where('class', '=', 0)->paginate(10);
+
+        return view('admin.admin7', ['coupons' => $coupons]);
+    }
+
+    public function admin8(Request $request){
+        $coupons = coupon::where('class', '=', 1)->paginate(10);
+
+        return view('admin.admin8', ['coupons' => $coupons]);
+    }
+
+    public function admin9(Request $request){
+        return view('admin.admin9');
+    }
+
+    public function admin10(Request $request){
+        return view('admin.admin10');
+    }
+
+    public function answer(Request $request, $id){
+        $question = question::find($id);
+        $order_product = order_product::find($question->order_list_id);
+        $product = product::find($order_product->product_id);
+        return view('user.answer', ['question' => $question, 'product' => $product]);
     }
 
     # $event->trashed() 소프트 딜리트 확인 함수

@@ -23,6 +23,19 @@ Route::get('/admin/event', 'AdminController@eventInsert');
 Route::get('/admin/event/{sort}', 'AdminController@eventInsert');
 Route::get('/admin/product', 'AdminController@productInsert');
 Route::get('/admin/{sort}', 'AdminController@admin');
+Route::get('/admin4', 'AdminController@admin4');
+Route::post('/admin4', 'AdminController@admin4');
+Route::get('/admin5', 'AdminController@admin5');
+Route::post('/admin5', 'AdminController@admin5');
+Route::get('/admin6', 'AdminController@admin6');
+Route::get('/admin7', 'AdminController@admin7');
+Route::get('/admin8', 'AdminController@admin8');
+Route::get('/admin9', 'AdminController@admin9');
+Route::get('/admin10', 'AdminController@admin10');
+Route::get('/orderUpdate/{id}', 'OrderProductController@update');
+Route::get('/answer/{id}', 'AdminController@answer');
+Route::post('/answerInsert', 'questionController@answer');
+
 
 Route::get('/admin/productSearch', 'AdminController@admin2Search');
 
@@ -35,6 +48,19 @@ Route::post('/products', 'IndexController@products');
 Route::get('/products/{category}', 'IndexController@products');
 Route::post('/products/{category}', 'IndexController@products');
 Route::get('/productsFillter/{fillter}', 'IndexController@products');
+Route::get('/eventSebu/{id}', 'IndexController@eventSebu');
+Route::get('/payment', 'IndexController@payment');
+Route::get('/coupon', 'IndexController@coupon');
+Route::post('/pay', 'OrderListController@insert');
+Route::get('/orderList', 'IndexController@orderList');
+Route::get('/ordersebu/{id}', 'IndexController@ordersebu');
+Route::get('/orderConfirm/{id}', 'OrderProductController@confirm');
+Route::get('/review/{id}/{product_id}', 'IndexController@review');
+Route::post('/reviewInsert/{id}', 'CommentController@insert');
+Route::get('/question/{id}', 'IndexController@question');
+Route::post('/questionInsert', 'questionController@insert');
+Route::get('/questionlist', 'IndexController@questionlist');
+Route::get('/questcontent/{id}', 'IndexController@questcontent');
 
 #장바구니 라우팅
 Route::get('/cart', 'IndexController@cart')->middleware('admin.deny', 'auth');

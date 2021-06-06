@@ -33,7 +33,7 @@
                 @if(Auth::user()->id<3)
                 <li><a href="/admin">이벤트/상품 관리</a></li>
                 @else
-                <li><a href="login">마이페이지</a></li>
+                <li><a href="/orderList">마이페이지</a></li>
                 <li><a href="/cart">장바구니@if(session()->has('cartNum'))({{ session('cartNum') }})@endif</a></li>
                 @endif
             <li>

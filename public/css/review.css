@@ -1,0 +1,46 @@
+
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+  }
+  html {
+    background-color: snow;
+  }
+  /*바디 시작*/
+
+#review{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.evaluation{
+    display: flex;
+    margin-bottom: 10px;
+}
+.evaluation li:first-child{
+    width: 80px;;
+}
+label:hover{
+    cursor: pointer;
+}
+textarea{
+    width: 300px;
+    height: 300px;
+    font-size: 17px;
+}
+textarea:focus{
+    outline: none;
+}
+textarea:focus::placeholder{
+    color:transparent;
+}
+
+button{
+    width: 380px;
+}
