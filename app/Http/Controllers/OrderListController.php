@@ -12,6 +12,8 @@ use App\Models\cart;
 class OrderListController extends Controller
 {
     public function insert(Request $request){
+
+
         $orderList = new order_list;
         $orderList->user_id = Auth::id();
         $orderList->state = 0;

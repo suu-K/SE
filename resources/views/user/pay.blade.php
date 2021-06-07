@@ -35,17 +35,16 @@
                 <div class="delivery">{{$product->delivery}}</div>
                 <div class="price" id="price{{ $loop->iteration }}">{{ $product->sale_price }}</div>
                 <div id="amount"><div id="sumprice{{ $loop->iteration }}">{{ $product->num }}</div></div>
-                <div id="price"><div id="sumprice{{ $loop->iteration }}">{{ $product->sale_price * $product->num }}</div><nav>원</nav></div>
+                <div id="price"><div id="sumprice{{ $loop->iteration }}">{{ $product->sale_price * $product->num }}원</div></div>
                 {{ session()->put('sum', session('sum') + ($product->sale_price * $product->num)) }}
                 {{ session()->put('delivery', max(session('delivery'), $product->delivery ))}}
                 @endforeach
 
 
                 <!--  -->
-                <div class="sum">
-                    총 금액 + 배송비 = 결제 금액
-                </div>
-                <div class="result"><div id="sum_price">{{ session('sum') }} + {{ session('delivery') }} = {{ session('sum')+session('delivery') }}</div><nav id="result">원</nav></div>
+
+
+                <div class="result"><p>총 금액 + 배송비 = 결제 금액</p><p>{{ session('sum') }} + {{ session('delivery') }} = {{ session('sum')+session('delivery') }}원</p></div>
                 <input type="hidden" value="{{ session('sum')+session('delivery') }}" name="price">
 
                 <div id="addressTab">
@@ -57,6 +56,9 @@
                             @endforeach
                             @else
                             <li><label><input type="radio" name="addlist" id="addinfo" checked>기본 배송지</label></li>
+                            <script>
+                            document.getElementById('postcode').value = data.zonecode;
+                            </script>
                             @endif
                             <li><label><input type="radio" name="addlist" id="new" @if($addresses->count() == 0) checked @endif>새로운 배송지</label></li>
                         </ul>
