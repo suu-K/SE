@@ -56,9 +56,6 @@
                             @endforeach
                             @else
                             <li><label><input type="radio" name="addlist" id="addinfo" checked>기본 배송지</label></li>
-                            <script>
-                            document.getElementById('postcode').value = data.zonecode;
-                            </script>
                             @endif
                             <li><label><input type="radio" name="addlist" id="new" @if($addresses->count() == 0) checked @endif>새로운 배송지</label></li>
                         </ul>
@@ -132,4 +129,12 @@
 
 @section('footer')
     <script async src="{{ asset('js/pay.js') }}"></script>
+    <script>
+        @if($default != null)
+        document.getElementById('postcode').value = '{{ $default->postcode }}';
+        document.getElementById('address').value = {{ $default->address }};
+        document.getElementById('detailAddress').value = {{ $default->detailAddress }};
+        document.getElementById('extraAddress').value = {{ $default->extraAddress }};
+        @endif
+    </script>
 @endsection
