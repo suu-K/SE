@@ -207,7 +207,7 @@
                 </div>
                 <div class="person">
                     <div id="name">
-                        {{$comment->name}}
+                        {{ ''.substr($comment->name, 0, 1).'*'.substr($comment->name, 2)}}
                     </div>
                     <div id="day">
                         {{$comment->created_at}}
