@@ -12,7 +12,7 @@
         </div>
         <div id="info">
             <form method="POST">
-                <button formaction="">쿠폰 다운받기</button>
+                <button formaction="" disabled>쿠폰 다운받기</button>
             </form>
             <p>이벤트를 만들어야 해요</p>
         </div>
