@@ -156,8 +156,8 @@
             <div class="averscore">
                 <h2>상품평</h2>
                 @if($average == null)
-                <div>아직 등록된 상품평이 없습니다</div>
             </div>
+                <div>아직 등록된 상품평이 없습니다</div>
             @else
                 <div id="averscore">평균점수 <nav> {{ $average }} / 5.0</nav></div>
             </div>
