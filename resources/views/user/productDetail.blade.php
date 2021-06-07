@@ -207,7 +207,11 @@
                 </div>
                 <div class="person">
                     <div id="name">
+                        @if(strlen($comment->name)>1)
                         {{ ''.substr($comment->name, 0, 1).'*'.substr($comment->name, 2)}}
+                        @else
+                        {{ $comment->name }}
+                        @endif
                     </div>
                     <div id="day">
                         {{$comment->created_at}}
