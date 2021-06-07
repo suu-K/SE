@@ -52,10 +52,10 @@
                         <ul id="selectAdd">
                             @if($default == null)
                             @foreach($addresses as $address)
-                            <li><label><input type="radio" name="addlist" id="addinfo" @if($loop->iteration == 1) checked @endif>{{ $address->destination }}</label></li>
+                            <li><label><input type="radio" name="addlist" id="addinfo" value={{$loop->iteration}} @if($loop->iteration == 1) checked @endif>{{ $address->destination }}</label></li>
                             @endforeach
                             @else
-                            <li><label><input type="radio" name="addlist" id="addinfo" checked>기본 배송지</label></li>
+                            <li><label><input type="radio" name="addlist" id="addinfo" value="default" checked>기본 배송지</label></li>
                             @endif
                             <li><label><input type="radio" name="addlist" id="new" @if($addresses->count() == 0) checked @endif>새로운 배송지</label></li>
                         </ul>
@@ -66,14 +66,19 @@
                                 <li>
                                     <div class="infoName">배송지</div>
                                     <div class="inform">{{ $address->destination }}</div>
+                                    <input type="hidden" name="destination{{$loop->iteration}}" value={{ $default->destination }} >
                                 </li>
                                 <li>
                                     <div class="infoName">주소</div>
                                     <div class="inform">{{ $address->postcond }} {{ $address->address }} {{ $address->detailAddress }} {{ $address->extraAddress }}</div>
+                                    <input type="hidden" name="address{{$loop->iteration}}" value={{ $default->address }} >
+                                    <input type="hidden" name="detailAddress{{$loop->iteration}}" value={{ $default->detailAddress }} >
+                                    <input type="hidden" name="extraAddress{{$loop->iteration}}" value={{ $default->extraAddress }} >
                                 </li>
                                 <li>
                                     <div class="infoName">연락처</div>
                                     <div class="inform">{{ $address->phone }}</div>
+                                    <input type="hidden" name="phone{{$loop->iteration}}" value={{ $default->phone }} >
                                 </li>
                             </ul>
                             @endforeach
@@ -82,13 +87,18 @@
                                 <li>
                                     <div class="infoName">배송지</div>
                                     <div class="inform">{{ $default->destination }}</div>
+                                    <input type="hidden" name="ddestination" value={{ $default->destination }} >
                                 </li>
                                 <li>
                                     <div class="infoName">주소</div>
                                     <div class="inform">{{ $default->postcond }} {{ $default->address }} {{ $default->detailAddress }} {{ $default->extraAddress }}</div>
+                                    <input type="hidden" name="daddress" value={{ $default->address }} >
+                                    <input type="hidden" name="ddetailAddress" value={{ $default->detailAddress }} >
+                                    <input type="hidden" name="dextraAddress" value={{ $default->extraAddress }} >
                                 </li>
                                 <li>
                                     <div class="infoName">연락처</div>
+                                    <input type="hidden" name="dphone" value={{ $default->phone }} >
                                     <div class="inform">{{ $default->phone }}</div>
                                 </li>
                             </ul>
@@ -129,12 +139,4 @@
 
 @section('footer')
     <script async src="{{ asset('js/pay.js') }}"></script>
-    <script>
-        @if($default != null)
-        document.getElementById('postcode').value = '{{ $default->postcode }}';
-        document.getElementById('address').value = {{ $default->address }};
-        document.getElementById('detailAddress').value = {{ $default->detailAddress }};
-        document.getElementById('extraAddress').value = {{ $default->extraAddress }};
-        @endif
-    </script>
 @endsection
