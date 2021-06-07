@@ -35,8 +35,8 @@
             <div>
                 기본배송지 설정
                 <ul id="selectAdd">
-                    <li><label><input type="radio" name="default" value="true" id="first">Yes</label></li>
-                    <li><label><input type="radio" name="default" value="false" id="second" checked>No</label></li>
+                    <li><label><input type="radio" name="default" value="true" id="first"  checked>Yes</label></li>
+                    <li><label><input type="radio" name="default" value="false" id="second">No</label></li>
                 </ul>
             </div>
             <div class="submitbtn"><button type="submit" class="subbtn" name="subbtn" formaction="/address/insert">등록</button></div>

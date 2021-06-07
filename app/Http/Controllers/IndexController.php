@@ -135,11 +135,19 @@ class IndexController extends Controller
     }
 
 
-    public function orderList(Request $request){
-        $orderLists = order_product::where('user_id', '=', Auth::id())->join('products', 'order_products.product_id', '=', 'products.id')
-                                        ->select('order_products.id', 'order_products.product_id', 'order_products.question', 'order_products.comment', 'products.name', 'order_products.created_at', 'order_products.price', 'order_products.state')->orderBy('created_at', 'desc')->paginate(10);
+    public function orderList(Request $request, $date=null){
+        if($date == 'today'){
+            $condition[] = ['order_products.created_at', '>', date("Y-m-d 00:00:00")];
+        }else if($date == 'week'){
+            $condition[] = ['order_products.created_at', '>', date("Y-m-d 00:00:00", strtotime("-1 week"))];
+        }else if($date == 'month'){
+            $condition[] = ['order_products.created_at', '>', date("Y-m-d 00:00:00", strtotime("-1 month"))];
+        }
+        $condition[] = ['user_id', '=', Auth::id()];
+        $orderLists = order_product::where($condition)->join('products', 'order_products.product_id', '=', 'products.id')
+                                        ->select('order_products.id', 'order_products.product_id', 'order_products.question', 'order_products.comment', 'products.name', 'order_products.created_at', 'order_products.price', 'order_products.state')->orderBy('created_at', 'desc')->paginate(6);
 
-        return view('user.orderList', ['orderLists' => $orderLists]);
+        return view('user.orderList', ['orderLists' => $orderLists, 'date' => $date]);
     }
 
     public function ordersebu(Request $request, $id){

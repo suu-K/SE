@@ -60,6 +60,41 @@ class OrderListController extends Controller
         return redirect('/orderList');
     }
 
+    public function insert2(Request $request){
+
+
+        $orderList = new order_list;
+        $orderList->user_id = Auth::id();
+        $orderList->state = 0;
+        $orderList->destination = $request->destination;
+        $orderList->postcode = $request->postcode;
+        $orderList->address = $request->address;
+        $orderList->detailAddress = $request->detailAddress;
+        $orderList->extraAddress = $request->extraAddress;
+        $orderList->phone = $request->phone;
+        $orderList->price = 0;
+        $orderList->productNum = 1;
+        $productFirst = product::find($request->product_id);
+        $orderList->first_product = $productFirst->name;
+        $orderList->save();
+
+        $orderProduct = new order_product;
+        $orderProduct->order_list_id = $orderList->id;
+        $orderProduct->product_id = $request->product_id;
+        $orderProduct->num = $request->num;
+        $orderProduct->state = 0;
+        $orderProduct->comment = false;
+        $orderProduct->question = false;
+        $orderProduct->user_id = Auth::id();
+        $product = product::find($request->product_id);
+        $orderProduct->price = $request->num * $product->price;
+        $orderList->price = $request->num * $product->price;
+        $orderProduct->save();
+        $orderList->save();
+
+        return redirect('/orderList');
+    }
+
     public function update(Request $request){
         $orderList = order_list::find($request->order_id);
 

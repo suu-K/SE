@@ -69,6 +69,15 @@
                 </form>
                 <div id="list">
                     <ul>
+                        <li class="contents">
+                            <ul class="contentForm">
+                                <li class="date">주문일시</li>
+                                <li class="stfName">상품명</li>
+                                <li class="state">주문상태</li>
+                                <li class="price">결제금액</li>
+                            </ul>
+                            <p class="additional"></p>
+                        </li>
                         @foreach($orderLists as $orderList)
                         <li class="contents">
                             <form action="">

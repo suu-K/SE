@@ -66,19 +66,14 @@
                                 <li>
                                     <div class="infoName">배송지</div>
                                     <div class="inform">{{ $address->destination }}</div>
-                                    <input type="hidden" name="destination{{$loop->iteration}}" value={{ $default->destination }} >
                                 </li>
                                 <li>
                                     <div class="infoName">주소</div>
                                     <div class="inform">{{ $address->postcond }} {{ $address->address }} {{ $address->detailAddress }} {{ $address->extraAddress }}</div>
-                                    <input type="hidden" name="address{{$loop->iteration}}" value={{ $default->address }} >
-                                    <input type="hidden" name="detailAddress{{$loop->iteration}}" value={{ $default->detailAddress }} >
-                                    <input type="hidden" name="extraAddress{{$loop->iteration}}" value={{ $default->extraAddress }} >
                                 </li>
                                 <li>
                                     <div class="infoName">연락처</div>
                                     <div class="inform">{{ $address->phone }}</div>
-                                    <input type="hidden" name="phone{{$loop->iteration}}" value={{ $default->phone }} >
                                 </li>
                             </ul>
                             @endforeach
@@ -87,37 +82,31 @@
                                 <li>
                                     <div class="infoName">배송지</div>
                                     <div class="inform">{{ $default->destination }}</div>
-                                    <input type="hidden" name="ddestination" value={{ $default->destination }} >
                                 </li>
                                 <li>
                                     <div class="infoName">주소</div>
                                     <div class="inform">{{ $default->postcond }} {{ $default->address }} {{ $default->detailAddress }} {{ $default->extraAddress }}</div>
-                                    <input type="hidden" name="daddress" value={{ $default->address }} >
-                                    <input type="hidden" name="ddetailAddress" value={{ $default->detailAddress }} >
-                                    <input type="hidden" name="dextraAddress" value={{ $default->extraAddress }} >
-                                </li>
                                 <li>
                                     <div class="infoName">연락처</div>
-                                    <input type="hidden" name="dphone" value={{ $default->phone }} >
                                     <div class="inform">{{ $default->phone }}</div>
                                 </li>
                             </ul>
                             @endif
 
                             <ul class="@if($addresses->count() == 0) active @endif test" id="newinfo">
-                                <li id="desli">배송지<input type="text" id="destination" name="destination" autocomplete="off"></li>
+                                <li id="desli">배송지<input type="text" id="destination" name="destination" value={{ $default->destination }} autocomplete="off"></li>
                                 <li>
-                                    <input type="text" id="postcode" name="postcode" placeholder="우편번호" autocomplete="off">
+                                    <input type="text" id="postcode" name="postcode" placeholder="우편번호" value={{ $default->postcode }} autocomplete="off">
 
                                 <button class="address_button" type="button" onclick="execDaumPostcode()">주소 찾기</button>
                                 </li>
-                                <li><input type="text" id="address" name="address" placeholder="주소" autocomplete="off"><br></li>
+                                <li><input type="text" id="address" name="address" placeholder="주소" value={{ $default->address }} autocomplete="off"><br></li>
                                 <li>
-                                    <input type="text" id="detailAddress" name="detailAddress" placeholder="상세주소" autocomplete="off">
-                                    <input type="text" id="extraAddress" name="extraAddress" placeholder="참고항목" autocomplete="off">
+                                    <input type="text" id="detailAddress" name="detailAddress" placeholder="상세주소" value={{ $default->detailAddress }} autocomplete="off">
+                                    <input type="text" id="extraAddress" name="extraAddress" placeholder="참고항목" value={{ $default->extraAddress }} autocomplete="off">
                                 </li>
                                 <li>
-                                    <div>연락처 <input type="text" pattern="[0-9]{11,11}$" name="phone" id="phoneNo" placeholder="전화번호" onfocus="this.placeholder=''" onblur="this.placeholder='전화번호'" title="-없이 숫자 11자리를 입력하세요."></div>
+                                    <div>연락처 <input type="text" pattern="[0-9]{11,11}$" name="phone" id="phoneNo" value={{ $default->phone }} placeholder="전화번호" onfocus="this.placeholder=''" onblur="this.placeholder='전화번호'" title="-없이 숫자 11자리를 입력하세요."></div>
                                 </li>
                             </ul>
 

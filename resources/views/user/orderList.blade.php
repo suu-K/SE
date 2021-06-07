@@ -8,10 +8,10 @@
 <div id="orderList">
         <div id="range">
             <ul id="selector">
-                <li><a href="">오늘</a></li>
-                <li><a href="">최근 일주일</a></li>
-                <li style="background-color: dodgerblue"><a href="">1개월</a></li>
-                <li><a href="">전체</a></li>
+                <li @if($date == 'today') style="background-color: dodgerblue" @endif><a href="/orderList/today">오늘</a></li>
+                <li @if($date == 'week') style="background-color: dodgerblue" @endif><a href="/orderList/week">최근 일주일</a></li>
+                <li @if($date == 'month') style="background-color: dodgerblue" @endif><a href="/orderList/month">1개월</a></li>
+                <li @if($date == null) style="background-color: dodgerblue" @endif><a href="/orderList">전체</a></li>
             </ul>
         </div>
         <div id="list">
