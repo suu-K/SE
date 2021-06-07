@@ -14,7 +14,7 @@
                             <h3>{{ $event->title }}</h3>
                             <span>{{ $event->body }}</span>
                         </div>
-                        <img src="{{ url("storage/$event->image")}}" onclick="javascript:location.href='address.html'">
+                        <img src="{{ url("storage/$event->image")}}" onclick="javascript:location.href='/eventSebu/{{$event->id}}'">
                     </li>
                 @endforeach
             </ul>
