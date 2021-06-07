@@ -54,9 +54,10 @@
             </div>
 
             <form action="#" accept-charset="utf-8" id="search" name="search" method="post">
-                <input type="text" name="need_search">
+                @csrf
+                <input type="text" name="name">
 
-                <button type="submit" form="search"><i class="fas fa-search fa-2x"></i></button>
+                <button type="submit" formaction="/products/all" ><i class="fas fa-search fa-2x"></i></button>
             </form>
 
         </div>

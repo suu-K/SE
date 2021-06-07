@@ -54,7 +54,7 @@
 
                 <!-- 결제 버튼 -->
                 <div class="buy">
-                    <form method="GET"><button value="" formaction="/payment">결제하기</button></form>
+                    <form method="GET"><button value="" formaction="/payment" @if($carts == null) disabled @endif>결제하기</button></form>
                 </div>
             </div>
         </div>

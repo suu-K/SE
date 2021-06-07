@@ -30,7 +30,7 @@ class IndexController extends Controller
         $product = product::find($id);
         $images = image::where('product_id', '=', $id)->get();
         $address = address::where('user_id', '=', Auth::id());
-        $comments = comment::where('product_id', '=', $id)->paginate(10);
+        $comments = comment::where('product_id', '=', $id)->join('users', 'users.id', '=', 'comments.user_id')->paginate(10);
         $average = null;
         if($comments != null){
             $average = comment::where('product_id', '=', $id)->avg('rating');
@@ -50,8 +50,9 @@ class IndexController extends Controller
     public function products(Request $request, $category=null){
         $condition = array();
         if($category == null) { $category = $request->category; }
-
-        $condition[] = ['category', '=', $category]; $request->session()->put('category', $category);
+        else if($category != 'all'){
+            $condition[] = ['category', '=', $category]; $request->session()->put('category', $category);
+        }
 
         if($request->filled('name')){ $condition[] = ['name', 'like', '%'.$request->name.'%']; session(['name' => $request->name]);}
         if($request->filled('max')){ $condition[] = ['price', '<=', $request->max]; session(['max' => $request->max]);}

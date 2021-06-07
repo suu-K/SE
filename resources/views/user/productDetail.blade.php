@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+<div>
     <div>
         <div class="prod">
             <div class="product">
@@ -156,26 +157,57 @@
                 <h2>상품평</h2>
                 @if($average == null)
                 <div>아직 등록된 상품평이 없습니다</div>
+            </div>
             @else
                 <div id="averscore">평균점수 <nav> {{ $average }} / 5.0</nav></div>
             </div>
             @foreach($comments as $comment )
             <div class="reviewlist">
                 <div class="recommend">
-                    {{$comment->recommend}}
+                    추천 여부
                 </div>
                 <div class="speed">
-                    {{$comment->speed}}
+                    배송속도
                 </div>
                 <div class="score">
-                    개별점수<nav> / {{$comment->rating}}</nav>
+                    점수
+                </div>
+                <div class="rev">
+                    내용
+                </div>
+                <div class="person">
+                    <div id="name">
+                        이름
+                    </div>
+                    <div id="day">
+                        날짜
+                    </div>
+                </div>
+            </div>
+            <div class="reviewlist">
+                <div class="recommend">
+                    @switch($comment->recommend)
+                    @case(1) 비추천 @break;
+                    @case(2) 추천 @break;
+                    @case(3) 적극추천 @break;
+                    @endswitch
+                </div>
+                <div class="speed">
+                    @switch($comment->speed)
+                    @case(1) 느림 @break;
+                    @case(2) 보통 @break;
+                    @case(3) 빠름 @break;
+                    @endswitch
+                </div>
+                <div class="score">
+                    {{$comment->rating}}<nav> / 5</nav>
                 </div>
                 <div class="rev">
                     {{$comment->evaluation}}
                 </div>
                 <div class="person">
                     <div id="name">
-                        {{$comment->user_id}}
+                        {{$comment->name}}
                     </div>
                     <div id="day">
                         {{$comment->created_at}}
@@ -187,6 +219,7 @@
             @endif
         </div>
     </div>
+</div>
 @endsection
 
 @section('footer')
