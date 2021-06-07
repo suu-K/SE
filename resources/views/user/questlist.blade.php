@@ -51,6 +51,7 @@
                     </div></form>
                     @endforeach
                 </div>
+                {{ $questions->withQueryString()->links() }}
             </div>
     </div>
 @endsection

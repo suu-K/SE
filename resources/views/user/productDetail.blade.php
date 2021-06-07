@@ -155,12 +155,13 @@
             <div class="averscore">
                 <h2>상품평</h2>
                 </div>
-                @if($average == null)
+            @if($average == null)
                 <div>아직 등록된 상품평이 없습니다</div>
-                @else
+            </div>
+            @else
                 <div id="averscore">평균점수 <nav> {{ $average }} / 5.0</nav></div>
             </div>
-        @foreach($comments as $comment )
+            @foreach($comments as $comment )
             <div class="reviewlist">
                 <div class="recommend">
                     {{$comment->recommend}}
@@ -183,9 +184,9 @@
                     </div>
                 </div>
             </div>
-        @endforeach
-        {{ $comments->withQueryString()->links() }}
-        @endif
+            @endforeach
+            {{ $comments->withQueryString()->links() }}
+            @endif
         </div>
     </div>
 @endsection
