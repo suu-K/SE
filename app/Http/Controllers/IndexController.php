@@ -107,7 +107,7 @@ class IndexController extends Controller
         $carts = user::find(Auth::id())->cart()->join('products', 'cart.product_id', '=', 'products.id')
                                     ->select('cart.id', 'cart.product_id', 'products.name', 'products.price', 'products.sale_price', 'cart.num', 'products.delivery')->get();
 
-        if($carts == null){
+        if($carts->count() == 0){
             return redirect(url()->previous());
         }
 
