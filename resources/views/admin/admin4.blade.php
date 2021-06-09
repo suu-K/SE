@@ -76,7 +76,7 @@
                                 <li class="state">주문상태</li>
                                 <li class="price">결제금액</li>
                             </ul>
-                            <p class="additional"></p>
+                            <p class="additional"><button type="button"></button></p>
                         </li>
                         @foreach($orderLists as $orderList)
                         <li class="contents">

@@ -132,7 +132,8 @@
 
 @section('footer')
     <script async src="{{ asset('js/pay.js') }}"></script>
-
+    @if($carts == null)
+    @else
     <script type="text/javascript">
 
     $("#check_module").click(function(){
@@ -141,17 +142,16 @@
     // IMP.request_pay(param, callback) 호출
     IMP.request_pay({ // param
         pg: "kakaopay",
-        popup : true,
         pay_method: "kakaopay",
         merchant_uid: "{{ 'test'.date("Ymd-H:i:s").'' }}",
-        name: "{{ $carts[0]->name.'외 '.($carts->count()-1).'개 상품'}}",
+        name: "{{  $carts[0]->name.'외 '.($carts->count()-1).'개 상품'}}",
         amount: {{ session('sum')+session('delivery') }},
         buyer_email: "{{ Auth::id() }}",
         buyer_name: "{{ Auth::id() }}",
         buyer_tel: "{{ $default->phone }}",
         buyer_addr: "{{ $default->address.$default->detailAddress }}",
         buyer_postcode: "{{ $default->postcode }}",
-        m_redirect_url: '{{ route('pay') }}'
+        m_redirect_url: "http://127.0.0.1:8000/pay"
     }, function (rsp) { // callback
         if (rsp.success) {
             var msg = '결제가 완료되었습니다.';
@@ -169,4 +169,5 @@
     });
     });
     </script>
+    @endif
 @endsection
