@@ -52,7 +52,7 @@ Route::get('/eventSebu/{id}', 'IndexController@eventSebu');
 Route::get('/payment', 'IndexController@payment');
 Route::post('/payment2', 'IndexController@payment2');
 Route::get('/coupon', 'IndexController@coupon');
-Route::post('/pay', 'OrderListController@insert');
+Route::post('/pay', 'OrderListController@insert')->name('pay');
 Route::post('/pay2', 'OrderListController@insert2');
 Route::get('/orderList', 'IndexController@orderList');
 Route::get('/orderList/{date}', 'IndexController@orderList');

@@ -2,11 +2,15 @@
 
 @section('header')
     <link href="{{ asset('css/pay.css') }}" rel="stylesheet" type="text/css" />
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <!-- iamport.payment.js -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 @endsection
 
 @section('content')
     <body>
-        <form action="#" accept-charset="utf-8" method="POST" onkeydown="return captureReturnKey(event)">
+        <form action="#" accept-charset="utf-8" method="POST">
             @csrf
         <div class="prod">
             <div id="product">
@@ -118,7 +122,7 @@
                 <div class="buy">
                     <button type="button" onclick="window.open('/coupon','czxcxz','width=700,height=500,location=no,status=no,scrollbars=yes');">
 			    쿠폰사용</button>
-                    <button value="" formaction="/pay">결제하기</button>
+                <button id="check_module" formaction="/pay">결제하기</button>
                 </div>
             </div>
         </div>
@@ -128,4 +132,41 @@
 
 @section('footer')
     <script async src="{{ asset('js/pay.js') }}"></script>
+
+    <script type="text/javascript">
+
+    $("#check_module").click(function(){
+    var IMP = window.IMP; // 생략가능
+    IMP.init("imp08812608"); // "imp00000000" 대신 발급받은 "가맹점 식별코드"를 사용합니다.
+    // IMP.request_pay(param, callback) 호출
+    IMP.request_pay({ // param
+        pg: "kakaopay",
+        popup : true,
+        pay_method: "kakaopay",
+        merchant_uid: "{{ 'test'.date("Ymd-H:i:s").'' }}",
+        name: "{{ $carts[0]->name.'외 '.($carts->count()-1).'개 상품'}}",
+        amount: {{ session('sum')+session('delivery') }},
+        buyer_email: "{{ Auth::id() }}",
+        buyer_name: "{{ Auth::id() }}",
+        buyer_tel: "{{ $default->phone }}",
+        buyer_addr: "{{ $default->address.$default->detailAddress }}",
+        buyer_postcode: "{{ $default->postcode }}",
+        m_redirect_url: '{{ route('pay') }}'
+    }, function (rsp) { // callback
+        if (rsp.success) {
+            var msg = '결제가 완료되었습니다.';
+            msg += '고유ID : ' + rsp.imp_uid;
+            msg += '상점 거래ID : ' + rsp.merchant_uid;
+            msg += '결제 금액 : ' + rsp.paid_amount;
+            msg += '카드 승인번호 : ' + rsp.apply_num;
+
+            // 결제 성공 시 로직,
+        } else {
+            var msg = '결제에 실패하였습니다.';
+            msg += '에러내용 : ' + rsp.error_msg;
+            // 결제 실패 시 로직,
+        }
+    });
+    });
+    </script>
 @endsection

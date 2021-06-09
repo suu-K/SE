@@ -48,10 +48,10 @@
                         @foreach($coupons as $coupon)
                             <li class="head_quest">
                                 <form>
-                                    <div id="day">{{coupon->ldate}}</div>
-                                    <div id="cate">{{coupon->category}}</div>
-                                    <div id="per">{{coupon->sale_percent}}<nav>%</nav></div>
-                                    <div id="max">{{coupon->max_sale_price}}<nav>원</nav></div>
+                                    <div id="day">{{ $coupon->ldate}}</div>
+                                    <div id="cate">{{ $coupon->category}}</div>
+                                    <div id="per">{{ $coupon->sale_percent}}<nav>%</nav></div>
+                                    <div id="max">{{ $coupon->max_sale_price}}<nav>원</nav></div>
                                     <div id="amount">몇<nav>개</nav></div>
                                     <div id="del"><button formaction="">삭제</button></div>
                                 </form>

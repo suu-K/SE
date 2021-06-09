@@ -46,9 +46,9 @@
                         @foreach($coupons as $coupon)
                             <li class="head_quest">
                                 <form autocomplete="off" method="POST">
-                                    <div id="day">{{coupon->ldate}}<nav>까지</nav></div>
-                                    <div id="buy">{{coupon->sale_price}}<nav>원</nav></div>
-                                    <div id="require">{{coupon->condition}}<nav>원 이상</nav></div>
+                                    <div id="day">{{ $coupon->ldate}}<nav>까지</nav></div>
+                                    <div id="buy">{{ $coupon->sale_price}}<nav>원</nav></div>
+                                    <div id="require">{{ $coupon->condition}}<nav>원 이상</nav></div>
                                     <div id="amount">10<nav>개</nav></div>
                                     <div id="del"><button formaction="">삭제</button></div>
                                 </form>
