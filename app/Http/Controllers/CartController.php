@@ -64,4 +64,14 @@ class CartController extends Controller
 
         return redirect('/cart');
     }
+
+    public function add(Request $request){
+        $cart_id = $request->input('cart_id');
+        $num = $request->input('num');
+
+        $cart = cart::find($cart_id);
+        $cart->num = $num;
+        $cart->save();
+        return response()->json(['result' => true]);
+    }
 }

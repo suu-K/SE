@@ -70,6 +70,7 @@ Route::get('/questcontent/{id}', 'IndexController@questcontent');
 Route::get('/cart', 'IndexController@cart')->middleware('admin.deny', 'auth');
 Route::post('/cart/add', 'CartController@insert')->middleware('admin.deny', 'auth');
 Route::post('/cart/delete/{id}', 'CartController@delete')->middleware('admin.deny', 'auth');
+Route::get('/cartadd', 'CartController@add')->name('cartadd');
 #배송지 관리 라우팅
 Route::get('/address', 'IndexController@address')->middleware('admin.deny', 'auth');
 Route::post('/address/insert', 'AddressController@insert')->middleware('admin.deny', 'auth');

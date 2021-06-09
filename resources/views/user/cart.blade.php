@@ -83,6 +83,25 @@
         const price = $("#price{{ $loop->iteration }}").text();
         document.getElementById("sumprice{{ $loop->iteration }}").innerHTML = (name * price);
         this.price();
+
+        $.ajax({
+        url: '{{ route('cartadd') }}',
+        data: {
+          'num': name,
+          'cart_id': {{ $product->id }}
+        },
+        type:"GET",
+        datatype: 'json',
+        success: function (data) {
+          console.log(data);
+          if (data['result']) {
+            return;
+          } else {
+            return;
+          }
+        }
+      });
+
       }
     @endforeach
 
