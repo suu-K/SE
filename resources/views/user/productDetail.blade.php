@@ -94,8 +94,46 @@
                                     </li>
                                 </ul>
                                 @endif
-
+                                @guest
                                 <ul class="@if($addresses->count() == 0) active @endif test" id="newinfo">
+
+                                    <li id="desli">배송지<input type="text" id="destination" name="destination" autocomplete="off"></li>
+                                    <li>
+                                        <input type="text" id="postcode" name="postcode" placeholder="우편번호" autocomplete="off">
+
+                                    <button class="address_button" type="button" onclick="execDaumPostcode()">주소 찾기</button>
+                                    </li>
+                                    <li><input type="text" id="address" name="address" placeholder="주소" autocomplete="off"><br></li>
+                                    <li>
+                                        <input type="text" id="detailAddress" name="detailAddress" placeholder="상세주소" autocomplete="off">
+                                        <input type="text" id="extraAddress" name="extraAddress" placeholder="참고항목" autocomplete="off">
+                                    </li>
+                                    <li>
+                                        <div>연락처 <input type="text" pattern="[0-9]{11,11}$" name="phone" id="phoneNo" placeholder="전화번호" onfocus="this.placeholder=''" onblur="this.placeholder='전화번호'" title="-없이 숫자 11자리를 입력하세요."></div>
+                                    </li>
+                                </ul>
+                                @else
+                                @if(Auth::user()->id < 3)
+                                <ul class="@if($addresses->count() == 0) active @endif test" id="newinfo">
+
+                                    <li id="desli">배송지<input type="text" id="destination" name="destination" autocomplete="off"></li>
+                                    <li>
+                                        <input type="text" id="postcode" name="postcode" placeholder="우편번호" autocomplete="off">
+
+                                    <button class="address_button" type="button" onclick="execDaumPostcode()">주소 찾기</button>
+                                    </li>
+                                    <li><input type="text" id="address" name="address" placeholder="주소" autocomplete="off"><br></li>
+                                    <li>
+                                        <input type="text" id="detailAddress" name="detailAddress" placeholder="상세주소" autocomplete="off">
+                                        <input type="text" id="extraAddress" name="extraAddress" placeholder="참고항목" autocomplete="off">
+                                    </li>
+                                    <li>
+                                        <div>연락처 <input type="text" pattern="[0-9]{11,11}$" name="phone" id="phoneNo" placeholder="전화번호" onfocus="this.placeholder=''" onblur="this.placeholder='전화번호'" title="-없이 숫자 11자리를 입력하세요."></div>
+                                    </li>
+                                </ul>
+                                @else
+                                <ul class="@if($addresses->count() == 0) active @endif test" id="newinfo">
+
                                     <li id="desli">배송지<input type="text" id="destination" name="destination" value={{ $default->destination }} autocomplete="off"></li>
                                     <li>
                                         <input type="text" id="postcode" name="postcode" placeholder="우편번호" value={{ $default->postcode }} autocomplete="off">
@@ -111,6 +149,9 @@
                                         <div>연락처 <input type="text" pattern="[0-9]{11,11}$" name="phone" id="phoneNo" placeholder="전화번호" value={{ $default->phone }} onfocus="this.placeholder=''" onblur="this.placeholder='전화번호'" title="-없이 숫자 11자리를 입력하세요."></div>
                                     </li>
                                 </ul>
+                                @endif
+                                @endguest
+
 
                             </div>
                             <button type="button" onclick="showPopup()" @auth @if(Auth::user()->id < 3) disabled @endif @endauth>배송지 선택/관리</button>
